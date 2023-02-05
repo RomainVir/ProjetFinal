@@ -9,7 +9,6 @@ export default function Layout() {
     <>
       <Header />
       <NavBar menuItems={HomeMenu} />
- 
       <Outlet />
     </>
   );

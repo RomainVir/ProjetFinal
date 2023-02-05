@@ -1,0 +1,81 @@
+
+input 
+{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+    .containerconnexion
+    {
+     
+        max-width: 100%;
+        margin: 0;
+        padding-top: 68px;
+    } 
+
+    .container2 
+    {
+        display: flex;
+        justify-content: center;
+    }
+  
+    .adminform
+    {
+        
+        border-radius: 2px;
+        box-shadow: 0 8px 16px -12px;
+        background-color: #0032A1;
+        padding: 84px;
+        color: rgb(255, 255, 255);
+        margin-bottom: 64px;
+    }
+
+  
+.admin h1 {
+    margin-bottom: 48px 
+}
+
+
+    .admin input
+    {
+    width: 90%;
+    margin-bottom: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 16px;
+    
+   }
+
+
+  button.enter {
+
+    width: 110%;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 8px;
+    margin-top: 88px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: larger;
+    transition: all 0.5s;
+}
+
+   .enter button {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 6px;
+    margin-top: 48px;
+    cursor: pointer;
+    font-family: 'Manrope', sans-serif;
+    font-size: larger;
+    transition: all 0.5s;
+    padding: 17px;
+}
+   .enter button:hover {
+    background-color: rgb(40, 24, 164);
+color: white;
+border: solid 3px white;
+   }
+  

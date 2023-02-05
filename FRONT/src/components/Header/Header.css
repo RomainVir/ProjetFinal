@@ -1,7 +1,7 @@
 /*header */
 header {
     background-color: white;
-    height: 240px;
+    height: 110px;
     display: flex;
     flex-direction: row;
     justify-content: center;

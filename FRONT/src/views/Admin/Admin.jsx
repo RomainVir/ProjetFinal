@@ -1,8 +1,9 @@
-import "../Login/Login.css";
+import "../Admin/Admin.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function LogIn() {
+export default function Admin() {
+ 
   //LOGIN ************
   const [User, setUser] = useState({
     email: "",
@@ -30,11 +31,9 @@ export default function LogIn() {
       if (response.status === 401) {
         throw "Not authorized";
       } else if (response.status == 200) {
-        navigate("/donations");
+        navigate("/");
       } else {
-        alert(
-          "Identifiants de connexion erronés, veuillez réessayer s´il vous plaìt"
-        );
+        alert("Wrong credentials, try again");
       }
     });
   }
@@ -42,9 +41,9 @@ export default function LogIn() {
   return (
     <div className="containerconnexion">
       <div className="container2">
-        <div class="login">
-          <form onSubmit={loginUser}>
-            <h1>Connexion Partenaire</h1>
+        <div class="admin">
+          <form className="adminform" onSubmit={loginUser}>
+            <h1>Connexion Admin</h1>
 
             <div class="input-grp">
               <label for="Email"></label>
@@ -74,10 +73,7 @@ export default function LogIn() {
               <button className="enter" type="submit">
                 Entrer
               </button>
-              <h4>
-                Première connexion? Cliquez <a href="/about">ici</a> pour créer
-                votre compte
-              </h4>
+              
             </div>
           </form>
         </div>

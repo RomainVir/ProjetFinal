@@ -1,8 +1,9 @@
 export const HomeMenu = [
   {
-    label: "Login",
-    path: "/",
+    label: "Admin",
+    path: "/admin",
   },
+
   {
     label: "Donations",
     path: "/donations",
@@ -18,5 +19,9 @@ export const HomeMenu = [
   {
     label: "Mon compte",
     path: "/moncompte",
+  },
+  {
+    label: "Register",
+    path: "/register",
   },
 ];
