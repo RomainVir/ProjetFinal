@@ -15,4 +15,8 @@ export const HomeMenu = [
     label: "Contact",
     path: "/contact",
   },
+  {
+    label: "Mon compte",
+    path: "/moncompte",
+  },
 ];
