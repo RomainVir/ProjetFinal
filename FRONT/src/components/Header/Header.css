@@ -1,0 +1,119 @@
+/*header */
+header {
+    background-color: white;
+    height: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  input.search {
+    width: 400px;
+    font-family: 'Manrope', sans-serif;
+    height: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px black;
+    margin-top: 45px;
+  }
+  
+  button {
+    height: 30px;
+    cursor: pointer;
+  }
+  
+  .navbar-nav a { 
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    padding: 16px;
+    transition: all 0.5s;
+  }
+  .menu ul li  {
+    display:inline-block;  
+    justify-content: right;
+    cursor: pointer;
+    margin: 10px;
+    }
+
+.panier{
+
+  margin-right: 24px;
+
+}
+.contador {
+  position: absolute;
+  top: -26px;
+  right: 20px;
+  color: #632A1F;
+  font-weight: bold;
+  font-size: large;
+}
+/* photo accueil */
+    .accueil {
+      background-image: url(../src/assets/canyontop.jpeg);
+      height: 540px;
+      background-size: cover;
+      background-position: center center;
+      margin: 0;   
+  }
+
+    ul {
+        margin: 0px;
+    }
+
+    .container-menus {
+        background-color: white;
+        border-top: solid 1px black;
+    }
+    .container-menus nav ul li a {
+        display: block;
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        font-family: 'Manrope', sans-serif;
+        padding: 16px;
+        transition: all 0.5s;
+      
+    }
+    .menu ul li a:focus, .menu ul li a:hover {
+        
+        text-decoration : none;
+        padding-bottom: 2px;
+   
+            border-bottom : 2px solid #468b71e2
+        
+    }
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+  
+    }
+
+    .discover {
+      background-color: #c08a38ab;
+      border-radius: 25px;
+      border: none;
+      outline: 0;
+      margin-left: 24px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      align-items: center;
+      margin-left: 10px;
+      transition: all 0.5s;
+      cursor: pointer;
+  }
+.discover:hover 
+{
+  background-color: rgba(255, 77, 0, 0.591);
+  
+}
+
+h1 {
+  color: white;
+  font-size: 60px;
+  margin-left: 10px;
+
+}

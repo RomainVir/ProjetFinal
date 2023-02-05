@@ -1,6 +1,6 @@
 export const HomeMenu = [
   {
-    label: "Accueil",
+    label: "Login",
     path: "/",
   },
   {
