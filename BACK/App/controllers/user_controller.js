@@ -15,7 +15,7 @@ controller.addUser = async (req, res) => {
     email,
     password,
     phone,
-    adress,
+    address,
     postalCode,
     town,
   } = req.body;
@@ -28,7 +28,7 @@ controller.addUser = async (req, res) => {
     !email ||
     !password ||
     !phone ||
-    !adress ||
+    !address ||
     !postalCode ||
     !town
   )

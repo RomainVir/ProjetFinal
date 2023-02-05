@@ -27,30 +27,51 @@ export default function Register() {
   return (
     <>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="company">Company</label>
+        <label htmlFor="company">Entreprise</label>
         <input
-          value={values.company}
+          value={values.companyName}
           onChange={handleChange}
           onBlur={handleBlur}
           id="company"
-          name="company"
+          name="companyName"
           placeholder="Entrez le nom de votre entreprise"
-          className={errors.company && touched.company ? "input-error" : ""}
+          className={
+            errors.companyName && touched.companyName ? "input-error" : ""
+          }
         />
-        {errors.company && touched.company && (
-          <p className="error">{errors.company}</p>
+        {errors.companyName && touched.companyName && (
+          <p className="error">{errors.companyName}</p>
         )}
-        <label htmlFor="boss">Name</label>
+        <label htmlFor="boss">Nom</label>
         <input
           id="boss"
-          name="name"
+          name="contactSurname"
           placeholder="Entrez votre nom"
-          value={values.name}
+          value={values.contactSurname}
           onChange={handleChange}
           onBlur={handleBlur}
-          className={errors.name && touched.name ? "input-error" : ""}
+          className={
+            errors.contactSurname && touched.contactSurname ? "input-error" : ""
+          }
         />
-        {errors.name && touched.name && <p className="error">{errors.name}</p>}
+        {errors.contactSurname && touched.contactSurname && (
+          <p className="error">{errors.contactSurname}</p>
+        )}
+        <label htmlFor="boss">Prénom</label>
+        <input
+          id="boss"
+          name="contactName"
+          placeholder="Entrez votre prénom"
+          value={values.contactName}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={
+            errors.contactName && touched.contactName ? "input-error" : ""
+          }
+        />
+        {errors.contactName && touched.contactName && (
+          <p className="error">{errors.contactName}</p>
+        )}
         <label htmlFor="email">Email</label>
         <input
           id="email"
@@ -64,7 +85,60 @@ export default function Register() {
         {errors.email && touched.email && (
           <p className="error">{errors.email}</p>
         )}
+        <label htmlFor="phone">Téléphone</label>
+        <input
+          id="phone"
+          name="phone"
+          placeholder="Entrez votre numéro de téléphone"
+          value={values.phone}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.phone && touched.phone ? "input-error" : ""}
+        />
+        {errors.phone && touched.phone && (
+          <p className="error">{errors.phone}</p>
+        )}
 
+        <label htmlFor="address">Adresse</label>
+        <input
+          id="address"
+          name="address"
+          placeholder="Entrez votre adresse"
+          value={values.address}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.address && touched.address ? "input-error" : ""}
+        />
+        {errors.address && touched.address && (
+          <p className="error">{errors.address}</p>
+        )}
+
+        <label htmlFor="postalCode">Code postal</label>
+        <input
+          id="postalCode"
+          name="postalCode"
+          placeholder="Entrez votre code postal"
+          value={values.postalCode}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={
+            errors.postalCode && touched.postalCode ? "input-error" : ""
+          }
+        />
+        {errors.postalCode && touched.postalCode && (
+          <p className="error">{errors.postalCode}</p>
+        )}
+        <label htmlFor="town">Ville</label>
+        <input
+          id="town"
+          name="town"
+          placeholder="Entrez votre ville"
+          value={values.town}
+          onChange={handleChange}
+          onBlur={handleBlur}
+          className={errors.town && touched.town ? "input-error" : ""}
+        />
+        {errors.town && touched.town && <p className="error">{errors.town}</p>}
         <label htmlFor="password">Password</label>
         <input
           id="password"

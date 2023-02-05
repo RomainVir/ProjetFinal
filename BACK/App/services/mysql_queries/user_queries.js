@@ -39,7 +39,7 @@ userQueries.addUser = async (userData) => {
       email: userData.email,
       password: md5(userData.password),
       phone: userData.phone,
-      adress: userData.adress,
+      address: userData.address,
       postalCode: userData.postalCode,
       town: userData.town,
     };
@@ -105,7 +105,7 @@ userQueries.updateUser = async (id, userData) => {
       email: userData.email,
       password: userData.password ? md5(userData.Password) : undefined,
       phone: userData.phone,
-      adress: userData.adress,
+      address: userData.address,
       postalCode: userData.postalCode,
       town: userData.town,
     };

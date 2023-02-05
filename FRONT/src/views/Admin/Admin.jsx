@@ -53,6 +53,7 @@ export default function Admin() {
                 required
                 value={User.email}
                 onChange={handleLogin}
+                placeholder="Email"
               />
 
               <div class="input-grp">
@@ -64,6 +65,7 @@ export default function Admin() {
                     required
                     value={User.password}
                     onChange={handleLogin}
+                    placeholder="Mot de passe"
                   />
                 </div>
               </div>
