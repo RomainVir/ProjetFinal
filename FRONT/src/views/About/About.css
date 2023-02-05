@@ -1,0 +1,7 @@
+.cover {
+background-image: url("../../assets/gigaCover.png");
+height: 540px;
+background-size: cover;
+background-position: center center;
+margin: 0; 
+}
