@@ -1,35 +1,35 @@
+import dao from "../Services/dao.js";
 import { currentDir } from "../index.js";
-import dao from "../services/dao.js";
+
+const __dirname = currentDir().__dirname;
 
 const controller = {};
 
-// Definimos la constante __dirname donde obtendremos la ruta absoluta
-const __dirname = currentDir().__dirname;
-
-// controlador para subir una imagen a nuestro servidor y guardar el path en la base de datos.
 controller.uploadImage = async (req, res) => {
   try {
-    // Controlamos cuando el objeto files sea null
     if (req.files === null) return;
-    // Controlamos si nos viene algún tipo de archivo en el objeto files
     if (!req.files || Object.keys(req.files).length === 0) {
       return res.status(400).send("No se ha cargado ningún archivo");
     }
-    // 1 archivo [{}] , >1 archivo [[{},{},...]]
-    // Obtenemos un array de objetos con todas las imagenes
+
+    if (!req.query) {
+      return res.status(400).send("No hay id de producto");
+    }
+
     const images = !req.files.imagen.length
       ? [req.files.imagen]
       : req.files.imagen;
-    // Recorremos el array para procesar cada imagen
     images.forEach(async (image) => {
-      // Ya podemos acceder a las propiedades del objeto image.
-      // Obtenemos la ruta de la imagen.
-      let uploadPath = "/public/images/products/" + image.name;
-      // Usamos el método mv() para ubicar el archivo en nuestro servidor
+      let uploadPath = __dirname + "/public/images/" + image.name;
+      let BBDDPath = "images/" + image.name;
       image.mv(uploadPath, (err) => {
         if (err) return res.status(500).send(err);
       });
-      await dao.addImage({ path: uploadPath });
+      await dao.addImage({
+        name: image.name,
+        path: BBDDPath,
+        idproducto: req.query.idproducto,
+      });
     });
     return res.send("Imagen subida!");
   } catch (e) {
@@ -38,8 +38,6 @@ controller.uploadImage = async (req, res) => {
   }
 };
 
-// Controlador para obtener una imagen por su id
-
 controller.getImage = async (req, res) => {
   try {
     // Buscamos si el id de la imagen existe en la base de datos
@@ -47,7 +45,8 @@ controller.getImage = async (req, res) => {
     // Si no existe devolvemos un 404 (not found)
     if (image.length <= 0) return res.status(404).send("La imagen no existe");
     // Devolvemos la ruta donde se encuentra la imagen
-    return res.send({ path: image[0].path });
+    return res.sendFile(image[0].path, { root: __dirname });
+    //return res.send({ path: image[0].path });
   } catch (e) {
     console.log(e.message);
     return res.status(400).send(e.message);
@@ -56,24 +55,50 @@ controller.getImage = async (req, res) => {
 
 controller.addProduct = async (req, res) => {
   // controlar que viene el body
-  if (!req.body) return res.status(400).send("Error al recibir el body");
-  // buscamos si existe el producto por referencia
-  const product = await dao.getProductByRef(req.body.reference);
-  //si existe devolvemos 409
-  if (product.length > 1) return res.status(409).send("Product already exists");
-  // añadir producto => creamos query para añadir producto (insert), creamos el dao
-  const productData = {
-    precio: req.body.precio,
-    nombre: req.body.nombre,
-    description: req.body.description,
-  };
-
-  const addProduct = await dao.addProduct(productData);
-  if (addProduct) res.send(("id_product", addProduct));
-  // nos devuelve el id del produco
-  // utilizamos la libreria express-upload para subir imagen
-  //añadimos el path a la tabla imagen y el id obtenido del producto
-  //devolvemos la respuesta OK
+  const { reference, description, quantity, photo } = req.body;
+  if (!reference || !description || !quantity || !photo) {
+    res.status(400).send("Error al recibir el body");
+  }
+  try {
+    const product = await dao.getProductByRef(reference);
+    // Si existe el producto, devolvemos 409 (conflict)
+    if (product.length > 0) return res.status(409).send("Producto ya existe");
+    // Si no existe, lo añadimos
+    const insertProduct = await dao.insertProduct(req.body);
+    if (insertProduct)
+      return res.send(`Producto ${reference} con id${insertProduct} añadido`);
+  } catch (e) {
+    console.log(e.message);
+  }
+  // Buscamos si existe producto por la referencia
+  // añadimos producto producto detalle  -> creamos query para añadir producto (insert), creamos el dao
+  // nos devuelve el id del producto
+  // utilizamos la libreria express-upload para subir la imagen
+  // Añadimos el path a la tabla imagen y el id que hemos obtenido del producto
+  // devolvemos respuesta al cliente con el id del producto creado ok
 };
 
+controller.getProduct = async (req, res) => {
+  try {
+    const product = await dao.getProduct();
+    // Si no existe devolvemos un 404 (not found)
+    // Devolvemos la ruta donde se encuentra la imagen
+    return res.send(product);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
+
+controller.getProductById = async (req, res) => {
+  try {
+    const product = await dao.getProductById(req.params.id);
+    // Si no existe devolvemos un 404 (not found)
+    // Devolvemos la ruta donde se encuentra la imagen
+    return res.send(product[0]);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
 export default controller;

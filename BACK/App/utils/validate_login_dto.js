@@ -13,7 +13,7 @@ const LoginDTOSchema = Type.Object(
       format: "email",
       errorMessage: {
         type: "Type of email has to be a string",
-        format: "Please ener a correct email",
+        format: "Please enter a correct email",
       },
     }),
     password: Type.String({

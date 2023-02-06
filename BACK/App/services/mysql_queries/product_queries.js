@@ -8,11 +8,13 @@ productQueries.addImage = async (imageData) => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    // Creamos un objeto con los datos de la imagen a guardar en la base de datos.
+    // Creamos un objeto con los dats de la imagen a guardar en la base de datos.
     // Usamos la libreria momentjs para registrar la fecha actual
     let imageObj = {
+      nombreimg: imageData.name,
       path: imageData.path,
-      reg_date: moment().format("YYYY-MM-DD HH:mm:ss"),
+      fechaAlta: moment().format("YYYY-MM-DD HH:mm:ss"),
+      idproducto: imageData.idproducto,
     };
     return await db.query(
       "INSERT INTO imagenes SET ?",
@@ -28,7 +30,7 @@ productQueries.addImage = async (imageData) => {
 };
 
 productQueries.getImageById = async (id) => {
-  // Conectamos con la base de datos y buscamos si existe la imagen por el id.
+  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
@@ -45,8 +47,102 @@ productQueries.getImageById = async (id) => {
   }
 };
 
+productQueries.getProductById = async (id) => {
+  // Conectamos con la base de datos y buscamos si existe el producto por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "SELECT * FROM products JOIN imagenes on products.id = imagenes.idproducto WHERE products.id = ?",
+      id,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 
-productQueries.insertProduct = async (productData) =>{}
+productQueries.deleteImage = async (id) => {
+  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "DELETE * FROM imagenes WHERE id = ?",
+      id,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 
+productQueries.insertProduct = async (productData) => {};
+
+productQueries.getProductByRef = async (reference) => {
+  // Conectamos con la base de datos y buscamos si existe el usuario por el email.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "SELECT * FROM products WHERE reference = ?",
+      reference,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+productQueries.addProduct = async (productData) => {
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    console.log(productData);
+    let productObj = {
+      reference: productData.reference,
+      description: productData.description,
+      quantity: productData.quantity,
+      photo: productData.photo,
+    };
+    return await db.query(
+      "INSERT INTO products SET ?",
+      productObj,
+      "insert",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+productQueries.getProduct = async () => {
+  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "SELECT * FROM products JOIN imagenes on products.id = imagenes.idproducto",
+      [],
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 
 export default productQueries;

@@ -43,6 +43,10 @@ export default function LogIn() {
     <div className="containerconnexion">
       <div className="container2">
         <div class="login">
+          <h1>
+            Bienvenue! Veuillez vous connecter pour accéder aux donations en
+            cours
+          </h1>
           <form onSubmit={loginUser}>
             <h1>Connexion Partenaire</h1>
 
@@ -54,12 +58,14 @@ export default function LogIn() {
                 required
                 value={User.email}
                 onChange={handleLogin}
+                placeholder="Entrez votre adresse email"
               />
 
               <div class="input-grp">
                 <label for="Password"></label>
                 <div class="input-grp">
                   <input
+                    placeholder="Entrez votre mot de passe"
                     type="password"
                     name="password"
                     required

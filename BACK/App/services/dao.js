@@ -26,6 +26,17 @@ dao.addImage = async (imageData) => await productQueries.addImage(imageData);
 // Obtener una imagen por su id
 dao.getImageById = async (id) => await productQueries.getImageById(id);
 
+// Obtener producto por su referencia
+dao.getProductByRef = async (reference) =>
+  await productQueries.getProductByRef(reference);
+
+// Añadir producto
+dao.insertProduct = async (productData) =>
+  await productQueries.addProduct(productData);
+
+dao.getProduct = async () => await productQueries.getProduct();
+
+dao.getProductById = async (id) => await productQueries.getProductById(id);
 export default dao;
 
 //En este archivo iremos definiendo todas las funciones que nos servirán de enlace entre el controlador y la base de datos.
