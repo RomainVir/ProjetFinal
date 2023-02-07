@@ -31,6 +31,7 @@ export default function LogIn() {
         throw "Not authorized";
       } else if (response.status == 200) {
         navigate("/donations");
+        alert(`Utilisateur ${User.email} connecté`);
       } else {
         alert(
           "Identifiants de connexion erronés, veuillez réessayer s´il vous plaìt"

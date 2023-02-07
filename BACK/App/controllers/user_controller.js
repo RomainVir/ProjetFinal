@@ -13,11 +13,11 @@ controller.addUser = async (req, res) => {
     contactName,
     contactSurname,
     email,
-    password,
     phone,
     address,
     postalCode,
     town,
+    password,
   } = req.body;
 
   // Si no alguno de estos campos recibidos por el body devolvemos un 400 (bad request)
@@ -26,11 +26,11 @@ controller.addUser = async (req, res) => {
     !contactName ||
     !contactSurname ||
     !email ||
-    !password ||
     !phone ||
     !address ||
     !postalCode ||
-    !town
+    !town ||
+    !password
   )
     return res.status(400).send("Error receiving body - usercontroller");
   // Buscamos el usuario en la base de datos

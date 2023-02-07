@@ -1,7 +1,6 @@
 import { createContext, useState, useContext, useMemo } from "react";
 import jwtDecode from "jwt-decode";
 
-
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsImVtYWlsIjoiYWxleGRlbHRhY29AZ21haWwuY29tIiwicm9sZSI6MSwiaWF0IjoxNjc0NDg5NTM4LCJleHAiOjE2NzQ0OTMxMzh9.Lk-dZkW3GA-0zCIsf7qfd0fnjrYOwfFQvZPYTrQ0IoM";
 
@@ -34,28 +33,6 @@ export default function AuthContexProvider({ children }) {
 
   ///// LOGIN ++++++++++++++++++++++++++++
 
-  async function login(e, user) {
-    e.preventDefault();
-    const response = await fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
-
-    if (response.status === 200) {
-      const token = await response.json();
-      console.log(token);
-      setAuthorization(jwtDecode(token.jwt));
-      window.localStorage.setItem(
-        MY_AUTH_APP,
-        JSON.stringify(jwtDecode(token.jwt))
-      );
-    } else {
-      setErrorMessage("Email o password incorrectos");
-    }
-  }
   /*sin el fetch:
     if (user.email === "alexdeltaco@gmail.com" && user.password === "12345") {
       setAuht(jwtDecode(token2));

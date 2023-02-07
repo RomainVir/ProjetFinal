@@ -23,24 +23,9 @@ export default function Donations() {
             <td>Table cell</td>
             <td>Table cell</td>
             <td>Table cell</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
-            <td>Table cell</td>
+            <button className="btn btn-secondary btn-sm text-warning">
+              quantity
+            </button>
           </tr>
         </tbody>
       </Table>

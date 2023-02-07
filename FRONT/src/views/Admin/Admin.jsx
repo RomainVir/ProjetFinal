@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Admin() {
- 
   //LOGIN ************
   const [User, setUser] = useState({
     email: "",
@@ -31,7 +30,8 @@ export default function Admin() {
       if (response.status === 401) {
         throw "Not authorized";
       } else if (response.status == 200) {
-        navigate("/");
+        navigate("/donations");
+        alert("Admin connecté");
       } else {
         alert("Wrong credentials, try again");
       }
@@ -75,7 +75,6 @@ export default function Admin() {
               <button className="enter" type="submit">
                 Entrer
               </button>
-              
             </div>
           </form>
         </div>

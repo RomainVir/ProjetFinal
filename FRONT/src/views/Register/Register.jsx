@@ -27,12 +27,12 @@ export default function Register() {
   return (
     <>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="company">Entreprise</label>
+        <label htmlFor="companyName">Entreprise</label>
         <input
           value={values.companyName}
           onChange={handleChange}
           onBlur={handleBlur}
-          id="company"
+          id="companyName"
           name="companyName"
           placeholder="Entrez le nom de votre entreprise"
           className={
@@ -42,9 +42,9 @@ export default function Register() {
         {errors.companyName && touched.companyName && (
           <p className="error">{errors.companyName}</p>
         )}
-        <label htmlFor="boss">Nom</label>
+        <label htmlFor="contactSurname">Nom</label>
         <input
-          id="boss"
+          id="contactSurname"
           name="contactSurname"
           placeholder="Entrez votre nom"
           value={values.contactSurname}
@@ -57,9 +57,9 @@ export default function Register() {
         {errors.contactSurname && touched.contactSurname && (
           <p className="error">{errors.contactSurname}</p>
         )}
-        <label htmlFor="boss">Prénom</label>
+        <label htmlFor="contactName">Prénom</label>
         <input
-          id="boss"
+          id="contactName"
           name="contactName"
           placeholder="Entrez votre prénom"
           value={values.contactName}
@@ -76,6 +76,7 @@ export default function Register() {
         <input
           id="email"
           name="email"
+          type="email"
           placeholder="Entrez votre email"
           value={values.email}
           onChange={handleChange}
