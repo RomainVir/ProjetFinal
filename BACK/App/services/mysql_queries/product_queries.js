@@ -83,8 +83,6 @@ productQueries.deleteImage = async (id) => {
   }
 };
 
-productQueries.insertProduct = async (productData) => {};
-
 productQueries.getProductByRef = async (reference) => {
   // Conectamos con la base de datos y buscamos si existe el usuario por el email.
   let conn = null;
