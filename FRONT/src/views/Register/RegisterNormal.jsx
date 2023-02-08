@@ -38,13 +38,13 @@ export default function Normal() {
     }).then((response) => {
       console.log(response.status);
       if (response.status === 401) {
-        throw "No autorizado";
+        throw "Non autorisé";
       } else if (response.status === 200) {
         navigate("/");
-        alert(`User ${newUser.name} signed-in successfully`);
+        alert(`Utilisateur ${newUser.companyName} enregistré correctement`);
         setNewUser(initialUserState);
       } else if (response.status === 409) {
-        alert(`Usuario ya registrado`);
+        alert(`Utilisateur déjà enregistré`);
       }
     });
   }

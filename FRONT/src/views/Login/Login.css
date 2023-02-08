@@ -15,11 +15,6 @@ input
     {
         display: flex;
         justify-content: center;
-    }
-  
-    .login
-    {
-        
         border-radius: 2px;
         box-shadow: 0 8px 16px -12px;
         background-color: #c2b8b89a;
@@ -27,12 +22,10 @@ input
         color: rgb(0, 0, 0);
         margin-bottom: 64px;
     }
-.login h1 {
-    margin-bottom: 48px 
-}
 
 
-    .login input
+
+    .loginPartenaire input
     {
     width: 90%;
     margin-bottom: 40px;
@@ -71,13 +64,11 @@ input
     transition: all 0.5s;
     padding: 17px;
 }
-   .enter button:hover {
-    background-color: rgb(40, 24, 164);
-color: white;
+  
+form.partenaire {
+    background-color: rgb(45, 177, 187);
+}
 
-   }
-
-   .rotate-in-diag-2 button {
-	-webkit-animation: rotate-in-diag-2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: rotate-in-diag-2 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+form.admin{
+    background-color: rgb(123, 45, 187);
 }

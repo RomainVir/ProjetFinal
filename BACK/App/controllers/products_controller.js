@@ -101,4 +101,23 @@ controller.getProductById = async (req, res) => {
     return res.status(400).send(e.message);
   }
 };
+
+// Controlador para modificar un usuario por su id
+controller.updateProduct = async (req, res) => {
+  const { authorization } = req.headers;
+  // Si no existe el token enviamos un 401 (unauthorized)
+  if (!authorization) return res.sendStatus(401);
+
+  try {
+    // Si no nos llega ningún campo por el body devolvemos un 400 (bad request)
+    if (Object.entries(req.body).length === 0)
+      return res.status(400).send("Error al recibir el body");
+    // Actualizamos el usuario
+    await dao.updateProduct(req.params.id, req.body);
+    // Devolvemos la respuesta
+    return res.send(`Producto con id ${req.params.id} modificado`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 export default controller;

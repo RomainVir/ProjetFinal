@@ -1,6 +1,8 @@
 import db from "../mysql.js";
 import moment from "moment/moment.js";
 
+import utils from "../../utils/utils.js";
+
 const productQueries = {};
 
 productQueries.addImage = async (imageData) => {
@@ -134,6 +136,37 @@ productQueries.getProduct = async () => {
       "SELECT * FROM products JOIN imagenes on products.id = imagenes.idproducto",
       [],
       "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+// Modificar un usuario por su id
+productQueries.updateProduct = async (id, productData) => {
+  // Conectamos con la base de datos y añadimos el usuario.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    // Creamos un objeto con los datos que nos puede llegar del usuario a modificar en la base de datos.
+    // Encriptamos la password con md5 si nos llega por el body, sino la declaramos como undefined
+    // y usamos la libreria momentjs para actualizar la fecha.
+    let productObj = {
+      reference: productData.reference,
+      description: productData.description,
+      quantity: productData.quantity,
+      photo: productData.photo,
+    };
+    // Eliminamos los campos que no se van a modificar (no llegan por el body)
+    productObj = await utils.removeUndefinedKeys(productObj);
+
+    return await db.query(
+      "UPDATE products SET ? WHERE id = ?",
+      [productObj, id],
+      "insert",
       conn
     );
   } catch (e) {

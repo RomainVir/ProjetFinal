@@ -31,43 +31,6 @@ export default function AuthContexProvider({ children }) {
   );
   const [errorMessage, setErrorMessage] = useState(null);
 
-  ///// LOGIN ++++++++++++++++++++++++++++
-
-  /*sin el fetch:
-    if (user.email === "alexdeltaco@gmail.com" && user.password === "12345") {
-      setAuht(jwtDecode(token2));
-      window.localStorage.setItem(
-        MY_AUTH_APP,
-        JSON.stringify(jwtDecode(token2))
-      );
-      setErrorMessage(null);
-    } else {
-      // La respuesta de la API cuando falle el login
-      setErrorMessage("Error al introducir el email o el password");
-    }
-  }
-*/
-
-  ///// REGISTER ++++++++++++++++++++++++++++
-
-  async function register(newUser) {
-    await fetch("http://localhost:3000/user/register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newUser),
-    }).then((response) => {
-      console.log(response.status);
-      if (response.status === 401) {
-        throw "Non autorisé";
-      } else if (response.status === 200) {
-        alert(`Utilisateur ${newUser.name} enregistré correctement`);
-      } else if (response.status === 409) {
-        alert(`Utilisateur déjà enregistré`);
-      }
-    });
-  }
-
-  //+*********************
 
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);

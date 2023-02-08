@@ -30,7 +30,7 @@ export default function Admin() {
       if (response.status === 401) {
         throw "Not authorized";
       } else if (response.status == 200) {
-        navigate("/donations");
+        navigate("/modifier");
         alert("Admin connecté");
       } else {
         alert("Wrong credentials, try again");

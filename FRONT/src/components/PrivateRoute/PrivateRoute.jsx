@@ -1,5 +1,5 @@
 import { Outlet, Navigate, useLocation } from "react-router-dom";
-import { useAuthContext } from "../../context/AuthContext/AuthContext";
+import { useAuthContext } from "../../context/AuthContext/";
 
 export default function PrivateRoute({ allowedRoles }) {
   const { auth } = useAuthContext();
@@ -10,6 +10,6 @@ export default function PrivateRoute({ allowedRoles }) {
   ) : auth?.email ? (
     <Navigate to="/unauthorized" state={{ from: location }} replace />
   ) : (
-    <Navigate to="/login" state={{ from: location }} replace />
+    <Navigate to="/modifier" state={{ from: location }} replace />
   );
 }

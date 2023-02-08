@@ -10,7 +10,8 @@ productRouter.post("/upload", productController.uploadImage);
 // Obtener una imagen por su id
 productRouter.get("/image/:id", productController.getImage);
 
-
+//modify a product
+productRouter.patch("/:id", productController.updateProduct);
 //add a product
 productRouter.post("/add_product", productController.addProduct);
 

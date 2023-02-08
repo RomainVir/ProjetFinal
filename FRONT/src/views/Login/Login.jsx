@@ -43,12 +43,8 @@ export default function LogIn() {
   return (
     <div className="containerconnexion">
       <div className="container2">
-        <div class="login">
-          <h1>
-            Bienvenue! Veuillez vous connecter pour accéder aux donations en
-            cours
-          </h1>
-          <form onSubmit={loginUser}>
+        <div class="loginPartenaire">
+          <form className="admin" onSubmit={loginUser}>
             <h1>Connexion Partenaire</h1>
 
             <div class="input-grp">
@@ -82,8 +78,8 @@ export default function LogIn() {
                 Entrer
               </button>
               <h4>
-                Première connexion? Cliquez <a href="/about">ici</a> pour créer
-                votre compte
+                Première connexion? Cliquez <a href="/register">ici</a> pour
+                créer votre compte
               </h4>
             </div>
           </form>

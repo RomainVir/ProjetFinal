@@ -39,4 +39,7 @@ dao.getProduct = async () => await productQueries.getProduct();
 dao.getProductById = async (id) => await productQueries.getProductById(id);
 export default dao;
 
+// Modificar usuario por su id
+dao.updateProduct = async (id, productData) =>
+  await productQueries.updateProduct(id, productData);
 //En este archivo iremos definiendo todas las funciones que nos servirán de enlace entre el controlador y la base de datos.
