@@ -27,7 +27,6 @@ function AppRoutes() {
             <Route path={ADMIN} element={<Admin />} />
             <Route path={REGISTER} element={<Normal />} />
 
-
             <Route element={<PrivateRoute allowedRoles={[ROLES.Admin]} />}>
               <Route path={MODIFIERBDD} element={<ModifierBDD />} />
             </Route>

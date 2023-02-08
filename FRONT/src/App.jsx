@@ -21,11 +21,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<LogIn />}></Route>
-        </Route>
-
-        <Route path={ADMIN} element={<LayoutAdmin />}>
-          <Route index element={<Admin />} />
+          <Route index element={<LogIn />} />
+          <Route path={ADMIN} element={<Admin />} />
           <Route path={REGISTER} element={<Normal />} />
           <Route path={DONATIONS} element={<Donations />} />
           <Route path={MONCOMPTE} element={<MonCompte />} />
