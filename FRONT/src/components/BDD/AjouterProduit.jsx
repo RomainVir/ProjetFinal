@@ -6,7 +6,7 @@ const initialProductState = {
   quantity: "",
   photo: "",
 };
-export default function ModifierBDD() {
+export default function AjouterProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
 
   function handleInput(event) {

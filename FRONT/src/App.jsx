@@ -6,7 +6,6 @@ import Donations from "./views/Donations/Donations";
 import MonCompte from "./views/MonCompte/MonCompte";
 import Admin from "./views/Admin/Admin";
 import Normal from "./views/Register/RegisterNormal";
-import ModifierBDD from "./views/ModifierBDD/ModifierBDD";
 import {
   ADMIN,
   DONATIONS,
@@ -14,7 +13,7 @@ import {
   MONCOMPTE,
   REGISTER,
 } from "./const/routes";
-import LayoutAdmin from "./components/Layout/LayoutAdmin";
+import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 
 function App() {
   return (
@@ -26,7 +25,7 @@ function App() {
           <Route path={REGISTER} element={<Normal />} />
           <Route path={DONATIONS} element={<Donations />} />
           <Route path={MONCOMPTE} element={<MonCompte />} />
-          <Route path={MODIFIERBDD} element={<ModifierBDD />} />
+          <Route path={MODIFIERBDD} element={<AdminBDD />} />
         </Route>
       </Routes>
     </BrowserRouter>
