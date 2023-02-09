@@ -5,57 +5,15 @@ import utils from "../../utils/utils.js";
 
 const productQueries = {};
 
-productQueries.addImage = async (imageData) => {
-  // Conectamos con la base de datos y añadimos el usuario.
-  let conn = null;
-  try {
-    conn = await db.createConnection();
-    // Creamos un objeto con los dats de la imagen a guardar en la base de datos.
-    // Usamos la libreria momentjs para registrar la fecha actual
-    let imageObj = {
-      nombreimg: imageData.name,
-      path: imageData.path,
-      fechaAlta: moment().format("YYYY-MM-DD HH:mm:ss"),
-      idproducto: imageData.idproducto,
-    };
-    return await db.query(
-      "INSERT INTO imagenes SET ?",
-      imageObj,
-      "insert",
-      conn
-    );
-  } catch (e) {
-    throw new Error(e);
-  } finally {
-    conn && (await conn.end());
-  }
-};
 
-productQueries.getImageById = async (id) => {
-  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
-  let conn = null;
-  try {
-    conn = await db.createConnection();
-    return await db.query(
-      "SELECT * FROM imagenes WHERE id = ?",
-      id,
-      "select",
-      conn
-    );
-  } catch (e) {
-    throw new Error(e);
-  } finally {
-    conn && (await conn.end());
-  }
-};
-
+//OBTENIR UN PRODUIT PAR SA REF
 productQueries.getProductById = async (id) => {
   // Conectamos con la base de datos y buscamos si existe el producto por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "SELECT * FROM products JOIN imagenes on products.id = imagenes.idproducto WHERE products.id = ?",
+      "SELECT * FROM products WHERE products.id = ?",
       id,
       "select",
       conn
@@ -67,24 +25,7 @@ productQueries.getProductById = async (id) => {
   }
 };
 
-productQueries.deleteImage = async (id) => {
-  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
-  let conn = null;
-  try {
-    conn = await db.createConnection();
-    return await db.query(
-      "DELETE * FROM imagenes WHERE id = ?",
-      id,
-      "select",
-      conn
-    );
-  } catch (e) {
-    throw new Error(e);
-  } finally {
-    conn && (await conn.end());
-  }
-};
-
+//OBTENIR UN PRODUIT PAR SON ID
 productQueries.getProductByRef = async (reference) => {
   // Conectamos con la base de datos y buscamos si existe el usuario por el email.
   let conn = null;
@@ -103,6 +44,7 @@ productQueries.getProductByRef = async (reference) => {
   }
 };
 
+//AJOUTER UN PRODUIT
 productQueries.addProduct = async (productData) => {
   let conn = null;
   try {
@@ -127,6 +69,7 @@ productQueries.addProduct = async (productData) => {
   }
 };
 
+//OBTENIR UN PRODUIT
 productQueries.getProduct = async () => {
   // Conectamos con la base de datos y buscamos si existe la imagen por su id.
   let conn = null;
@@ -145,7 +88,7 @@ productQueries.getProduct = async () => {
   }
 };
 
-// Modificar un usuario por su id
+// MODIFIER UN PRODUIT PAR SON ID 
 productQueries.updateProduct = async (id, productData) => {
   // Conectamos con la base de datos y añadimos el usuario.
   let conn = null;
@@ -167,6 +110,25 @@ productQueries.updateProduct = async (id, productData) => {
       "UPDATE products SET ? WHERE id = ?",
       [productObj, id],
       "insert",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+// SUPPRIMER UN PRODUIT PAR SON ID
+productQueries.deleteProduct = async (id) => {
+  // Conectamos con la base de datos y eliminamos el usuario por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "DELETE FROM products WHERE id = ?",
+      id,
+      "select",
       conn
     );
   } catch (e) {

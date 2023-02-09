@@ -7,6 +7,7 @@ import md5 from "md5";
 
 const controller = {};
 
+//AJOUTER  UN UTILISATEUR
 controller.addUser = async (req, res) => {
   const {
     companyName,
@@ -47,7 +48,7 @@ controller.addUser = async (req, res) => {
   }
 };
 
-// Controlador para el login de un usuario
+// LOGIN DE l'UTILISATEUR
 controller.loginUser = async (req, res) => {
   const { email, password } = req.body;
   // Si no alguno de estos campos recibidos por el body devolvemos un 400 (bad request)
@@ -93,7 +94,7 @@ controller.loginUser = async (req, res) => {
   }
 };
 
-// Controlador para eliminar un usuario por su id
+// ELIMINER UN UTILISATEUR VIA ID
 controller.deleteUser = async (req, res) => {
   // OBTENER CABECERA Y COMPROBAR SU AUTENTICIDAD Y CADUCIDAD
   const { authorization } = req.headers;
@@ -126,7 +127,7 @@ controller.deleteUser = async (req, res) => {
   }
 };
 
-// Controlador para modificar un usuario por su id
+// MODIFIER  UN UTILISATEUR VIA ID
 controller.updateUser = async (req, res) => {
   const { authorization } = req.headers;
   // Si no existe el token enviamos un 401 (unauthorized)

@@ -5,41 +5,44 @@ import userQueries from "./mysql_queries/user_queries.js";
 import productQueries from "./mysql_queries/product_queries.js";
 const dao = {};
 
-// Buscar un usuario por el email
-dao.getUserByEmail = async (email) => await userQueries.getUserByEmail(email);
-// Añadir un nuevo usuario
+// AJOUTER UN NOUVEL UTILISATEUR
 dao.addUser = async (userData) => await userQueries.addUser(userData);
 
-// Buscar un usuario por el id
+// CHERCHER UN UTILISATEUR PAR SON EMAIL
+dao.getUserByEmail = async (email) => await userQueries.getUserByEmail(email);
+
+// CHERCHER UN UTILISATEUR PAR SON ID
 dao.getUserById = async (id) => await userQueries.getUserById(id);
 
-// Eliminar un usuario
+// SUPPRIMER UN UTILISATEUR
 dao.deleteUser = async (id) => await userQueries.deleteUser(id);
 
-// Modificar usuario por su id
+// MODIFIER UN UTILISATEUR PAR SON EMAIL
 dao.updateUser = async (id, userData) =>
   await userQueries.updateUser(id, userData);
 
-// Añadir datos de la imagen subida al servidor
-dao.addImage = async (imageData) => await productQueries.addImage(imageData);
+//-------------
 
-// Obtener una imagen por su id
-dao.getImageById = async (id) => await productQueries.getImageById(id);
-
-// Obtener producto por su referencia
+// OBTENIR UN PRODUIT PAR SA REFERENCE
 dao.getProductByRef = async (reference) =>
   await productQueries.getProductByRef(reference);
 
-// Añadir producto
+// AJOUTER UN PRODUIT
 dao.insertProduct = async (productData) =>
   await productQueries.addProduct(productData);
 
+  // OBTENIR UN PRODUIT
 dao.getProduct = async () => await productQueries.getProduct();
 
+// OBTENIR UN PRODUIT PAR SON ID
 dao.getProductById = async (id) => await productQueries.getProductById(id);
 export default dao;
 
-// Modificar usuario por su id
+// SUPPRIMER UN PRODUIT
+dao.deleteProduct = async (id) => await productQueries.deleteProduct(id);
+
+
+// MODIFIER UN PRODUIT PAR SON ID
 dao.updateProduct = async (id, productData) =>
   await productQueries.updateProduct(id, productData);
 //En este archivo iremos definiendo todas las funciones que nos servirán de enlace entre el controlador y la base de datos.
