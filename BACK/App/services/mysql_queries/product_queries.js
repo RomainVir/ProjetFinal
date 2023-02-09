@@ -5,7 +5,6 @@ import utils from "../../utils/utils.js";
 
 const productQueries = {};
 
-
 //OBTENIR UN PRODUIT PAR SA REF
 productQueries.getProductById = async (id) => {
   // Conectamos con la base de datos y buscamos si existe el producto por su id.
@@ -75,12 +74,7 @@ productQueries.getProduct = async () => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    return await db.query(
-      "SELECT * FROM products JOIN imagenes on products.id = imagenes.idproducto",
-      [],
-      "select",
-      conn
-    );
+    return await db.query("SELECT * FROM products", [], "select", conn);
   } catch (e) {
     throw new Error(e);
   } finally {
@@ -88,7 +82,7 @@ productQueries.getProduct = async () => {
   }
 };
 
-// MODIFIER UN PRODUIT PAR SON ID 
+// MODIFIER UN PRODUIT PAR SON ID
 productQueries.updateProduct = async (id, productData) => {
   // Conectamos con la base de datos y añadimos el usuario.
   let conn = null;

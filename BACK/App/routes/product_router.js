@@ -15,4 +15,7 @@ productRouter.patch("/:id", productController.updateProduct);
 //add a product
 productRouter.post("/add_product", productController.addProduct);
 
+//obtener un product
+productRouter.get("/products", productController.getProduct);
+
 export default productRouter;

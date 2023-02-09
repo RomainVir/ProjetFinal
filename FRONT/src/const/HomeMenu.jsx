@@ -3,7 +3,7 @@ export const HomeMenu = [
     label: "Admin",
     path: "/admin",
   },*/
-  { label: "Modifier BDD", path: "modifier" },
+  { label: "Admin", path: "/admin" },
   {
     label: "Donations",
     path: "/donations",

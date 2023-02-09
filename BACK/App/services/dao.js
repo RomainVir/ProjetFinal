@@ -14,6 +14,9 @@ dao.getUserByEmail = async (email) => await userQueries.getUserByEmail(email);
 // CHERCHER UN UTILISATEUR PAR SON ID
 dao.getUserById = async (id) => await userQueries.getUserById(id);
 
+//obtenir les users
+dao.getUser = async ()  => await userQueries.getUser()
+
 // SUPPRIMER UN UTILISATEUR
 dao.deleteUser = async (id) => await userQueries.deleteUser(id);
 

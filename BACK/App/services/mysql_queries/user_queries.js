@@ -125,4 +125,17 @@ userQueries.updateUser = async (id, userData) => {
   }
 };
 
+//OBTENIR UN USER
+userQueries.getUser = async () => {
+  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query("SELECT * FROM company", [], "select", conn);
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
 export default userQueries;
