@@ -4,15 +4,8 @@ import Layout from "./components/Layout/Layout";
 import Donations from "./views/Donations/Donations";
 import MonCompte from "./views/MonCompte/MonCompte";
 import Normal from "./views/Register/RegisterNormal";
-import {
-  ADMIN,
-  DONATIONS,
-  
-  MONCOMPTE,
-  REGISTER,
-} from "./const/routes";
+import { ADMIN, DONATIONS, MONCOMPTE, REGISTER } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
-import LogInCompany from "./views/Login/LoginCompany";
 import LoginGlobal from "./views/Login/LoginGlobal";
 
 function App() {

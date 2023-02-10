@@ -1,59 +1,45 @@
-import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
-
-const columns = [
-  { field: "id", headerName: "ID", width: 70 },
-  {
-    field: "reference",
-    headerName: "Réference",
-    width: 130,
-    valueGetter: (params) => `${params.row.description || ""}`,
-  },
-  {
-    field: "description",
-    headerName: "Description",
-    width: 130,
-    valueGetter: (params) => `${params.row.description || ""}`,
-  },
-
-  {
-    field: "quantite",
-    headerName: "Quantité disponible",
-    type: "number",
-    width: 140,
-    sortable: true,
-    valueGetter: (params) => `${params.row.quantite || ""}`,
-  },
-  {
-    field: "quantitechoisie",
-    headerName: "Quantité choisie",
-    width: 160,
-  },
-];
-
-const rows = [
-  { id: 1, reference: "b", description: "ROMAIN", quantite: "45" },
-  { id: 2, reference: "Beurk", description: "Cersei", quantite: 42 },
-  { id: 3, reference: "Lannister", description: "Jaime", quantite: 45 },
-  { id: 4, reference: "Stark", description: "Arya", quantite: 16 },
-  { id: 5, reference: "Targaryen", description: "Daenerys", quantite: 45 },
-  { id: 6, reference: "Melisandre", description: "truc", quantite: 150 },
-  { id: 7, reference: "Clifford", description: "Ferrara", quantite: 44 },
-  { id: 8, reference: "Frances", description: "Rossini", quantite: 36 },
-  { id: 9, reference: "Roxie", description: "Harvey", quantite: 65 },
-];
-
-export default function DataTable() {
+export default function Donations() {
   return (
-    <div style={{ height: 900, width: "80%" }}>
-      <DataGrid
-        alignI
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
-        checkboxSelection
-      />
-    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Référence</th>
+          <th scope="col">Description</th>
+          <th scope="col">Quantité disponible</th>
+          <th scope="col">Quantité choisie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+          <td>
+            <input type="number" />
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+          <td>@mdo</td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
