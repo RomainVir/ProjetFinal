@@ -1,45 +1,36 @@
+import { useEffect, useState } from "react";
+
 export default function Donations() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(
+    function () {
+      async function fetchProducts() {
+        const response = await fetch("http://localhost:3000/product/products");
+        const data = await response.json();
+        setProducts(data);
+      }
+      fetchProducts();
+    },
+    [products]
+  );
+
   return (
-    <table class="table table-hover">
-      <thead>
+    <>
+      <table>
         <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Référence</th>
-          <th scope="col">Description</th>
-          <th scope="col">Quantité disponible</th>
-          <th scope="col">Quantité choisie</th>
+          <th>Réference</th>
+          <th>Description</th>
+          <th>Quantité</th>
         </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-          <td>
-            <input type="number" />
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-          <td>@mdo</td>
-        </tr>
-      </tbody>
-    </table>
+        {products.map((item) => (
+          <tr key={item}>
+            <td>{item.reference}</td>
+            <td>{item.description}</td>
+            <td>{item.quantity}</td>
+          </tr>
+        ))}
+      </table>
+    </>
   );
 }

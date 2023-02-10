@@ -17,17 +17,22 @@ export default function PublierListe() {
 
   return (
     <>
+      <h1>Publier une nouvelle offre</h1>
       <table>
         <tr>
           <th>Réference</th>
           <th>Description</th>
           <th>Quantité</th>
+          <th>Quantité choisie</th>
         </tr>
         {products.map((item) => (
           <tr key={item}>
             <td>{item.reference}</td>
             <td>{item.description}</td>
             <td>{item.quantity}</td>
+            <td>
+              <input type="number" />
+            </td>
           </tr>
         ))}
       </table>
