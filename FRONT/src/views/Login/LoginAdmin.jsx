@@ -29,7 +29,7 @@ export default function LoginAdmin() {
       if (response.status === 401) {
         throw "Not authorized";
       } else if (response.status == 200) {
-        navigate("/modifier");
+        navigate("/admin");
         alert("Admin connecté");
       } else {
         alert("Wrong credentials, try again");

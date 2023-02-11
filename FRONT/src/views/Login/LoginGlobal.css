@@ -1,7 +1,9 @@
-
 .loginglobal {
     display: flex;
+    justify-content: space-evenly;
 }
+
+
 input 
 {
     font-family: 'Manrope', sans-serif;
