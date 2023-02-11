@@ -41,7 +41,8 @@ export default function AjouterProduit() {
   }
   return (
     <div>
-      <form onSubmit={ProductPublished}>
+      <h1>Ajouter un nouveau produit dans la base de données:</h1>
+      <form className="formAjouter" onSubmit={ProductPublished}>
         <input
           type="text"
           name="reference"

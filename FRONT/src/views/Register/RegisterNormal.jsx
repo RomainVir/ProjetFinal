@@ -49,8 +49,8 @@ export default function Normal() {
     });
   }
   return (
-    <div>
-      <form onSubmit={signIn}>
+    <div className="register">
+      <form className="formRegister" onSubmit={signIn}>
         <input
           type="text"
           name="companyName"
@@ -108,6 +108,7 @@ export default function Normal() {
           value={newUser.town}
           onChange={handleInput}
         />
+        <br />
         <input
           type="password"
           placeholder="Mot de passe"

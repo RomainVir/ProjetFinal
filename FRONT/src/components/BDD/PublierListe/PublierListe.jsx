@@ -21,21 +21,24 @@ export default function Publier() {
 
   return (
     <>
-      <h1>Publier une nouvelle offre de dons:</h1>
-      <Search
-        onChange={(e) => setSearchVal(e.target.value)}
-        placeholder="Chercher un produit"
-        enterButton
-        style={{ position: "sticky", top: "0", left: "0" }}
-      />
-      <br /> <br />
-      <Table
-        rowKey="name"
-        dataSource={filteredData}
-        columns={userColumns}
-        loading={loading}
-        pagination={true}
-      />
+      <div className="publier">
+        <h1>Publier une nouvelle offre de dons:</h1>
+        <Search
+          onChange={(e) => setSearchVal(e.target.value)}
+          placeholder="Chercher un produit"
+          color="white"
+          enterButton
+          style={{ position: "sticky", top: "0", left: "0" }}
+        />
+        <br /> <br />
+        <Table
+          rowKey="name"
+          dataSource={filteredData}
+          columns={userColumns}
+          loading={loading}
+          pagination={true}
+        />
+      </div>
     </>
   );
 }

@@ -4,10 +4,7 @@
 }
 
 
-input 
-{
-    font-family: 'Manrope', sans-serif;
-}
+
     
     .loginPartenaire input
     {
@@ -30,7 +27,7 @@ input
     border-radius: 8px;
     margin-top: 88px;
     cursor: pointer;
-    font-family: 'Manrope', sans-serif;
+    
     font-size: larger;
     transition: all 0.5s;
 }
@@ -60,7 +57,7 @@ form.admin{
     border-radius: 8px;
     margin-top: 88px;
     cursor: pointer;
-    font-family: 'Manrope', sans-serif;
+  
     font-size: larger;
     transition: all 0.5s;
 }

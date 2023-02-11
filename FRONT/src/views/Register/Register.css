@@ -1,27 +1,31 @@
 
-form {
-    width: 95%;
-    max-width: 400px;
-    margin: 0 auto;
-    background-color:#0032A1;
+.formRegister {
+    width: 20%;
+    background-color:#2d15b8;
     padding: 64px;
     margin-top: 62px;
     color: white;
+    border-radius: 16px;
   }
-  
-  form label {
-    font-size: 1rem;
+
+  .formRegister input {
+    font-size: medium;
     font-weight: bold;
     display: block;
     text-align: left;
-    margin: 20px
+    margin: 4px;
+    padding: 16px
   }
   
+  .register {
+    display: flex;
+    justify-content: center;
+}
+
   input,
   select {
-    width: 90%;
-    margin-bottom: 16px;
-    background-color: white;
+    width: 86%;
+    background-color: rgb(255, 255, 255);
     border: none;
     border-radius: 2px;
     padding: 16px;
@@ -32,20 +36,20 @@ form {
     margin-bottom: 10px;
     background-color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 16px;
     margin-top: 48px;
     cursor: pointer;
-    font-family: 'Manrope', sans-serif;
+    
     font-size: larger;
     transition: all 0.5s;
     padding: 17px;
   }
 button:hover{
-  background-color: rgb(40, 24, 164);
+  background-color: rgb(96, 102, 106);
   color: white;
   
      }
-  
+  /*
   input.input-error,
   select.input-error {
     border-color: #fc8181;
@@ -57,7 +61,7 @@ button:hover{
   
 
 .error {
-    color: #fc8181;
+    color: #e93737;
     font-size: 0.75rem;
     text-align: left;
     margin-top: 0.25rem;

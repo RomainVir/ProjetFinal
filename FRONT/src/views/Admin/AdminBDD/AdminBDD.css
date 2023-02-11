@@ -3,3 +3,41 @@
         display: flex;
         justify-content: space-around;
 }
+
+.modifierBDD, .publier {
+    background-color: #1E9BD8;
+    padding: 24px;
+    border-radius: 16px;
+    margin: 16px;
+}
+
+.formAjouter {
+    width: 80%;
+    background-color:#0E4589;
+    padding: 64px;
+    margin-top: 62px;
+    color: white;
+    border-radius: 16px;
+  }
+
+  .formAjouter input {
+    font-size: medium;
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    margin: 4px;
+    padding: 16px
+  }
+
+
+  /*input tableau recherche*/
+  input.ant-input.css-dev-only-do-not-override-j0nf2s { 
+    background-color: white;
+    color: black;
+    border: solid 2px cornflowerblue;
+}
+
+/*bouton loupe */
+button.ant-btn.css-dev-only-do-not-override-j0nf2s.ant-btn-primary.ant-input-search-button {
+    background-color: #0E4589;
+}

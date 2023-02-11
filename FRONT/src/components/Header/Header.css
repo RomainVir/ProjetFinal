@@ -11,9 +11,9 @@ header {
     display: block;
     text-decoration: none;
     color: rgb(0, 0, 0);
-    font-family: sans-serif;
+    font-family: 'Poppins';
     padding: 18px;
-    transition: all 0.5s;
+    transition: all 0.3s;
   }
   .menu ul li  {
     display:inline-block;  
@@ -34,7 +34,7 @@ header {
         display: block;
         text-decoration: none;
         color: rgb(0, 0, 0);
-        font-family: 'Manrope', sans-serif;
+        
         padding: 16px;
         transition: all 0.5s;
       
@@ -44,7 +44,7 @@ header {
         text-decoration : none;
         padding-bottom: 2px;
    
-            border-bottom : 2px solid #0d1f7ae2
+            border-bottom : 2px solid #0E4589
         
     }
     .header-inner {
