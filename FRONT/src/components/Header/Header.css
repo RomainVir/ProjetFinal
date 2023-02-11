@@ -49,11 +49,17 @@ header {
     }
     .header-inner {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
+        background-image: url(../../assets/couverture.jpeg);
+        background-size: cover;
   
     }
-    .header-inner img {
+    .header-inner img  {
         height: 150px;
+        color: white;
+    }
+    .header-inner h1  {
+        color: white;
     }
 
     
