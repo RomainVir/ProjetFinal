@@ -3,6 +3,5 @@ const ADMIN = "admin";
 const DONATIONS = "donations";
 const MONCOMPTE = "moncompte";
 const REGISTER = "register";
-const TEST = "test";
 
-export { ADMIN, DONATIONS, MONCOMPTE, REGISTER, LOGINGLOBAL, TEST };
+export { ADMIN, DONATIONS, MONCOMPTE, REGISTER, LOGINGLOBAL };

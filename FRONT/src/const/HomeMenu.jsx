@@ -17,8 +17,4 @@ export const HomeMenu = [
     label: "Register",
     path: "/register",
   },
-  {
-    label: "TestTable",
-    path: "/test",
-  },
 ];

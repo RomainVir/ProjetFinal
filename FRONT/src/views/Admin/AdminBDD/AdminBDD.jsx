@@ -1,15 +1,15 @@
-import ModifierBDD from "../../../components/BDD/AjouterProduit";
-import PublierListe from "../../../components/BDD/PublierListe";
+import AjouterProduit from "../../../components/BDD/AjouterProduit/AjouterProduit";
+import Publier from "../../../components/BDD/PublierListe/PublierListe";
 import "./AdminBDD.css";
 export default function AdminBDD() {
   return (
     <>
       <div className="adminBDD">
-        <div className="modifierBDD">
-          <ModifierBDD />
-        </div>
         <div className="publierBDD">
-          <PublierListe />
+          <Publier />
+        </div>
+        <div className="modifierBDD">
+          <AjouterProduit />
         </div>
       </div>
     </>

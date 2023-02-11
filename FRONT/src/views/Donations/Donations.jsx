@@ -1,4 +1,7 @@
-import { useEffect, useState } from "react";
+/*
+
+
+FETCH TEST ALE DONATIONS TABLEAU SIMPLE import { useEffect, useState } from "react";
 
 export default function Donations() {
   const [products, setProducts] = useState([]);
@@ -34,3 +37,4 @@ export default function Donations() {
     </>
   );
 }
+*/
