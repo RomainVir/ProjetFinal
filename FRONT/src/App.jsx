@@ -4,9 +4,10 @@ import Layout from "./components/Layout/Layout";
 import Donations from "./views/Donations/Donations";
 import MonCompte from "./views/MonCompte/MonCompte";
 import Normal from "./views/Register/RegisterNormal";
-import { ADMIN, DONATIONS, MONCOMPTE, REGISTER } from "./const/routes";
+import { ADMIN, DONATIONS, MONCOMPTE, REGISTER, TEST } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 import LoginGlobal from "./views/Login/LoginGlobal";
+import TableTest from "./views/TestTable/TestTable";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path={REGISTER} element={<Normal />} />
           <Route path={DONATIONS} element={<Donations />} />
           <Route path={MONCOMPTE} element={<MonCompte />} />
+          <Route path={TEST} element={<TableTest />} />
         </Route>
       </Routes>
     </BrowserRouter>

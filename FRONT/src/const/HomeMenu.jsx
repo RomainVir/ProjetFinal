@@ -1,5 +1,5 @@
 export const HomeMenu = [
- /* {
+  /* {
     label: "Admin",
     path: "/admin",
   },*/
@@ -16,5 +16,9 @@ export const HomeMenu = [
   {
     label: "Register",
     path: "/register",
+  },
+  {
+    label: "TestTable",
+    path: "/test",
   },
 ];
