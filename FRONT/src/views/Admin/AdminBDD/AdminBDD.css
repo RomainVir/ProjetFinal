@@ -20,8 +20,8 @@
     border-radius: 16px;
   }
 
-  .formAjouter input {
-    font-size: medium;
+  .formAjouter input, .formRegister input {
+    font-family: 'Poppins';
     font-weight: bold;
     display: block;
     text-align: left;
@@ -29,12 +29,21 @@
     padding: 16px
   }
 
+  .formRegister {
+    width: 40%;
+    background-color:#0E4589;
+    padding: 44px;
+    margin-top: 22px;
+    color: white;
+    border-radius: 16px;
+  }
+
 
   /*input tableau recherche*/
   input.ant-input.css-dev-only-do-not-override-j0nf2s { 
     background-color: white;
     color: black;
-    border: solid 2px cornflowerblue;
+    border: solid 2px 1E9BD8;
 }
 
 /*bouton loupe */

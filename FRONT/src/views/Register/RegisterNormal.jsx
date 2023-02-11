@@ -51,6 +51,7 @@ export default function Normal() {
   return (
     <div className="register">
       <form className="formRegister" onSubmit={signIn}>
+        <h1>Créer votre compte</h1>
         <input
           type="text"
           name="companyName"
@@ -124,7 +125,7 @@ export default function Normal() {
           onChange={handleInput}
         />
 
-        <button type="submit">Sign-In</button>
+        <button type="submit">Enregistrer</button>
       </form>
     </div>
   );

@@ -52,3 +52,8 @@ header {
         justify-content: space-between;
   
     }
+    .header-inner img {
+        height: 150px;
+    }
+
+    

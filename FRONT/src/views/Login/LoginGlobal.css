@@ -1,69 +1,57 @@
+
 .loginglobal {
     display: flex;
     justify-content: space-evenly;
+    background-color:#1E9BD8;
 }
+.containerconnexion {
+    max-width: 100%;
+    margin: 0;
+    padding: 68px;
+    background-color: #1E9BD8;
+} 
 
-
+.loginPartenaire, .container2 {
+    width: 100%;
+    margin: 16px;
+    
+    color: white;
+    border-radius: 16px;
+  }
 
     
-    .loginPartenaire input
+  form.admin, form.adminform {
+    padding: 24px;
+    background-color: #2d15b8;
+  }
+    .loginPartenaire input, .container2 input
     {
-    width: 90%;
-    margin-bottom: 40px;
-    background-color: white;
-    border: none;
-    border-radius: 2px;
-    padding: 16px;
-    
+        
+        width: 90%;
+        font-family: 'Poppins';
+        display: block;
+        text-align: left;
+        margin: 4px;
+        padding: 16px
+        
+      
    }
 
-
   button.enter {
 
-    width: 110%;
+    width: 98%;
     margin-bottom: 10px;
     background-color: rgb(255, 255, 255);
-    border: none;
+  
     border-radius: 8px;
-    margin-top: 88px;
-    cursor: pointer;
-    
-    font-size: larger;
-    transition: all 0.5s;
-}
-
-
-form.admin{
-    background-color: rgb(123, 45, 187);
-}
-
-    .containerconnexion
-    {
-     
-        max-width: 100%;
-        margin: 0;
-        padding-top: 68px;
-    } 
-
-.admin h1 {
-    margin-bottom: 48px 
-}
-  button.enter {
-
-    width: 110%;
-    margin-bottom: 10px;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 8px;
-    margin-top: 88px;
+   
     cursor: pointer;
   
     font-size: larger;
-    transition: all 0.5s;
+    transition: all 0.3s;
 }
-
    .enter button:hover {
-    background-color: rgb(40, 24, 164);
+    background-color: #1E9BD8;
 color: white;
 border: solid 3px white;
    }

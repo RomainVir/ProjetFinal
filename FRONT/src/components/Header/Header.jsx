@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="container header-inner">
       <img src={logo} />
-      <div>
+      <div className="titreheader">
         <h1>Portail des donations</h1>
       </div>
     </header>

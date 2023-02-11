@@ -77,7 +77,7 @@ export default function LogInCompany() {
                 Entrer
               </button>
               <h4>
-                Première connexion? Cliquez <a href="/register">ici</a> pour
+                Première connexion? Cliquez <span><a href="/register">ici</a></span> pour
                 créer votre compte
               </h4>
             </div>
