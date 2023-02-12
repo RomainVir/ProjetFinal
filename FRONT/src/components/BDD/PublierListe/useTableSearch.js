@@ -8,10 +8,10 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
 
   useEffect(() => {
     setLoading(true);
-    const crawl = (product, allValues) => {
+    const find = (product, allValues) => {
       if (!allValues) allValues = [];
       for (var key in product) {
-        if (typeof product[key] === "object") crawl(product[key], allValues);
+        if (typeof product[key] === "object") find(product[key], allValues);
         else allValues.push(product[key] + " ");
       }
       return allValues;
@@ -20,8 +20,8 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
       const { data: products } = await retrieve();
       setOrigData(products);
       setFilteredData(products);
-      const searchInd = products.map(product => {
-        const allValues = crawl(product);
+      const searchInd = products.map((product) => {
+        const allValues = find(product);
         return { allValues: allValues.toString() };
       });
       setSearchIndex(searchInd);
@@ -33,12 +33,14 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
   useEffect(() => {
     if (searchVal) {
       const reqData = searchIndex.map((product, index) => {
-        if (product.allValues.toLowerCase().indexOf(searchVal.toLowerCase()) >= 0)
+        if (
+          product.allValues.toLowerCase().indexOf(searchVal.toLowerCase()) >= 0
+        )
           return origData[index];
         return null;
       });
       setFilteredData(
-        reqData.filter(product => {
+        reqData.filter((product) => {
           if (product) return true;
           return false;
         })

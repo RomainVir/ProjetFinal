@@ -47,12 +47,17 @@ export default function Normal() {
           icon: "success",
           title: `Utilisateur ${newUser.companyName} enregistré correctement`,
           showConfirmButton: false,
-          timer: 3800,
+          timer: 2000,
         });
-        //alert(`Utilisateur ${newUser.companyName} enregistré correctement`);
         setNewUser(initialUserState);
       } else if (response.status === 409) {
-        alert(`Utilisateur déjà enregistré`);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `Utilisateur ${newUser.email} déja enregistré`,
+          showConfirmButton: false,
+          timer: 2000,
+        });
       }
     });
   }

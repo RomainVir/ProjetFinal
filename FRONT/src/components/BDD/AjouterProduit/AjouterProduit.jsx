@@ -21,7 +21,6 @@ export default function AjouterProduit() {
   console.log(newProduct);
   async function ProductPublished(e) {
     e.preventDefault();
-    console.log(newProduct);
     fetch("http://localhost:3000/product/add_product", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -85,7 +84,7 @@ export default function AjouterProduit() {
           value={newProduct.photo}
           onChange={handleInput}
         />
-        <button type="submit">Ajouter le produit</button>
+        <button type="submit">Ajouter</button>
       </form>
     </div>
   );

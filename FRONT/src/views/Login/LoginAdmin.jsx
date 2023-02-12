@@ -34,9 +34,9 @@ export default function LoginAdmin() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: "Vous êtes désormais connecté en tant qu´administrateur",
+          title: "Administrateur connecté",
           showConfirmButton: false,
-          timer: 3800,
+          timer: 2000,
         });
         //alert("Admin connecté");
       } else {
@@ -45,7 +45,7 @@ export default function LoginAdmin() {
           icon: "error",
           title: "Identifiants incorrects",
           showConfirmButton: false,
-          timer: 3800,
+          timer: 2000,
         });
       }
     });

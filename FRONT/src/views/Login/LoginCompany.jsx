@@ -34,9 +34,9 @@ export default function LogInCompany() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Utilisateur ${User.email} connecté`,
+          title: `Bienvenue ${User.email} !`,
           showConfirmButton: false,
-          timer: 3800,
+          timer: 2000,
         });
       } else {
         Swal.fire({
@@ -44,7 +44,7 @@ export default function LogInCompany() {
           icon: "error",
           title: "Identifiants incorrects",
           showConfirmButton: false,
-          timer: 3800,
+          timer: 2000,
         });
       }
     });
