@@ -1,11 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-//import Donations from "./views/Donations/Donations";
+import Donations from "./views/Donations/Donations";
 import MonCompte from "./views/MonCompte/MonCompte";
 import Normal from "./views/Register/RegisterNormal";
 import {
-  ADMIN, //DONATIONS,
+  ADMIN, DONATIONS,
   MONCOMPTE,
   REGISTER,
 } from "./const/routes";
@@ -21,7 +21,7 @@ function App() {
           <Route path={ADMIN} element={<AdminBDD />} />
 
           <Route path={REGISTER} element={<Normal />} />
-          {/*<Route path={DONATIONS} element={<Donations />} /> */}
+          <Route path={DONATIONS} element={<Donations />} />
           <Route path={MONCOMPTE} element={<MonCompte />} />
         </Route>
       </Routes>

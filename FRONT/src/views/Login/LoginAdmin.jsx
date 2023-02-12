@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function LoginAdmin() {
   //LOGIN ************
@@ -30,9 +31,22 @@ export default function LoginAdmin() {
         throw "Not authorized";
       } else if (response.status == 200) {
         navigate("/admin");
-        alert("Admin connecté");
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Vous êtes désormais connecté en tant qu´administrateur",
+          showConfirmButton: false,
+          timer: 3800,
+        });
+        //alert("Admin connecté");
       } else {
-        alert("Wrong credentials, try again");
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Identifiants incorrects",
+          showConfirmButton: false,
+          timer: 3800,
+        });
       }
     });
   }

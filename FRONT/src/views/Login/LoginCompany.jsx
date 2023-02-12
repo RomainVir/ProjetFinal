@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export default function LogInCompany() {
   //LOGIN ************
@@ -30,11 +31,21 @@ export default function LogInCompany() {
         throw "Not authorized";
       } else if (response.status == 200) {
         navigate("/donations");
-        alert(`Utilisateur ${User.email} connecté`);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Utilisateur ${User.email} connecté`,
+          showConfirmButton: false,
+          timer: 3800,
+        });
       } else {
-        alert(
-          "Identifiants de connexion erronés, veuillez réessayer s´il vous plaìt"
-        );
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: "Identifiants incorrects",
+          showConfirmButton: false,
+          timer: 3800,
+        });
       }
     });
   }
@@ -77,8 +88,11 @@ export default function LogInCompany() {
                 Entrer
               </button>
               <h4>
-                Première connexion? Cliquez <span><a href="/register">ici</a></span> pour
-                créer votre compte
+                Première connexion? Cliquez{" "}
+                <span>
+                  <a href="/register">ici</a>
+                </span>{" "}
+                pour créer votre compte
               </h4>
             </div>
           </form>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import "./Register.css";
+import Swal from "sweetalert2";
 
 const initialUserState = {
   companyName: "",
@@ -41,7 +42,14 @@ export default function Normal() {
         throw "Non autorisé";
       } else if (response.status === 200) {
         navigate("/");
-        alert(`Utilisateur ${newUser.companyName} enregistré correctement`);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Utilisateur ${newUser.companyName} enregistré correctement`,
+          showConfirmButton: false,
+          timer: 3800,
+        });
+        //alert(`Utilisateur ${newUser.companyName} enregistré correctement`);
         setNewUser(initialUserState);
       } else if (response.status === 409) {
         alert(`Utilisateur déjà enregistré`);

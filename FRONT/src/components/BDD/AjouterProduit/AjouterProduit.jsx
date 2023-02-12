@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const initialProductState = {
   reference: "",
@@ -30,12 +31,22 @@ export default function AjouterProduit() {
       if (response.status === 401) {
         throw "Non autorisé";
       } else if (response.status === 200) {
-        alert(
-          `Produit ${newProduct.reference} bien enregistré dans la base de données`
-        );
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `Produit ${newProduct.reference} bien enregistré dans la base de données`,
+          showConfirmButton: false,
+          timer: 4500,
+        });
         setNewUser(initialProductState);
       } else if (response.status === 409) {
-        alert(`Produit déjà présent dans la base de données`);
+        Swal.fire({
+          position: "center",
+          icon: "error",
+          title: `Produit déjà présent dans la base de données`,
+          showConfirmButton: false,
+          timer: 4500,
+        });
       }
     });
   }
