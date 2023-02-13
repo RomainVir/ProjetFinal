@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 
-export const useTableSearch = ({ searchVal, retrieve }) => {
+export const useTableSearch = ({ searchProduct, retrieve }) => {
   const [filteredData, setFilteredData] = useState([]);
   const [origData, setOrigData] = useState([]);
   const [searchIndex, setSearchIndex] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  //chercher values plus loading
   useEffect(() => {
     setLoading(true);
     const find = (product, allValues) => {
@@ -16,6 +17,8 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
       }
       return allValues;
     };
+
+    //trouver les infos
     const fetchData = async () => {
       const { data: products } = await retrieve();
       setOrigData(products);
@@ -31,10 +34,12 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
   }, [retrieve]);
 
   useEffect(() => {
-    if (searchVal) {
+    if (searchProduct) {
       const reqData = searchIndex.map((product, index) => {
         if (
-          product.allValues.toLowerCase().indexOf(searchVal.toLowerCase()) >= 0
+          product.allValues
+            .toLowerCase()
+            .indexOf(searchProduct.toLowerCase()) >= 0
         )
           return origData[index];
         return null;
@@ -46,7 +51,7 @@ export const useTableSearch = ({ searchVal, retrieve }) => {
         })
       );
     } else setFilteredData(origData);
-  }, [searchVal, origData, searchIndex]);
+  }, [searchProduct, origData, searchIndex]);
 
   return { filteredData, loading };
 };

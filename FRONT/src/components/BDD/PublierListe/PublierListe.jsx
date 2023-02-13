@@ -12,10 +12,10 @@ const fetchProducts = async () => {
 };
 
 export default function Publier() {
-  const [searchVal, setSearchVal] = useState(null);
+  const [searchProduct, setSearchProduct] = useState(null);
 
   const { filteredData, loading } = useTableSearch({
-    searchVal,
+    searchProduct,
     retrieve: fetchProducts,
   });
 
@@ -24,11 +24,10 @@ export default function Publier() {
       <div className="publier">
         <h1>Publier une nouvelle offre de dons:</h1>
         <Search
-          onChange={(e) => setSearchVal(e.target.value)}
+          onChange={(e) => setSearchProduct(e.target.value)}
           placeholder="Chercher un produit"
           color="white"
           enterButton
-          style={{ position: "sticky", top: "0", left: "0" }}
         />
         <br /> <br />
         <Table

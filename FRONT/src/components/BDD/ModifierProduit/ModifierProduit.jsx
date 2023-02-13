@@ -7,7 +7,7 @@ const initialProductState = {
   quantity: "",
   photo: "",
 };
-export default function AjouterProduit() {
+export default function ModifierProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
 
   function handleInput(event) {
@@ -21,7 +21,7 @@ export default function AjouterProduit() {
   console.log(newProduct);
   async function ProductPublished(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/product/add_product", {
+    fetch("http://localhost:3000/product/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProduct),
@@ -51,7 +51,8 @@ export default function AjouterProduit() {
   }
   return (
     <div>
-      <h1>Ajouter un nouveau produit:</h1>
+      <h1>Modifier un produit:</h1>
+      <br />
       <form className="formAjouter" onSubmit={ProductPublished}>
         <input
           type="text"
@@ -84,7 +85,7 @@ export default function AjouterProduit() {
           value={newProduct.photo}
           onChange={handleInput}
         />
-        <button type="submit">Ajouter</button>
+        <button type="submit">Modifier</button>
       </form>
     </div>
   );

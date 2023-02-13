@@ -4,15 +4,22 @@
         justify-content: space-around;
 }
 
-.modifierBDD, .publier {
+.publier 
+{ background-color: #1E9BD8;
+  padding: 24px;
+  border-radius: 16px;
+  margin: 16px;}
+
+.modifierBDD {
     background-color: #1E9BD8;
     padding: 24px;
     border-radius: 16px;
     margin: 16px;
+    width: 20%;
 }
 
 .formAjouter {
-    width: 80%;
+    width: 60%;
     background-color:#0E4589;
     padding: 64px;
     margin-top: 62px;
