@@ -7,12 +7,34 @@ export default function PublierTEST() {
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState("");
-  console.log(search);
+  const [donation, setDonation] = useState([]);
 
   useEffect(() => {
     getData();
   }, []);
 
+  //AJOUTER
+  const handleIncrease = (cardid) => {
+    setDonation((donation) =>
+      donation.map((product) =>
+        cardid === product.id
+          ? { ...product, product_qty: product.quantity - 1 }
+          : product
+      )
+    );
+  };
+
+  const handleDecrease = (cardid) => {
+    setDonation((donation) =>
+      donation.map((product) =>
+        cardid === product.id
+          ? { ...product, product_qty: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  //FETCH PRODUITS
   async function getData() {
     await axios("http://localhost:3000/product/products")
       .then((response) => {
@@ -34,9 +56,8 @@ export default function PublierTEST() {
   return (
     <>
       <label htmlFor="search">
-        Search by Task:
         <input
-          placeholder="search"
+          placeholder="Cherchez un prodit par référence"
           id="search"
           type="text"
           onChange={(e) => setSearch(e.target.value)}
@@ -49,7 +70,6 @@ export default function PublierTEST() {
             <th>Référence</th>
             <th>Description</th>
             <th>Quantité à donner</th>
-            <th>Ajouter</th>
           </tr>
         </thead>
         <tbody>
@@ -67,9 +87,23 @@ export default function PublierTEST() {
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
                 <td>
-                  <input type="number" />
+                  <div className="quantity">
+                    <button
+                      type="button"
+                      onClick={() => handleDecrease(product)}
+                    >
+                      -
+                    </button>
+                    <input type="number" />
+                    {product.quantity}
+                    <button
+                      type="button"
+                      onClick={() => handleIncrease(product)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </td>
-                <td><button>Ajouter</button></td>
               </tr>
             ))}
         </tbody>

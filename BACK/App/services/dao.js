@@ -49,3 +49,5 @@ dao.deleteProduct = async (id) => await productQueries.deleteProduct(id);
 dao.updateProduct = async (id, productData) =>
   await productQueries.updateProduct(id, productData);
 //En este archivo iremos definiendo todas las funciones que nos servirán de enlace entre el controlador y la base de datos.
+
+// AJOUTER UNE OFFRE

@@ -19,9 +19,7 @@
     background-color: #f2f2f2;
   }
   
-  table tr:hover {
-    background-color: #1E9BD8;
-  }
+ 
   
   table th {
     padding-top: 12px;
@@ -37,3 +35,7 @@
     width: 80%;
   }
   
+  .quantity {
+    display: flex;
+    justify-content: space-between;
+  }
