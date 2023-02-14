@@ -10,6 +10,7 @@ const initialProductState = {
 export default function AjouterProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
 
+  //hop
   function handleInput(event) {
     const newProductPublished = {
       ...newProduct,
