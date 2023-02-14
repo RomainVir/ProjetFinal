@@ -1,8 +1,5 @@
 
-    .adminBDD {
-        display: flex;
-        justify-content: space-around;
-}
+  
 
 .publier 
 { background-color: #1E9BD8;
@@ -56,4 +53,9 @@
 /*bouton loupe */
 button.ant-btn.css-dev-only-do-not-override-j0nf2s.ant-btn-primary.ant-input-search-button {
     background-color: #0E4589;
+}
+
+.modifier {
+  display: flex;
+  justify-content: space-evenly;
 }

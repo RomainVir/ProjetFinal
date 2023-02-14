@@ -1,5 +1,4 @@
 export const userColumns = [
-  { title: "Sélectionner", dataIndex: "", key: "id", cell: "TableInput" },
   {
     title: "Reference",
     dataIndex: "reference",
