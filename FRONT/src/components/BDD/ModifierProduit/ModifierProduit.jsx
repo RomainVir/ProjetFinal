@@ -9,7 +9,7 @@ const initialProductState = {
 };
 export default function ModifierProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
-
+  //ok
   function handleInput(event) {
     const newProductPublished = {
       ...newProduct,
