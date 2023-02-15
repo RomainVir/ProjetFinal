@@ -24,12 +24,7 @@ controller.addProduct = async (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
-  // Buscamos si existe producto por la referencia
-  // añadimos producto producto detalle  -> creamos query para añadir producto (insert), creamos el dao
-  // nos devuelve el id del producto
-  // utilizamos la libreria express-upload para subir la imagen
-  // Añadimos el path a la tabla imagen y el id que hemos obtenido del producto
-  // devolvemos respuesta al cliente con el id del producto creado ok
+
 };
 
 //OBTENIR UN PRODUIT
