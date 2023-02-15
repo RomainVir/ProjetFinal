@@ -19,12 +19,13 @@ export default function PublierTEST() {
   //bouton publier
   async function onSubmit(e) {
     e.preventDefault();
+    const selectedListToApiFormat = selectedList.map(({id,...rest})=> rest)
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        selectedList,
-      }),
+      body: JSON.stringify(
+        selectedListToApiFormat,
+      ),
     };
     await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
   }

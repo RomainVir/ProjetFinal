@@ -46,17 +46,25 @@ offerQueries.getOfferByRef = async (reference) => {
 
 //AJOUTER UN PRODUIT
 offerQueries.addOffer = async (offerData) => {
+  console.log(offerData);
   let conn = null;
   try {
     conn = await db.createConnection();
-    console.log(offerData);
-    let offerObj = {
-      reference: offerData.reference,
-      description: offerData.description,
-      quantity: offerData.quantity,
-      photo: offerData.photo,
-    };
-    return await db.query("INSERT INTO offers SET ?", offerObj, "insert", conn);
+
+    offerData.map(async (offerItem) => {
+      let offerObj = {
+        reference: offerItem.reference,
+        description: offerItem.description,
+        quantity: offerItem.quantity,
+        photo: offerItem.photo,
+      };
+      return await db.query(
+        "INSERT INTO offers SET ?",
+        offerObj,
+        "insert",
+        conn
+      );
+    });
   } catch (e) {
     throw new Error(e);
   } finally {
