@@ -28,7 +28,7 @@ controller.addOffer = async (req, res) => {
 //OBTENIR UN PRODUIT
 controller.getOffer = async (req, res) => {
   try {
-    const offer = await dao.getOffer();
+    const offer = await dao.getOfferByRef();
     // Si no existe devolvemos un 404 (not found)
     // Devolvemos la ruta donde se encuentra la imagen
     return res.send(offer);

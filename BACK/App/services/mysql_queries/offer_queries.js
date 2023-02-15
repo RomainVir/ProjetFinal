@@ -64,7 +64,7 @@ offerQueries.addOffer = async (offerData) => {
   }
 };
 
-//OBTENIR UN PRODUIT
+//OBTENIR UN offre
 offerQueries.getOffer = async () => {
   // Conectamos con la base de datos y buscamos si existe la imagen por su id.
   let conn = null;

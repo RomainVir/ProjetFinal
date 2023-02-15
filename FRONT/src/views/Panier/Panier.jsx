@@ -1,4 +1,5 @@
-import Publier from "../../components/BDD/PublierListe/PublierListe";
+import Publier from "../../components/ADMIN/PublierListe/PublierListe";
+
 
 export default function Panier() {
   return (

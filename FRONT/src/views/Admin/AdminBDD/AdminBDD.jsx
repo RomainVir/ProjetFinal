@@ -1,6 +1,6 @@
-import AjouterProduit from "../../../components/BDD/AjouterProduit/AjouterProduit";
-import ModifierProduit from "../../../components/BDD/ModifierProduit/ModifierProduit";
-import PublierTEST from "../../../components/BDD/TestTable/PublierTEST";
+import AjouterProduit from "../../../components/ADMIN/AjouterProduit/AjouterProduit";
+import ModifierProduit from "../../../components/ADMIN/ModifierProduit/ModifierProduit";
+import PublierTEST from "../../../components/ADMIN/TestTable/PublierTEST";
 import "./AdminBDD.css";
 export default function AdminBDD() {
   return (

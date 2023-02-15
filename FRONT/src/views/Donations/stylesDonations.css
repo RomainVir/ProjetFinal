@@ -21,11 +21,11 @@
   
  
   
-  table th {
+.tableau{
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #0E4589;
+    background-color: #7f0e89;
     color: white;
     border-radius: 8px;
   }

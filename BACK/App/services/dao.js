@@ -65,6 +65,9 @@ dao.deleteOffer = async (id) => await offerQueries.deleteOffer(id);
 dao.updateOffer = async (id, offerData) =>
   await offerQueries.updateOffer(id, offerData);
 
-  //obtenir par ref
-  dao.getOfferByRef = async (reference) =>
+//obtenir par ref
+dao.getOfferByRef = async (reference) =>
   await offerQueries.getOfferByRef(reference);
+
+  
+dao.getOffer = async () => await offerQueries.getOffer();
