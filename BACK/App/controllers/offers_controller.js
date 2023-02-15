@@ -8,15 +8,11 @@ const controller = {};
 //AJOUTER UN PRODUIT
 controller.addOffer = async (req, res) => {
   // controlar que viene el body
-  const { reference, description, quantity, photo } = req.body;
-  if (!reference || !description || !quantity || !photo) {
+  if (!req.body) {
     res.status(400).send("Error al recibir el body");
   }
   try {
-    const offer = await dao.getOfferByRef(reference);
-    // Si existe el offero, devolvemos 409 (conflict)
-    if (offer.length > 0) return res.status(409).send("offero ya existe");
-    // Si no existe, lo añadimos
+  
     const insertOffer = await dao.insertOffer(req.body);
     if (insertOffer)
       return res.send(`offero ${reference} con id${insertOffer} añadido`);
