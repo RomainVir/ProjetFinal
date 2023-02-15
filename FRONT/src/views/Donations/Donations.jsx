@@ -6,7 +6,6 @@ export default function PublierTEST() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getData();
@@ -14,7 +13,7 @@ export default function PublierTEST() {
 
   //FETCH PRODUITS
   async function getData() {
-    await axios("http://localhost:3000/product/products")
+    await axios("http://localhost:3000/offer/offers")
       .then((response) => {
         setData(response.data);
       })
@@ -33,47 +32,38 @@ export default function PublierTEST() {
 
   return (
     <>
-      <label htmlFor="search">
-        <input
-          placeholder="Cherchez un produit par référence"
-          id="search"
-          type="text"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </label>
-      <table>
-        <thead>
-          <tr>
-            <th>Sélectionner</th>
-            <th>Référence</th>
-            <th>Description</th>
-            <th>Quantité choisie</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data
-            .filter((product) => {
-              return search.toLowerCase() === ""
-                ? product
-                : product.reference.toLowerCase().includes(search);
-            })
-            .map((product) => (
+      <div className="donations">
+        
+        <table>
+          <thead>
+            <tr>
+              <th>Sélectionner</th>
+              <th>Référence</th>
+              <th>Description</th>
+              <th>Photo</th>
+              <th>Quantité disponible</th>
+              <th>Quantité choisie</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((product) => (
               <tr key={product.id}>
                 <td>
                   <input type="checkbox" />
                 </td>
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
+                <td>{product.photo}</td>
+                <td>{product.quantity}</td>
                 <td>
-                  <div className="quantity">
-                    <input type="number" id={product.id} />
-                  </div>
+                  <input type="number" id={product.id} />
                 </td>
               </tr>
             ))}
-        </tbody>
-      </table>
-      <button> Choisir </button>
+          </tbody>
+        </table>
+        <button> Choisir </button>
+      </div>
     </>
   );
 }

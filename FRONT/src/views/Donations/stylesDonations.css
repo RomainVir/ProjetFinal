@@ -13,6 +13,7 @@
   table th {
     border: 1px solid #ddd;
     padding: 8px;
+    
   }
   
   table tr:nth-child(even) {
@@ -39,3 +40,16 @@
     display: flex;
     justify-content: space-between;
   }
+
+  .button {
+    width: 40%;
+    margin-bottom: 10px;
+    background-color: #f6a2a2;
+    border: none;
+    border-radius: 16px;
+    margin-top: 48px;
+    cursor: pointer;
+    font-size: larger;
+    transition: all 0.5s;
+    padding: 17px;
+}

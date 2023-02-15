@@ -9,12 +9,11 @@ export default function PublierTEST() {
   const [search, setSearch] = useState("");
 
   //select et quantité
-  const [numero, setNumero] = useState({ quantity: 0, selected: 0 });
-
-  //const { id } = useParams();
+  const [selectedItemQuantity, setSelectedItemQuantity] = useState(null); // lista de items selected
+  const [selectedList, setSelectedList] = useState([]); // lista de items selected
 
   useEffect(() => {
-    getData();
+    getProducts();
   }, []);
 
   //bouton publier
@@ -24,28 +23,36 @@ export default function PublierTEST() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        quantity: numero.quantity,
-        selected: numero.selected,
+        selectedList,
       }),
     };
-    let response = await fetch(
-      `http://localhost:3000/offer/add_offer`,
-      requestOptions
+    await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
+  }
+  // ajouter qty
+  function handleForm(e, product) {
+    const repeatedItemIndex = selectedList.findIndex(
+      (item) => item.id === product.id
     );
-    let json = await response.json();
-    setNumero(json);
-    console.log(json);
+    console.log(repeatedItemIndex);
+    if (repeatedItemIndex !== -1) {
+      const newList = [...selectedList];
+      newList[repeatedItemIndex].quantity = Number(e.target.value);
+      setSelectedList(newList);
+    } else {
+      setSelectedList([
+        ...selectedList,
+        { ...product, quantity: e.target.value },
+      ]);
+    }
+  }
+  console.log(selectedList);
+  //checkbox
+  function handleCheckBox() {
+    //setNumero(!numero.selected);
   }
 
-  function handleForm(e) {
-    const newData = { ...data };
-    newData[e.target.id] = e.target.value;
-    setNumero(newData);
-    console.log(newData);
-  }
-
-  //FETCH PRODUITS
-  async function getData() {
+  //FETCH PRODUITS---------
+  async function getProducts() {
     await axios("http://localhost:3000/product/products")
       .then((response) => {
         setData(response.data);
@@ -62,9 +69,12 @@ export default function PublierTEST() {
   if (chargement) return "Chargement des produits...";
   if (error)
     return "Oups il y a eu une erreur dans le chargement, veuillez rafraîchir la page!";
+  //---------
 
   return (
     <>
+      <button onClick={onSubmit}> Publier </button>
+
       <div className="tableauglobal">
         <label htmlFor="search">
           <input
@@ -77,7 +87,6 @@ export default function PublierTEST() {
         <table>
           <thead>
             <tr>
-              <th>Sélectionner</th>
               <th>Référence</th>
               <th>Description</th>
               <th>Quantité à donner</th>
@@ -92,13 +101,6 @@ export default function PublierTEST() {
               })
               .map((product) => (
                 <tr key={product.id}>
-                  <td>
-                    <input
-                      type="checkbox"
-                      value={numero.selected}
-                      id={product.id}
-                    />
-                  </td>
                   <td>{product.reference}</td>
                   <td>{product.description}</td>
                   <td>
@@ -106,8 +108,8 @@ export default function PublierTEST() {
                       <input
                         type="number"
                         id={product.id}
-                        value={numero.quantity}
-                        onChange={handleForm}
+                        value={selectedItemQuantity}
+                        onChange={(e) => handleForm(e, product)}
                       />
                     </div>
                   </td>
@@ -115,7 +117,6 @@ export default function PublierTEST() {
               ))}
           </tbody>
         </table>
-        <button onClick={onSubmit}> Publier </button>
       </div>
     </>
   );

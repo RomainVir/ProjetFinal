@@ -24,7 +24,7 @@ export default function AjouterProduit() {
     e.preventDefault();
     fetch("http://localhost:3000/product/add_product", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" },     
       body: JSON.stringify(newProduct),
     }).then((response) => {
       console.log(response.status);

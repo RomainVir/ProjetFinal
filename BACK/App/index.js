@@ -3,15 +3,14 @@ import dotenv from "dotenv";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import db from "./services/mysql.js";
-
 import userRouter from "./routes/user_router.js";
 import productRouter from "./routes/product_router.js";
 import offerRouter from "./routes/offer_router.js";
-
 import { fileURLToPath } from "url";
 import { dirname } from "path";
 import cors from "cors";
 import fileUpload from "express-fileupload";
+import donationRouter from "./routes/donation_router.js";
 
 // Añadimos el método config de dotenv para utilizar las variables de entorno
 dotenv.config();
@@ -55,5 +54,7 @@ await db.createConnection(); // pour tester si bien connecté avec la bdd
 app.use("/user", userRouter);
 
 app.use("/offer", offerRouter);
+
+app.use("/donation", donationRouter);
 
 export default app;

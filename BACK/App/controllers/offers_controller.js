@@ -28,7 +28,7 @@ controller.addOffer = async (req, res) => {
 //OBTENIR UN PRODUIT
 controller.getOffer = async (req, res) => {
   try {
-    const offer = await dao.getOfferByRef();
+    const offer = await dao.getOffer();
     // Si no existe devolvemos un 404 (not found)
     // Devolvemos la ruta donde se encuentra la imagen
     return res.send(offer);
@@ -54,10 +54,40 @@ controller.updateOffer = async (req, res) => {
   } catch (e) {
     console.log(e.message);
   }
+};
 
+// SUPPRIMER UN PRODUIT
+controller.deleteOffer = async (req, res) => {
+  // OBTENER CABECERA Y COMPROBAR SU AUTENTICIDAD Y CADUCIDAD
+  const { authorization } = req.headers;
+  // Si no existe el token enviamos un 401 (unauthorized)
+  if (!authorization) return res.sendStatus(401);
+  const token = authorization.split(" ")[1];
 
-
-
-}
+  try {
+    // codificamos la clave secreta
+    const encoder = new TextEncoder();
+    // verificamos el token con la función jwtVerify. Le pasamos el token y la clave secreta codificada
+    const { payload } = await jwtVerify(
+      token,
+      encoder.encode(process.env.JWT_SECRET)
+    );
+    // Verificamos que seamos usuario administrador
+    console.log(payload.role);
+    if (!payload.role)
+      return res.status(409).send("vous n´avez pas le statut d´administrateur");
+    // Buscamos si el id del Offero existe en la base de datos
+    const offer = await dao.getOfferById(req.params.id);
+    // Si no existe devolvemos un 404 (not found)
+    if (product.length <= 0)
+      return res.status(404).send("le produit n´existe pas");
+    // Si existe, eliminamos el usuario por el id
+    await dao.deleteProduct(req.params.id);
+    // Devolvemos la respuesta
+    return res.send(`Produit avec id ${req.params.id} supprimé`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 
 export default controller;
