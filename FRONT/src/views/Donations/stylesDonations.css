@@ -53,3 +53,19 @@
     transition: all 0.5s;
     padding: 17px;
 }
+
+
+.donations button {
+    
+  width: 40%;
+  margin-bottom: 10px;
+  background-color: rgb(43, 226, 116);
+  border: none;
+  border-radius: 16px;
+  margin-top: 48px;
+  cursor: pointer;
+  font-size: larger;
+  transition: all 0.5s;
+  padding: 17px;
+
+}

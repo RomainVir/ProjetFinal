@@ -12,7 +12,7 @@ export default function Panier() {
 
   //FETCH PRODUITS
   async function getData() {
-    await axios("http://localhost:3000/offer/offers")
+    await axios("http://localhost:3000/donation/donations")
       .then((response) => {
         setData(response.data);
       })
@@ -36,28 +36,17 @@ export default function Panier() {
         <table>
           <thead>
             <tr>
-              <th>Sélectionner</th>
               <th>Référence</th>
               <th>Description</th>
-              <th>Quantité  disponible</th>
+
               <th>Quantité choisie</th>
-              <th>Photo</th>
             </tr>
           </thead>
           <tbody>
             {data.map((product) => (
               <tr key={product.id}>
-                <td>
-                  <input type="checkbox" />
-                </td>
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
-                <td>
-                  <div className="quantity">
-                    <input type="number" id={product.id} />
-                  </div>
-                </td>
-                <td>{product.photo}</td>
               </tr>
             ))}
           </tbody>

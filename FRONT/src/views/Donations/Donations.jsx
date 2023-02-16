@@ -7,12 +7,50 @@ export default function PublierTEST() {
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
 
+  //select et quantité
+  const [selectedItemQuantity, setSelectedItemQuantity] = useState(null); // lista de items selected
+  const [selectedList, setSelectedList] = useState([]); // lista de items selected
+
   useEffect(() => {
-    getData();
+    getProducts();
   }, []);
 
-  //FETCH PRODUITS
-  async function getData() {
+  //bouton publier
+  async function onSubmit(e) {
+    e.preventDefault();
+    const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(selectedListToApiFormat),
+    };
+    await fetch(`http://localhost:3000/donation/add_donation`, requestOptions);
+  }
+  // ajouter qty
+  function handleForm(e, product) {
+    const repeatedItemIndex = selectedList.findIndex(
+      (item) => item.id === product.id
+    );
+    console.log(repeatedItemIndex);
+    if (repeatedItemIndex !== -1) {
+      const newList = [...selectedList];
+      newList[repeatedItemIndex].quantity_choosen = Number(e.target.value);
+      setSelectedList(newList);
+    } else {
+      setSelectedList([
+        ...selectedList,
+        { ...product, quantity_choosen: e.target.value },
+      ]);
+    }
+  }
+  console.log(selectedList);
+  //checkbox
+  function handleCheckBox() {
+    //setNumero(!numero.selected);
+  }
+
+  //FETCH PRODUITS---------
+  async function getProducts() {
     await axios("http://localhost:3000/offer/offers")
       .then((response) => {
         setData(response.data);
@@ -29,40 +67,44 @@ export default function PublierTEST() {
   if (chargement) return "Chargement des produits...";
   if (error)
     return "Oups il y a eu une erreur dans le chargement, veuillez rafraîchir la page!";
+  //---------
 
   return (
     <>
       <div className="donations">
-        
-        <table>
-          <thead>
-            <tr>
-              <th>Sélectionner</th>
-              <th>Référence</th>
-              <th>Description</th>
-              <th>Photo</th>
-              <th>Quantité disponible</th>
-              <th>Quantité choisie</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((product) => (
-              <tr key={product.id}>
-                <td>
-                  <input type="checkbox" />
-                </td>
-                <td>{product.reference}</td>
-                <td>{product.description}</td>
-                <td>{product.photo}</td>
-                <td>{product.quantity}</td>
-                <td>
-                  <input type="number" id={product.id} />
-                </td>
+        <button onClick={onSubmit}> Valider </button>
+
+        <div className="tableauglobal">
+          <table>
+            <thead>
+              <tr>
+                <th>Référence</th>
+                <th>Description</th>
+                <th>Quantité disponible</th>
+                <th>Quantité choisie</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <button> Choisir </button>
+            </thead>
+            <tbody>
+              {data.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.reference}</td>
+                  <td>{product.description}</td>
+                  <td>{product.quantity}</td>
+                  <td>
+                    <div className="quantity">
+                      <input
+                        type="number"
+                        id={product.id}
+                        value={selectedItemQuantity}
+                        onChange={(e) => handleForm(e, product)}
+                      />
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
