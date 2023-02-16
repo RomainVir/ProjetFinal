@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Panier() {
+export default function Pedidos() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);

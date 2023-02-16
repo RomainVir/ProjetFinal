@@ -1,8 +1,8 @@
 const LOGINGLOBAL = "login";
 const ADMIN = "admin";
-const DONATIONS = "donations";
+const OFFRES = "offres";
 const MONCOMPTE = "moncompte";
 const REGISTER = "register";
-const PANIER = "panier";
+const PEDIDOS = "pedidos";
 
-export { ADMIN, DONATIONS, MONCOMPTE, REGISTER, LOGINGLOBAL, PANIER };
+export { ADMIN, OFFRES, MONCOMPTE, REGISTER, LOGINGLOBAL, PEDIDOS };

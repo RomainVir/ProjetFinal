@@ -4,16 +4,16 @@ import db from "../mysql.js";
 
 import utils from "../../utils/utils.js";
 
-const offerQueries = {};
+const pedidoQueries = {};
 
 //OBTENIR UN PRODUIT PAR SA REF
-offerQueries.getOfferById = async (id) => {
+pedidoQueries.getPedidoById = async (id) => {
   // Conectamos con la base de datos y buscamos si existe el producto por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "SELECT * FROM offers WHERE offers.id = ?",
+      "SELECT * FROM pedidos WHERE pedidos.id = ?",
       id,
       "select",
       conn
@@ -26,13 +26,13 @@ offerQueries.getOfferById = async (id) => {
 };
 
 //OBTENIR UN PRODUIT PAR SON ID
-offerQueries.getOfferByRef = async (reference) => {
+pedidoQueries.getPedidoByRef = async (reference) => {
   // Conectamos con la base de datos y buscamos si existe el usuario por el email.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "SELECT * FROM offers WHERE reference = ?",
+      `SELECT * FROM pedidos WHERE reference = '?'`,
       reference,
       "select",
       conn
@@ -45,59 +45,15 @@ offerQueries.getOfferByRef = async (reference) => {
 };
 
 //AJOUTER UN PRODUIT
-offerQueries.addOffer = async (offerData) => {
+pedidoQueries.addPedido = async (pedidoData) => {
   let conn = null;
+  console.log(dpedidonData);
   try {
     conn = await db.createConnection();
   
-      return await db.query(
-        "INSERT INTO offers SET ?",
-        offerData,
-        "insert",
-        conn
-      );
-  } catch (e) {
-    throw new Error(e);
-  } finally {
-    conn && (await conn.end());
-  }
-};
-
-//OBTENIR UN offre
-offerQueries.getOffer = async () => {
-  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
-  let conn = null;
-  try {
-    conn = await db.createConnection();
-    return await db.query("SELECT * FROM offers", [], "select", conn);
-  } catch (e) {
-    throw new Error(e);
-  } finally {
-    conn && (await conn.end());
-  }
-};
-
-// MODIFIER UN PRODUIT PAR SON ID
-offerQueries.updateOffer = async (id, offerData) => {
-  // Conectamos con la base de datos y añadimos el usuario.
-  let conn = null;
-  try {
-    conn = await db.createConnection();
-    // Creamos un objeto con los datos que nos puede llegar del usuario a modificar en la base de datos.
-    // Encriptamos la password con md5 si nos llega por el body, sino la declaramos como undefined
-    // y usamos la libreria momentjs para actualizar la fecha.
-    let offerObj = {
-      reference: offerData.reference,
-      description: offerData.description,
-      quantity: offerData.quantity,
-      photo: offerData.photo,
-    };
-    // Eliminamos los campos que no se van a modificar (no llegan por el body)
-    offerObj = await utils.removeUndefinedKeys(offerObj);
-
     return await db.query(
-      "UPDATE offers SET ? WHERE id = ?",
-      [offerObj, id],
+      "INSERT INTO pedidos SET ?",
+      pedidoData,
       "insert",
       conn
     );
@@ -108,14 +64,31 @@ offerQueries.updateOffer = async (id, offerData) => {
   }
 };
 
+//OBTENIR UN offre
+pedidoQueries.getPedido = async () => {
+  // Conectamos con la base de datos y buscamos si existe la imagen por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query("SELECT * FROM pedidos", [], "select", conn);
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+// MODIFIER UN PRODUIT PAR SON ID
+
+
 // SUPPRIMER UN PRODUIT PAR SON ID
-offerQueries.deleteOffer = async (id) => {
+pedidoQueries.deletePedido = async (id) => {
   // Conectamos con la base de datos y eliminamos el usuario por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "DELETE FROM offers WHERE id = ?",
+      "DELETE FROM pedidos WHERE id = ?",
       id,
       "select",
       conn
@@ -127,4 +100,4 @@ offerQueries.deleteOffer = async (id) => {
   }
 };
 
-export default offerQueries;
+export default pedidoQueries;

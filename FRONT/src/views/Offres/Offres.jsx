@@ -1,8 +1,8 @@
-import "./stylesDonations.css";
+import "./stylesOffres.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function PublierTEST() {
+export default function Offres() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
@@ -19,12 +19,13 @@ export default function PublierTEST() {
   async function onSubmit(e) {
     e.preventDefault();
     const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
+    console.log(selectedListToApiFormat, "prueba");
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedListToApiFormat),
     };
-    await fetch(`http://localhost:3000/donation/add_donation`, requestOptions);
+    await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
   }
   // ajouter qty
   function handleForm(e, product) {
@@ -93,6 +94,7 @@ export default function PublierTEST() {
                   <td>
                     <div className="quantity">
                       <input
+                        min="0"
                         type="number"
                         id={product.id}
                         value={selectedItemQuantity}

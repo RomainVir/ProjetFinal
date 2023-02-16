@@ -2,7 +2,7 @@ import "./styles.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function PublierTEST() {
+export default function PublierOffre() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
@@ -19,13 +19,11 @@ export default function PublierTEST() {
   //bouton publier
   async function onSubmit(e) {
     e.preventDefault();
-    const selectedListToApiFormat = selectedList.map(({id,...rest})=> rest)
+    const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(
-        selectedListToApiFormat,
-      ),
+      body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
   }
@@ -107,6 +105,7 @@ export default function PublierTEST() {
                   <td>
                     <div className="quantity">
                       <input
+                        min="0"
                         type="number"
                         id={product.id}
                         value={selectedItemQuantity}

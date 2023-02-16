@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 import { dirname } from "path";
 import cors from "cors";
 import fileUpload from "express-fileupload";
-import donationRouter from "./routes/donation_router.js";
+import pedidoRouter from "./routes/pedidos_router.js";
 
 // Añadimos el método config de dotenv para utilizar las variables de entorno
 dotenv.config();
@@ -55,6 +55,6 @@ app.use("/user", userRouter);
 
 app.use("/offer", offerRouter);
 
-app.use("/donation", donationRouter);
+app.use("/pedido", pedidoRouter);
 
 export default app;

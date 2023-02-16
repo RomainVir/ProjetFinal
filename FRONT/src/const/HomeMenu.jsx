@@ -5,8 +5,8 @@ export const HomeMenu = [
   },*/
   { label: "Admin", path: "/admin" },
   {
-    label: "Donations",
-    path: "/donations",
+    label: "Offres",
+    path: "/offres",
   },
 
   {
@@ -18,7 +18,7 @@ export const HomeMenu = [
     path: "/register",
   },
   {
-    label: "Panier",
-    path: "/panier",
+    label: "Pedidos",
+    path: "/pedidos",
   },
 ];

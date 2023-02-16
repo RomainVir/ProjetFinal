@@ -4,7 +4,7 @@
 import userQueries from "./mysql_queries/user_queries.js";
 import productQueries from "./mysql_queries/product_queries.js";
 import offerQueries from "./mysql_queries/offer_queries.js";
-import donationQueries from "./mysql_queries/donation_queries.js";
+import pedidoQueries from "./mysql_queries/pedidos_queries.js";
 
 const dao = {};
 
@@ -76,22 +76,22 @@ dao.getOfferById = async (id) => await offerQueries.getOfferById(id);
 //-------DONATION----------
 
 // AJOUTER UNE DONATION
-dao.insertDonation = async (donationData) =>
-  await donationQueries.addDonation(donationData);
+dao.insertPedido = async (pedidoData) =>
+  await pedidoQueries.addPedido(pedidoData);
 
-// SUPPRIMER UNE DONATION
-dao.deleteDonation = async (id) => await donationQueries.deleteDonation(id);
+// SUPPRIMER UNE pedido
+dao.deletePedido = async (id) => await pedidoQueries.deletePedido(id);
 
-// MODIFIER UNE DONATION PAR SON ID
-dao.updateDonation = async (id, donationData) =>
-  await donationQueries.updateDonation(id, donationData);
+// MODIFIER UNE pedido PAR SON ID
+dao.updatePedido = async (id, pedidoData) =>
+  await pedidoQueries.updatePedido(id, pedidoData);
 
 //obtenir par ref
-dao.getDonationByRef = async (reference) =>
-  await donationQueries.getDonationByRef(reference);
+dao.getPedidoByRef = async (reference) =>
+  await pedidoQueries.getPedidoByRef(reference);
 
-dao.getDonation = async () => await donationQueries.getDonation();
+dao.getPedido = async () => await pedidoQueries.getPedido();
 
-dao.getDonationById = async (id) => await donationQueries.getDonationById(id);
+dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
 
 export default dao;

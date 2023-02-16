@@ -14,8 +14,9 @@ controller.addOffer = async (req, res) => {
   try {
   
     const insertOffer = await dao.insertOffer(req.body);
+    
     if (insertOffer)
-      return res.send(`offero ${reference} con id${insertOffer} añadido`);
+      return res.send(`${insertOffer}`);
   } catch (e) {
     console.log(e.message);
   }
