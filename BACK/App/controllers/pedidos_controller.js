@@ -13,6 +13,8 @@ controller.addPedido = async (req, res) => {
   }
   try {
     const insertPedido = await dao.insertPedido(req.body);
+//baisser la qte
+
 
     if (insertPedido) return res.send(`${insertPedido}`);
   } catch (e) {

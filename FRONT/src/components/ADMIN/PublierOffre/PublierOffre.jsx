@@ -1,6 +1,7 @@
 import "./styles.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function PublierOffre() {
   const [data, setData] = useState(null);
@@ -26,13 +27,20 @@ export default function PublierOffre() {
       body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Offre publiée",
+      showConfirmButton: false,
+      timer: 1800,
+    });
   }
   // ajouter qty
   function handleForm(e, product) {
     const repeatedItemIndex = selectedList.findIndex(
       (item) => item.id === product.id
     );
-    console.log(repeatedItemIndex);
     if (repeatedItemIndex !== -1) {
       const newList = [...selectedList];
       newList[repeatedItemIndex].quantity = Number(e.target.value);

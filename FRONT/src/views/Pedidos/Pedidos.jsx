@@ -47,6 +47,7 @@ export default function Pedidos() {
               <tr key={product.id}>
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
+                <td>{product.quantity_choosen}</td>
               </tr>
             ))}
           </tbody>

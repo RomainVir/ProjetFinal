@@ -6,8 +6,8 @@ import { ADMIN, OFFRES, MONCOMPTE, REGISTER, PEDIDOS } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 import LoginGlobal from "./views/Login/LoginGlobal";
 import ModifierCompte from "../src/components/ENTREPRISE/MonCompte/TestCompte";
-import Offres from "./views/Offres/Offres";
 import Pedidos from "./views/Pedidos/Pedidos";
+import ChoisirOffre from "./views/Offres/Offres";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
           <Route index element={<LoginGlobal />} />
           <Route path={ADMIN} element={<AdminBDD />} />
           <Route path={REGISTER} element={<Normal />} />
-          <Route path={OFFRES} element={<Offres />} />
+          <Route path={OFFRES} element={<ChoisirOffre />} />
           <Route path={MONCOMPTE} element={<ModifierCompte />} />
           <Route path={PEDIDOS} element={<Pedidos />} />
         </Route>

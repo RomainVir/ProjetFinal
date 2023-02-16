@@ -1,8 +1,9 @@
 import "./stylesOffres.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
-export default function Offres() {
+export default function ChoisirOffre() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
@@ -18,21 +19,31 @@ export default function Offres() {
   //bouton publier
   async function onSubmit(e) {
     e.preventDefault();
-    const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
+    const selectedListToApiFormat = selectedList.map(
+      ({ id, photo, ...rest }) => rest
+    );
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
+
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "Offre publiée",
+      showConfirmButton: false,
+      timer: 1800,
+    });
   }
   // ajouter qty
   function handleForm(e, product) {
     const repeatedItemIndex = selectedList.findIndex(
       (item) => item.id === product.id
     );
-    console.log(repeatedItemIndex);
-    if (repeatedItemIndex !== -1) {
+
+    if (repeatedItemIndex > -1) {
       const newList = [...selectedList];
       newList[repeatedItemIndex].quantity_choosen = Number(e.target.value);
       setSelectedList(newList);
@@ -44,11 +55,6 @@ export default function Offres() {
     }
   }
   console.log(selectedList);
-  //checkbox
-  function handleCheckBox() {
-    //setNumero(!numero.selected);
-  }
-
   //FETCH PRODUITS---------
   async function getProducts() {
     await axios("http://localhost:3000/offer/offers")
@@ -71,41 +77,40 @@ export default function Offres() {
 
   return (
     <>
-      <div className="donations">
+      <div className="offres">
         <button onClick={onSubmit}> Valider </button>
-
-        <div className="tableauglobal">
-          <table>
-            <thead>
-              <tr>
-                <th>Référence</th>
-                <th>Description</th>
-                <th>Quantité disponible</th>
-                <th>Quantité choisie</th>
+      </div>
+      <div className="tableauglobal">
+        <table>
+          <thead>
+            <tr>
+              <th>Référence</th>
+              <th>Description</th>
+              <th>Quantité disponible</th>
+              <th>Quantité choisie</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((product) => (
+              <tr key={product.id}>
+                <td>{product.reference}</td>
+                <td>{product.description}</td>
+                <td>{product.quantity}</td>
+                <td>
+                  <div className="quantity">
+                    <input
+                      min="0"
+                      type="number"
+                      id={product.id}
+                      value={selectedItemQuantity}
+                      onChange={(e) => handleForm(e, product)}
+                    />
+                  </div>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {data.map((product) => (
-                <tr key={product.id}>
-                  <td>{product.reference}</td>
-                  <td>{product.description}</td>
-                  <td>{product.quantity}</td>
-                  <td>
-                    <div className="quantity">
-                      <input
-                        min="0"
-                        type="number"
-                        id={product.id}
-                        value={selectedItemQuantity}
-                        onChange={(e) => handleForm(e, product)}
-                      />
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
     </>
   );

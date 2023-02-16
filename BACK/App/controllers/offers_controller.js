@@ -12,7 +12,7 @@ controller.addOffer = async (req, res) => {
     res.status(400).send("Error al recibir el body");
   }
   try {
-  
+   
     const insertOffer = await dao.insertOffer(req.body);
     
     if (insertOffer)
