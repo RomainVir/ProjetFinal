@@ -2,8 +2,6 @@
 
 import db from "../mysql.js";
 
-import utils from "../../utils/utils.js";
-
 const pedidoQueries = {};
 
 //OBTENIR UN PRODUIT PAR SA REF
@@ -47,10 +45,9 @@ pedidoQueries.getPedidoByRef = async (reference) => {
 //AJOUTER UN PRODUIT
 pedidoQueries.addPedido = async (pedidoData) => {
   let conn = null;
-  console.log(dpedidonData);
   try {
     conn = await db.createConnection();
-  
+
     return await db.query(
       "INSERT INTO pedidos SET ?",
       pedidoData,
@@ -79,7 +76,6 @@ pedidoQueries.getPedido = async () => {
 };
 
 // MODIFIER UN PRODUIT PAR SON ID
-
 
 // SUPPRIMER UN PRODUIT PAR SON ID
 pedidoQueries.deletePedido = async (id) => {

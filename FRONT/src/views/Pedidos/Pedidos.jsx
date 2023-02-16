@@ -12,7 +12,7 @@ export default function Pedidos() {
 
   //FETCH PRODUITS
   async function getData() {
-    await axios("http://localhost:3000/donation/donations")
+    await axios("http://localhost:3000/pedido/pedidos")
       .then((response) => {
         setData(response.data);
       })

@@ -1,8 +1,7 @@
 import { useFormik } from "formik";
 import { FormikSchema } from "./FormikSchema.js";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 import { useParams } from "react-router-dom";
-import "./MonCompte.css";
 
 export default function ModifierUser() {
   const { authorization } = useAuthContext();
@@ -54,7 +53,7 @@ export default function ModifierUser() {
     onSubmit,
   });
   return (
-    <div className="moncompte">
+    <div>
       <form onSubmit={handleSubmit} className="formMonCompte">
         <h1>Modifier</h1>
         <div className="col-md-4">

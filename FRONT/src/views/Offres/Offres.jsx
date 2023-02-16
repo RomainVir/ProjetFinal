@@ -19,7 +19,6 @@ export default function Offres() {
   async function onSubmit(e) {
     e.preventDefault();
     const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
-    console.log(selectedListToApiFormat, "prueba");
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
