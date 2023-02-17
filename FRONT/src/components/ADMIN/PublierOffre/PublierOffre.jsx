@@ -97,6 +97,7 @@ export default function PublierOffre() {
               <th>Référence</th>
               <th>Description</th>
               <th>Quantité à donner</th>
+              <th>Quantité maximum à choisir</th>
             </tr>
           </thead>
           <tbody>
@@ -120,6 +121,9 @@ export default function PublierOffre() {
                         onChange={(e) => handleForm(e, product)}
                       />
                     </div>
+                  </td>
+                  <td>
+                    <input type="number"></input>
                   </td>
                 </tr>
               ))}

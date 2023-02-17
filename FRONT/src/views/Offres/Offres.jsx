@@ -100,13 +100,17 @@ export default function ChoisirOffre() {
                   <div className="quantity">
                     <input
                       min="0"
+                     // max={product.quantity}
                       type="number"
+                      
+                      //max= {quantity_choosen>quantityMax? `${quantityMax}`:`${quantity}`}
                       id={product.id}
                       value={selectedItemQuantity}
                       onChange={(e) => handleForm(e, product)}
                     />
                   </div>
                 </td>
+               
               </tr>
             ))}
           </tbody>

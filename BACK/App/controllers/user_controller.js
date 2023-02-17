@@ -76,6 +76,7 @@ controller.loginUser = async (req, res) => {
       email,
       role: user.role,
     });
+    
 
     // Codificamos el la clave secreta definida en la variable de entorno por requisito de la librería jose
     // y poder pasarla en el formato correcto (uint8Array) en el método .sign
