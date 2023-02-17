@@ -37,7 +37,7 @@ export default function PublierOffre() {
     });
   }
   // ajouter qty
-  function handleForm(e, product) {
+  function handleQuantity(e, product) {
     const repeatedItemIndex = selectedList.findIndex(
       (item) => item.id === product.id
     );
@@ -52,6 +52,23 @@ export default function PublierOffre() {
       ]);
     }
   }
+
+  function handleQuantityMax(e, product) {
+    const repeatedItemIndex = selectedList.findIndex(
+      (item) => item.id === product.id
+    );
+    if (repeatedItemIndex !== -1) {
+      const newList = [...selectedList];
+      newList[repeatedItemIndex].quantityMax = Number(e.target.value);
+      setSelectedList(newList);
+    } else {
+      setSelectedList([
+        ...selectedList,
+        { ...product, quantityMax: e.target.value },
+      ]);
+    }
+  }
+
   console.log(selectedList);
   //checkbox
   function handleCheckBox() {
@@ -118,12 +135,18 @@ export default function PublierOffre() {
                         type="number"
                         id={product.id}
                         value={selectedItemQuantity}
-                        onChange={(e) => handleForm(e, product)}
+                        onChange={(e) => handleQuantity(e, product)}
                       />
                     </div>
                   </td>
                   <td>
-                    <input type="number"></input>
+                    <input
+                      type="number"
+                      min="0"
+                      id={product.id}
+                      value={selectedItemQuantity}
+                      onChange={(e) => handleQuantityMax(e, product)}
+                    ></input>
                   </td>
                 </tr>
               ))}
