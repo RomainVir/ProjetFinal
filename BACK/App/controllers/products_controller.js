@@ -5,26 +5,33 @@ const __dirname = currentDir().__dirname;
 
 const controller = {};
 
-
 //AJOUTER UN PRODUIT
 controller.addProduct = async (req, res) => {
   // controlar que viene el body
-  const { reference, description, quantity, photo } = req.body;
-  if (!reference || !description || !quantity || !photo) {
-    res.status(400).send("Error al recibir el body");
+  const { reference, description, quantity, photo, quantityMax } = req.body;
+  if (!reference || !description || !quantity || !photo || !quantityMax) {
+    return res.status(400).send("Error al recibir el body");
   }
   try {
     const product = await dao.getProductByRef(reference);
     // Si existe el producto, devolvemos 409 (conflict)
     if (product.length > 0) return res.status(409).send("Producto ya existe");
+    console.log(product);
+
     // Si no existe, lo añadimos
-    const insertProduct = await dao.insertProduct(req.body);
+    let productObj = {
+      reference: req.body.reference,
+      description: req.body.description,
+      quantity: req.body.quantity,
+      quantityMax: req.body.quantityMax,
+      photo: req.body.photo,
+    };
+    const insertProduct = await dao.insertProduct(productObj);
     if (insertProduct)
       return res.send(`Producto ${reference} con id${insertProduct} añadido`);
   } catch (e) {
     console.log(e.message);
   }
-
 };
 
 //OBTENIR UN PRODUIT
@@ -106,7 +113,7 @@ controller.deleteProduct = async (req, res) => {
   }
 };
 
-//IMAGES PAS BESOIN 
+//IMAGES PAS BESOIN
 controller.uploadImage = async (req, res) => {
   try {
     if (req.files === null) return;

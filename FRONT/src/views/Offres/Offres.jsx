@@ -88,6 +88,7 @@ export default function ChoisirOffre() {
               <th>Description</th>
               <th>Quantité disponible</th>
               <th>Quantité choisie</th>
+              <th>quant max</th>
             </tr>
           </thead>
           <tbody>
@@ -100,9 +101,8 @@ export default function ChoisirOffre() {
                   <div className="quantity">
                     <input
                       min="0"
-                     // max={product.quantity}
+                      // max={product.quantity}
                       type="number"
-                      
                       //max= {quantity_choosen>quantityMax? `${quantityMax}`:`${quantity}`}
                       id={product.id}
                       value={selectedItemQuantity}
@@ -110,7 +110,7 @@ export default function ChoisirOffre() {
                     />
                   </div>
                 </td>
-               
+                <td>{product.quantityMax}</td>
               </tr>
             ))}
           </tbody>

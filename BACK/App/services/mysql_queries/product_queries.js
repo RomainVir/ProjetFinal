@@ -47,17 +47,12 @@ productQueries.getProductByRef = async (reference) => {
 productQueries.addProduct = async (productData) => {
   let conn = null;
   try {
+    console.log(productData,"data");
     conn = await db.createConnection();
-    console.log(productData);
-    let productObj = {
-      reference: productData.reference,
-      description: productData.description,
-      quantity: productData.quantity,
-      photo: productData.photo,
-    };
+    
     return await db.query(
       "INSERT INTO products SET ?",
-      productObj,
+      productData,
       "insert",
       conn
     );

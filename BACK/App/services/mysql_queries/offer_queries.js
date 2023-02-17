@@ -88,6 +88,7 @@ offerQueries.updateOffer = async (id, offerData) => {
       reference: offerData.reference,
       description: offerData.description,
       quantity: offerData.quantity,
+      quantityMax: offerData.quantityMax,
       photo: offerData.photo,
     };
     // Eliminamos los campos que no se van a modificar (no llegan por el body)

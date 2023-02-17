@@ -5,6 +5,7 @@ const initialProductState = {
   reference: "",
   description: "",
   quantity: "",
+  quantityMax: "",
   photo: "",
 };
 export default function ModifierProduit() {
@@ -75,6 +76,14 @@ export default function ModifierProduit() {
           required
           placeholder="Quantité"
           value={newProduct.quantity}
+          onChange={handleInput}
+        />
+        <input
+          type="text"
+          name="quantityMax"
+          required
+          placeholder="Quantité maximun"
+          value={newProduct.quantityMax}
           onChange={handleInput}
         />
         <input

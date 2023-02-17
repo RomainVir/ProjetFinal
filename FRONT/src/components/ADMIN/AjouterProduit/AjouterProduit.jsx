@@ -5,6 +5,7 @@ const initialProductState = {
   reference: "",
   description: "",
   quantity: "",
+  quantityMax: "",
   photo: "",
 };
 export default function AjouterProduit() {
@@ -24,7 +25,7 @@ export default function AjouterProduit() {
     e.preventDefault();
     fetch("http://localhost:3000/product/add_product", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },     
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newProduct),
     }).then((response) => {
       console.log(response.status);
@@ -75,6 +76,14 @@ export default function AjouterProduit() {
           required
           placeholder="Quantité"
           value={newProduct.quantity}
+          onChange={handleInput}
+        />
+        <input
+          type="text"
+          name="quantityMax"
+          required
+          placeholder="Quantité maximum"
+          value={newProduct.quantityMax}
           onChange={handleInput}
         />
         <input
