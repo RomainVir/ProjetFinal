@@ -30,7 +30,7 @@ export default function LogInCompany() {
       if (response.status === 401) {
         throw "Not authorized";
       } else if (response.status == 200) {
-        navigate("/donations");
+        navigate("/admin");
         Swal.fire({
           position: "center",
           icon: "success",

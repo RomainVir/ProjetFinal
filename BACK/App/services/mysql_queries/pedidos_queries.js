@@ -75,7 +75,7 @@ pedidoQueries.getPedido = async () => {
   }
 };
 
-// MODIFIER UN PRODUIT PAR SON ID
+// MODIFIER UN  PAR SON ID
 
 // SUPPRIMER UN PRODUIT PAR SON ID
 pedidoQueries.deletePedido = async (id) => {
@@ -87,6 +87,27 @@ pedidoQueries.deletePedido = async (id) => {
       "DELETE FROM pedidos WHERE id = ?",
       id,
       "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+// MODIFIER UN PRODUIT PAR SON ID
+pedidoQueries.updatePedido = async (quantity, reference) => {
+  // Conectamos con la base de datos y añadimos el usuario.
+  console.log(reference, quantity);
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+
+    return await db.query(
+      "UPDATE offers SET ? WHERE reference = ?",
+      [quantity, reference],
+      "insert",
       conn
     );
   } catch (e) {

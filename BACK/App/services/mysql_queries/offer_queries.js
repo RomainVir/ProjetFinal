@@ -49,13 +49,13 @@ offerQueries.addOffer = async (offerData) => {
   let conn = null;
   try {
     conn = await db.createConnection();
-  
-      return await db.query(
-        "INSERT INTO offers SET ?",
-        offerData,
-        "insert",
-        conn
-      );
+
+    return await db.query(
+      "INSERT INTO offers SET ?",
+      offerData,
+      "insert",
+      conn
+    );
   } catch (e) {
     throw new Error(e);
   } finally {
@@ -83,9 +83,7 @@ offerQueries.updateOffer = async (id, offerData) => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    // Creamos un objeto con los datos que nos puede llegar del usuario a modificar en la base de datos.
-    // Encriptamos la password con md5 si nos llega por el body, sino la declaramos como undefined
-    // y usamos la libreria momentjs para actualizar la fecha.
+
     let offerObj = {
       reference: offerData.reference,
       description: offerData.description,

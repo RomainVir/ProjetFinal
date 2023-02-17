@@ -94,4 +94,6 @@ dao.getPedido = async () => await pedidoQueries.getPedido();
 
 dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
 
+dao.updatePedido= async (quantity,reference)=> await pedidoQueries.updatePedido(quantity,reference)
+
 export default dao;

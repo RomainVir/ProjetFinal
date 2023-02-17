@@ -25,14 +25,14 @@ export default function ChoisirOffre() {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selectedListToApiFormat),
+      body: JSON.stringify(selectedListToApiFormat[0]),
     };
     await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
 
     Swal.fire({
       position: "center",
       icon: "success",
-      title: "Offre publiée",
+      title: "Produits ajoutés à la demande de dons",
       showConfirmButton: false,
       timer: 1800,
     });

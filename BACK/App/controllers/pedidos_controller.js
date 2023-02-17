@@ -7,14 +7,20 @@ const controller = {};
 
 //AJOUTER UN PRODUIT
 controller.addPedido = async (req, res) => {
+  const { quantity_choosen, reference } = req.body;
   // controlar que viene el body
   if (!req.body) {
     res.status(400).send("Error al recibir el body");
   }
   try {
     const insertPedido = await dao.insertPedido(req.body);
-//baisser la qte
-
+    //baisser la qte quand on ajout une produit au panier
+    const quantityOffer = await dao.getOfferByRef(reference);
+    const quantityUpdate = quantityOffer[0].quantity - quantity_choosen;
+    let quantityUp = {
+      quantity: quantityUpdate,
+    };
+    await dao.updatePedido(quantityUp, reference);
 
     if (insertPedido) return res.send(`${insertPedido}`);
   } catch (e) {

@@ -6,7 +6,7 @@ export default function PublicRoute() {
   const location = useLocation();
 
   if (auth.email) {
-    return <Navigate to="/donations" state={{ from: location }} replace />;
+    return <Navigate to="/offres" state={{ from: location }} replace />;
   }
 
   return (
