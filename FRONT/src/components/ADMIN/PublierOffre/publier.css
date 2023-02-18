@@ -11,7 +11,6 @@
   }
 
   table td{
-
     padding: 8px 56px 8px 56px;
   }
   
@@ -23,7 +22,11 @@
   }
 
   table tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #ffffff;
+  }
+
+  table tr:nth-child(odd) {
+    background-color: #f1ebeb;
   }
   
 input[type="number" i] {
@@ -34,7 +37,7 @@ input[type="number" i] {
 
 table label input {
   border: solid 1px black;
-  width: 500%;
+  width: 460%;
   height: 34px;
 }
   
@@ -57,4 +60,10 @@ transform: scale(1.4);}
 
 h1 {
   text-align: center;
+}
+input[type="text" i], input[type="email" i], input[type="password" i] {
+  /* padding: 16px; */
+  border: none;
+  border-radius: 8px;
+  /* margin: 8px; */
 }

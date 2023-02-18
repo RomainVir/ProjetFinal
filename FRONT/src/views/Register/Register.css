@@ -2,8 +2,20 @@
     display: flex;
     justify-content: center;
     margin-top: 64px;
+    width: 40%;
 }
 
+
+.formRegister {
+  background-color: #0F4588;
+  padding: 56px;
+  border:none;
+  border-radius: 8px;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 120px;
+  justify-content: center;
+}
 .formRegister input{
    width: 92%;}
 

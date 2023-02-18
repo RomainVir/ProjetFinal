@@ -1,61 +1,48 @@
-
-  
-
-.publier 
-{ background-color: #1E9BD8;
-  padding: 24px;
-  border-radius: 16px;
-  margin: 16px;}
-
-.modifierBDD {
-    background-color: #1E9BD8;
-    padding: 24px;
-    border-radius: 16px;
-    margin: 16px;
-    width: 20%;
-}
-
-.formAjouter {
-    width: 60%;
-    background-color:#0E4589;
-    padding: 64px;
-    margin-top: 62px;
-    color: white;
-    border-radius: 16px;
-  }
-
-  .formAjouter input, .formRegister input {
-    font-family: 'Poppins';
-    font-weight: bold;
-    display: block;
-    text-align: left;
-    margin: 4px;
-    padding: 16px
-  }
-
-  .formRegister {
-    width: 40%;
-    background-color:#0E4589;
-    padding: 44px;
-    margin-top: 22px;
-    color: white;
-    border-radius: 16px;
-  }
-
-
-  /*input tableau recherche*/
-  input.ant-input.css-dev-only-do-not-override-j0nf2s { 
-    background-color: white;
-    color: black;
-    border: solid 2px 1E9BD8;
-}
-
-/*bouton loupe */
-button.ant-btn.css-dev-only-do-not-override-j0nf2s.ant-btn-primary.ant-input-search-button {
-    background-color: #0E4589;
-}
-
 .modifier {
   display: flex;
   justify-content: space-evenly;
 }
+
+
+.formModifier {
+  background-color: #0F4588;
+  padding: 56px;
+  border:none;
+  border-radius: 8px;
+  color: white;
+  margin-top: 100px;
+  margin-bottom: 120px;
+}
+
+.inputModifier {
+  padding: 16px;
+  margin: 6px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+input[type="text" i], input[type="email"  i], input[type="password" i]  {
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.formModifier button {
+
+  margin-top: 32px;
+  background-color:aquamarine;
+  border: none;
+  padding: 16px 32px 16px 24px;
+  border-radius: 8px;
+  font-size: larger;
+  cursor: pointer;
+  margin-left: 30%;
+}
+
+.formModifier button:hover {
+      
+  transition: 0.7s;
+  transform: scale(1.4);}
+

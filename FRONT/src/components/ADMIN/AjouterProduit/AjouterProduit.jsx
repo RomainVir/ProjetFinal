@@ -54,7 +54,7 @@ export default function AjouterProduit() {
   return (
     <div>
       <form className="formModifier" onSubmit={ProductPublished}>
-      <h1>Ajouter un nouveau produit:</h1>
+      <h1>Ajouter un produit:</h1>
       <div className="inputModifier"> 
         <input
           type="text"
