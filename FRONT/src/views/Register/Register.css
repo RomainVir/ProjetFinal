@@ -1,68 +1,26 @@
-
-.formRegister {
-    width: 20%;
-    background-color:#2d15b8;
-    padding: 64px;
-    margin-top: 62px;
-    color: white;
-    border-radius: 16px;
-  }
-
-  .formRegister input {
-    font-size: medium;
-    font-weight: bold;
-    display: block;
-    text-align: left;
-    margin: 4px;
-    padding: 16px
-  }
-  
-  .register {
+.register{
     display: flex;
     justify-content: center;
+    margin-top: 64px;
 }
 
-  input,
-  select {
-    width: 86%;
-    background-color: rgb(255, 255, 255);
-    border: none;
-    border-radius: 2px;
-    padding: 16px;
-  }
-  
-  button {
-    width: 100%;
-    margin-bottom: 10px;
-    background-color: white;
-    border: none;
-    border-radius: 16px;
-    margin-top: 48px;
-    cursor: pointer;
-    
-    font-size: larger;
-    transition: all 0.5s;
-    padding: 17px;
-  }
-button:hover{
-  background-color: #1E9BD8;
-  color: white;
-  
-     }
-  /*
-  input.input-error,
-  select.input-error {
-    border-color: #fc8181;
-  }
-  
-  button:disabled {
-    opacity: 0.35;
-  }
-  
+.formRegister input{
+   width: 92%;}
 
-.error {
-    color: #e93737;
-    font-size: 0.75rem;
-    text-align: left;
-    margin-top: 0.25rem;
-  }
+   .formRegister button{
+
+        margin-top: 32px;
+        margin-left: 40%;
+         background-color:aquamarine;
+        border: none;
+        padding: 16px 32px 16px 24px;
+        border-radius: 8px;
+        font-size: larger;
+        cursor: pointer;
+      }
+      
+      .formRegister button:hover {
+      
+      transition: 0.7s;
+      transform: scale(1.4);}
+  

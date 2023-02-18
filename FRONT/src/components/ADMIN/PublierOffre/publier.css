@@ -1,0 +1,60 @@
+
+  .tableauglobal {
+    display: flex;
+    justify-content: center;
+  }
+  table {
+    font-family: 'Poppins';
+    margin-top: 64px;
+    border-radius: 16pxpx;
+    box-shadow: 12px 12px 72px 62px rgba(113, 173, 182, 0.2);    
+  }
+
+  table td{
+
+    padding: 8px 56px 8px 56px;
+  }
+  
+  table th {
+    padding: 12px;
+    text-align: left;
+    background-color: #0E4589;
+    color: white;
+  }
+
+  table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+input[type="number" i] {
+  padding: 4px;
+  text-align: center;
+ 
+}
+
+table label input {
+  border: solid 1px black;
+  width: 500%;
+  height: 34px;
+}
+  
+.tableauglobal button {
+  margin-top: 64px;
+  margin-left: 82px;
+   background-color:aquamarine;
+  border: none;
+  padding: 16px 32px 16px 24px;
+  border-radius: 8px;
+  font-size: larger;
+  cursor: pointer;
+}
+
+.tableauglobal button:hover {
+
+transition: 0.7s;
+transform: scale(1.4);}
+
+
+h1 {
+  text-align: center;
+}

@@ -52,9 +52,10 @@ export default function ModifierProduit() {
   }
   return (
     <div>
+    
+      <form className="formModifier" onSubmit={ProductPublished}>
       <h1>Modifier un produit:</h1>
-      <br />
-      <form className="formAjouter" onSubmit={ProductPublished}>
+      <div className="inputModifier"> 
         <input
           type="text"
           name="reference"
@@ -94,6 +95,7 @@ export default function ModifierProduit() {
           value={newProduct.photo}
           onChange={handleInput}
         />
+        </div>
         <button type="submit">Modifier</button>
       </form>
     </div>

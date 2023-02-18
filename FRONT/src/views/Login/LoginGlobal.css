@@ -1,58 +1,29 @@
-
 .loginglobal {
-    display: flex;
-    justify-content: space-evenly;
-    background-color:#1E9BD8;
+  display: flex;
+  justify-content: space-evenly;
 }
-.containerconnexion {
-    max-width: 100%;
-    margin: 0;
-    padding: 68px;
-    background-color: #1E9BD8;
-} 
 
-.loginPartenaire, .container2 {
-    width: 100%;
-    margin: 16px;
-    
-    color: white;
-    border-radius: 16px;
-  }
-
-    
-  form.admin, form.adminform {
-    padding: 24px;
-    background-color: #0E4589;
-  }
-    .loginPartenaire input, .container2 input
-    {
-        
-        width: 90%;
-        font-family: 'Poppins';
-        display: block;
-        text-align: left;
-        margin: 4px;
-        padding: 16px
-        
-      
-   }
-
-  button.enter {
-
-    width: 98%;
-    margin-bottom: 10px;
-    background-color: rgb(255, 255, 255);
-  
-    border-radius: 8px;
-   
-    cursor: pointer;
-  
-    font-size: larger;
-    transition: all 0.3s;
+.loginForm {
+  background-color: #0F4588;
+  padding: 16px;
+  border:none;
+  border-radius: 8px;
+  color: white;
+  margin-top: 184px;
 }
-   .enter button:hover {
-    background-color: #1E9BD8;
-color: white;
-border: solid 3px white;
-   }
-  
+
+.inputLogin {
+  padding: 16px;
+  margin: 16px;
+}
+
+.inputLogin button {
+
+  padding: 16px;
+  margin-top: 64px;
+  justify-content: center;
+  width: 68%;
+  background-color: ;
+}
+
+

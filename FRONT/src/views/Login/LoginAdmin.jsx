@@ -52,12 +52,13 @@ export default function LoginAdmin() {
   }
 
   return (
-    <div className="containerconnexion">
-      <div className="container2">
-        <div class="admin">
+    
+      
+        <div class="loginForm">
           <form className="adminform" onSubmit={loginUser}>
             <h1>Connexion Admin</h1>
 
+<div className="inputLogin"> 
             <div class="input-grp">
               <label for="Email"></label>
               <input
@@ -89,9 +90,10 @@ export default function LoginAdmin() {
                 Entrer
               </button>
             </div>
+            </div>
           </form>
         </div>
-      </div>
-    </div>
+     
+    
   );
 }

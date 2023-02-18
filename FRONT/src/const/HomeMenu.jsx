@@ -1,9 +1,6 @@
 export const HomeMenu = [
-  /* {
-    label: "Admin",
-    path: "/admin",
-  },*/
   { label: "Admin", path: "/admin" },
+  { label: "Admin2", path: "/admin2" },
   {
     label: "Offres",
     path: "/offres",

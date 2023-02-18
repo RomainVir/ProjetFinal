@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./publier.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -97,9 +97,11 @@ export default function PublierOffre() {
 
   return (
     <>
-      <button onClick={onSubmit}> Publier </button>
-
+     
+     <h1>Publier une offre de dons:</h1>
       <div className="tableauglobal">
+       
+        <table>
         <label htmlFor="search">
           <input
             placeholder="Cherchez un produit par référence"
@@ -108,13 +110,12 @@ export default function PublierOffre() {
             onChange={(e) => setSearch(e.target.value)}
           />
         </label>
-        <table>
           <thead>
             <tr>
               <th>Référence</th>
               <th>Description</th>
               <th>Quantité à donner</th>
-              <th>Quantité maximum à choisir</th>
+              <th>Quantité maximum par partenaire</th>
             </tr>
           </thead>
           <tbody>
@@ -152,7 +153,13 @@ export default function PublierOffre() {
               ))}
           </tbody>
         </table>
+        <div>
+          <div>
+        <button onClick={onSubmit}> Publier </button>
+        </div>
+        </div>
       </div>
+     
     </>
   );
 }

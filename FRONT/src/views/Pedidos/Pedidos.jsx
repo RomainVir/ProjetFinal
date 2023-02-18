@@ -31,9 +31,9 @@ export default function Pedidos() {
 
   return (
     <>
-      <div className="donations">
+      <div>
         <h1>Résumé de ma demande de dons:</h1>
-        <table>
+        <table className="pedidoTable" >
           <thead>
             <tr>
               <th>Référence</th>

@@ -53,8 +53,9 @@ export default function AjouterProduit() {
   }
   return (
     <div>
+      <form className="formModifier" onSubmit={ProductPublished}>
       <h1>Ajouter un nouveau produit:</h1>
-      <form className="formAjouter" onSubmit={ProductPublished}>
+      <div className="inputModifier"> 
         <input
           type="text"
           name="reference"
@@ -94,8 +95,10 @@ export default function AjouterProduit() {
           value={newProduct.photo}
           onChange={handleInput}
         />
+        </div>
         <button type="submit">Ajouter</button>
       </form>
+    
     </div>
   );
 }

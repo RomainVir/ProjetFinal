@@ -1,4 +1,4 @@
-import "./stylesOffres.css";
+import "../../components/ADMIN/PublierOffre/publier.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -77,9 +77,7 @@ export default function ChoisirOffre() {
 
   return (
     <>
-      <div className="offres">
-        <button onClick={onSubmit}> Valider </button>
-      </div>
+      <h1>Offre de dons en cours:</h1>
       <div className="tableauglobal">
         <table>
           <thead>
@@ -113,7 +111,11 @@ export default function ChoisirOffre() {
             ))}
           </tbody>
         </table>
+        <div>
+<button onClick={onSubmit}> Valider </button>
+</div>
       </div>
     </>
   );
+  
 }

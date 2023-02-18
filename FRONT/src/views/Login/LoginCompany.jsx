@@ -51,12 +51,13 @@ export default function LogInCompany() {
   }
 
   return (
-    <div className="containerconnexion">
-      <div className="container2">
-        <div class="loginPartenaire">
+   
+      
+        <div class="loginForm">
           <form className="admin" onSubmit={loginUser}>
             <h1>Connexion Partenaire</h1>
 
+            <div className="inputLogin"> 
             <div class="input-grp">
               <label for="Email"></label>
               <input
@@ -95,9 +96,10 @@ export default function LogInCompany() {
                 pour créer votre compte
               </h4>
             </div>
+            </div>
           </form>
         </div>
-      </div>
-    </div>
+      
+   
   );
 }
