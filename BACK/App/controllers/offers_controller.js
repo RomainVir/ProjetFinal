@@ -5,7 +5,7 @@ const __dirname = currentDir().__dirname;
 
 const controller = {};
 
-//AJOUTER UN PRODUIT
+//AJOUTER UN OFFRE
 controller.addOffer = async (req, res) => {
   const {reference} = req.body[0]
   console.log(req.body);
@@ -16,20 +16,18 @@ controller.addOffer = async (req, res) => {
   try {
     let insertOffer
     
-    //ne pas ajouter 2 fois le meme produit mais modifier la qté
+    //ne pas ajouter 2 fois le meme OFFRE mais modifier la qté
     const verifyProduct = await dao.getOfferByRef(reference);
     if (verifyProduct.length > 0) {
       const quantityFinal =
       req.body[0].quantity + verifyProduct[0].quantity;
       
       let quantityUpdate = { quantity: quantityFinal };
-      console.log(quantityUpdate);
       
       insertOffer= await dao.updateOffer(verifyProduct[0].id, quantityUpdate);
     } else {
       insertOffer = await dao.insertOffer(req.body)
     }
-    console.log(insertOffer);
 
     if (insertOffer) return res.send(`${insertOffer}`);
   } catch (e) {
@@ -37,7 +35,7 @@ controller.addOffer = async (req, res) => {
   }
 };
 
-//OBTENIR UN PRODUIT
+//OBTENIR UN OFFRE
 controller.getOffer = async (req, res) => {
   try {
     const offer = await dao.getOffer();
@@ -68,7 +66,7 @@ controller.updateOffer = async (req, res) => {
   }
 };
 
-// SUPPRIMER UN PRODUIT
+// SUPPRIMER UN OFFRE
 controller.deleteOffer = async (req, res) => {
   // OBTENER CABECERA Y COMPROBAR SU AUTENTICIDAD Y CADUCIDAD
   const { authorization } = req.headers;
@@ -92,11 +90,11 @@ controller.deleteOffer = async (req, res) => {
     const offer = await dao.getOfferById(req.params.id);
     // Si no existe devolvemos un 404 (not found)
     if (product.length <= 0)
-      return res.status(404).send("le produit n´existe pas");
+      return res.status(404).send("le OFFRE n´existe pas");
     // Si existe, eliminamos el usuario por el id
     await dao.deleteProduct(req.params.id);
     // Devolvemos la respuesta
-    return res.send(`Produit avec id ${req.params.id} supprimé`);
+    return res.send(`OFFRE avec id ${req.params.id} supprimé`);
   } catch (e) {
     console.log(e.message);
   }

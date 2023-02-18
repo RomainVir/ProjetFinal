@@ -2,6 +2,8 @@
   .tableauglobal {
     display: flex;
     justify-content: center;
+    margin-left: 34px;
+    margin-right: 34px;
   }
   table {
     font-family: 'Poppins';
@@ -32,13 +34,14 @@
 input[type="number" i] {
   padding: 4px;
   text-align: center;
+  width: 120px;
  
 }
 
 table label input {
-  border: solid 1px black;
-  width: 460%;
-  height: 34px;
+  border: solid 2px black;
+ width: 80%;
+  height: 4px;
 }
   
 .tableauglobal button {
@@ -59,7 +62,8 @@ transform: scale(1.4);}
 
 
 h1 {
-  text-align: center;
+  margin-top: 40px;
+  text-align: left;
 }
 input[type="text" i], input[type="email" i], input[type="password" i] {
   /* padding: 16px; */

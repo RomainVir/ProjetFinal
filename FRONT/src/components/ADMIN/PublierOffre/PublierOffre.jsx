@@ -97,25 +97,23 @@ export default function PublierOffre() {
 
   return (
     <>
-     
-     <h1>Publier une offre de dons:</h1>
+      <h1>Publier une offre de dons:</h1>
       <div className="tableauglobal">
-       
         <table>
-        <label htmlFor="search">
-          <input
-            placeholder="Cherchez un produit par référence"
-            id="search"
-            type="text"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </label>
+          <label htmlFor="search">
+            <input
+              placeholder="Cherchez un produit par référence"
+              id="search"
+              type="text"
+              onChange={(e) => setSearch(e.target.value)}
+            />
+          </label>
           <thead>
             <tr>
               <th>Référence</th>
               <th>Description</th>
               <th>Quantité à donner</th>
-              <th>Quantité maximum par partenaire</th>
+              <th>Quantité max</th>
             </tr>
           </thead>
           <tbody>
@@ -130,15 +128,13 @@ export default function PublierOffre() {
                   <td>{product.reference}</td>
                   <td>{product.description}</td>
                   <td>
-                    <div className="quantity">
-                      <input
-                        min="0"
-                        type="number"
-                        id={product.id}
-                        value={selectedItemQuantity}
-                        onChange={(e) => handleQuantity(e, product)}
-                      />
-                    </div>
+                    <input
+                      min="0"
+                      type="number"
+                      id={product.id}
+                      value={selectedItemQuantity}
+                      onChange={(e) => handleQuantity(e, product)}
+                    />
                   </td>
                   <td>
                     <input
@@ -155,11 +151,10 @@ export default function PublierOffre() {
         </table>
         <div>
           <div>
-        <button onClick={onSubmit}> Publier </button>
-        </div>
+            <button onClick={onSubmit}> Publier </button>
+          </div>
         </div>
       </div>
-     
     </>
   );
 }
