@@ -1,2 +1,3 @@
-import React, { useState } from "react";
-import { Document, Page } from "react-pdf";
+export default function DocPDF() {
+  return <h1>this is pdf</h1>;
+}

@@ -2,7 +2,7 @@ import "../../components/ADMIN/PublierOffre/publier.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import "../../components/ADMIN/PublierOffre/publier.css"
+import "../../components/ADMIN/PublierOffre/publier.css";
 export default function ChoisirOffre() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
@@ -95,31 +95,28 @@ export default function ChoisirOffre() {
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
                 <td>Photo</td>
-               
+
                 <td>{product.quantity}</td>
-               
+
                 <td>
-                 
-                    <input
-                      min="0"
-                      max={product.quantityMax}
-                      placeholder={`Maximum:${product.quantityMax}`}
-                      type="number"
-                      id={product.id}
-                      value={selectedItemQuantity}
-                      onChange={(e) => handleForm(e, product)}
-                    />
-                  
+                  <input
+                    min="0"
+                    max={product.quantityMax}
+                    placeholder={`Maximum:${product.quantityMax}`}
+                    type="number"
+                    id={product.id}
+                    value={selectedItemQuantity}
+                    onChange={(e) => handleForm(e, product)}
+                  />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
         <div>
-<button onClick={onSubmit}> Valider </button>
-</div>
+          <button onClick={onSubmit}> Valider </button>
+        </div>
       </div>
     </>
   );
-  
 }

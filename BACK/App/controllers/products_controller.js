@@ -97,8 +97,12 @@ controller.deleteProduct = async (req, res) => {
     );
     // Verificamos que seamos usuario administrador
     console.log(payload.role);
-    if (!payload.role)
+
+    if (!payload.role && payload.role != 1) {
+      //verifier chaque fois early exit
       return res.status(409).send("vous n´avez pas le statut d´administrateur");
+    }
+
     // Buscamos si el id del producto existe en la base de datos
     const product = await dao.getProductById(req.params.id);
     // Si no existe devolvemos un 404 (not found)

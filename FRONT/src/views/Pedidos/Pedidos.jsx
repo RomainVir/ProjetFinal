@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../components/ADMIN/PublierOffre/publier.css";
 
 export default function Pedidos() {
   const [data, setData] = useState(null);
@@ -31,9 +32,10 @@ export default function Pedidos() {
 
   return (
     <>
-      <div>
+      
         <h1>Résumé de ma demande de dons:</h1>
-        <table className="pedidoTable" >
+        <div className="tableauglobal">
+        <table>
           <thead>
             <tr>
               <th>Référence</th>
@@ -52,6 +54,9 @@ export default function Pedidos() {
             ))}
           </tbody>
         </table>
+        <div>
+      <button> Remplir le document </button>
+      </div>
       </div>
     </>
   );

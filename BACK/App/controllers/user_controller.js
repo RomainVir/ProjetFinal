@@ -76,7 +76,6 @@ controller.loginUser = async (req, res) => {
       email,
       role: user.role,
     });
-    
 
     // Codificamos el la clave secreta definida en la variable de entorno por requisito de la librería jose
     // y poder pasarla en el formato correcto (uint8Array) en el método .sign
@@ -86,7 +85,7 @@ controller.loginUser = async (req, res) => {
     const jwt = await jwtConstructor
       .setProtectedHeader({ alg: "HS256", typ: "JWT" })
       .setIssuedAt()
-      .setExpirationTime("1h")
+      .setExpirationTime("3h")
       .sign(encoder.encode(process.env.JWT_SECRET));
     //Si todo es correcto enviamos la respuesta. 200 OK
     return res.send({ jwt });
