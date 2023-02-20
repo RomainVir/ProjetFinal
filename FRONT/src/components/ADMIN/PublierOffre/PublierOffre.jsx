@@ -20,15 +20,26 @@ export default function PublierOffre() {
   //bouton publier
   async function onSubmit(e) {
     e.preventDefault();
-    const selectedListToApiFormat = selectedList.map(({ id, ...rest }) => rest);
+
+    const selectedListToApiFormat =
+      selectedList.length > 0 &&
+      selectedList.map(({ id, ...rest }) => {
+        if (rest.quantityMax === 0) {
+          rest.quantityMax = rest.quantity;
+        }
+        return rest;
+      });
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedListToApiFormat),
     };
-    const response = await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
-    if(response.status===200){
-            
+    const response = await fetch(
+      `http://localhost:3000/offer/add_offer`,
+      requestOptions
+    );
+
+    if (response.status === 200) {
       Swal.fire({
         position: "center",
         icon: "success",
@@ -37,7 +48,6 @@ export default function PublierOffre() {
         timer: 1800,
       });
     }
-
   }
   // ajouter qty
   function handleQuantity(e, product) {
@@ -46,8 +56,10 @@ export default function PublierOffre() {
     );
     if (repeatedItemIndex !== -1) {
       const newList = [...selectedList];
-      newList[repeatedItemIndex].quantity = Number(e.target.value);
-      setSelectedList(newList);
+      if (Number(e.target.value) !== 0) {
+        newList[repeatedItemIndex].quantity = Number(e.target.value);
+        setSelectedList(newList);
+      }
     } else {
       setSelectedList([
         ...selectedList,
@@ -74,20 +86,17 @@ export default function PublierOffre() {
 
   console.log(selectedList);
 
-
   //FETCH PRODUITS---------
   async function getProducts() {
-    try{
-      const response = await axios("http://localhost:3000/product/products")
-          setData(response.data);
-          setError(error);
-          setChargement(false);
-          
-    }catch(e){
+    try {
+      const response = await axios("http://localhost:3000/product/products");
+      setData(response.data);
+      setError(error);
+      setChargement(false);
+    } catch (e) {
       console.log(e.message);
     }
-      }
-
+  }
 
   if (chargement) return "Chargement des produits...";
   if (error)

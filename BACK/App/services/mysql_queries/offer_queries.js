@@ -83,12 +83,11 @@ offerQueries.updateOffer = async (id, offerData) => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    // Eliminamos los campos que no se van a modificar (no llegan por el body)
-    let offerObj = await utils.removeUndefinedKeys(offerData);
+ 
 
     return await db.query(
       "UPDATE offers SET ? WHERE reference = ?",
-      [offerObj, id],
+      [offerData, id],
       "insert",
       conn
     );
