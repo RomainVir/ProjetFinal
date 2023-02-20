@@ -129,7 +129,8 @@ export default function PublierOffre() {
                   <td>{product.description}</td>
                   <td>
                     <input
-                      min="0"
+                      pattern="0"
+                      min="1"
                       type="number"
                       id={product.id}
                       value={selectedItemQuantity}
@@ -138,8 +139,9 @@ export default function PublierOffre() {
                   </td>
                   <td>
                     <input
+                      pattern="0"
                       type="number"
-                      min="0"
+                      min="1"
                       id={product.id}
                       value={selectedItemQuantity}
                       onChange={(e) => handleQuantityMax(e, product)}

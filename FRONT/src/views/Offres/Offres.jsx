@@ -100,7 +100,8 @@ export default function ChoisirOffre() {
 
                 <td>
                   <input
-                    min="0"
+                    min="1"
+                    pattern="0"
                     max={product.quantityMax}
                     placeholder={`Maximum:${product.quantityMax}`}
                     type="number"

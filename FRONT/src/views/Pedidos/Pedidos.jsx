@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Pedidos() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getData();
@@ -32,9 +35,8 @@ export default function Pedidos() {
 
   return (
     <>
-      
-        <h1>Résumé de ma demande de dons:</h1>
-        <div className="tableauglobal">
+      <h1>Résumé de ma demande de dons:</h1>
+      <div className="tableauglobal">
         <table>
           <thead>
             <tr>
@@ -55,8 +57,10 @@ export default function Pedidos() {
           </tbody>
         </table>
         <div>
-      <button> Remplir le document </button>
-      </div>
+          <button>
+            <a href="/pdf">Remplir le document </a>
+          </button>
+        </div>
       </div>
     </>
   );
