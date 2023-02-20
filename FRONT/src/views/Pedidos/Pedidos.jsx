@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
-import { useNavigate } from "react-router-dom";
+import pen from "../../assets/pen.png";
+import "./pedidos.css";
 
 export default function Pedidos() {
   const [data, setData] = useState(null);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     getData();

@@ -70,10 +70,7 @@ export default function PublierOffre() {
   }
 
   console.log(selectedList);
-  //checkbox
-  function handleCheckBox() {
-    //setNumero(!numero.selected);
-  }
+
 
   //FETCH PRODUITS---------
   async function getProducts() {

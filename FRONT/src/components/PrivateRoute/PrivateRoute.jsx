@@ -10,6 +10,6 @@ export default function PrivateRoute({ allowedRoles }) {
   ) : auth?.email ? (
     <Navigate to="/unauthorized" state={{ from: location }} replace />
   ) : (
-    <Navigate to="/modifier" state={{ from: location }} replace />
+    <Navigate to="/admin" state={{ from: location }} replace />
   );
 }

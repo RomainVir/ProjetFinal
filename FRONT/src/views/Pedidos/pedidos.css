@@ -2,3 +2,13 @@ a {
         text-decoration: none;
         color: black;
 }
+
+img.pen {
+height: 12px;
+border: 1px solid black;
+padding: 4px;
+}
+
+button.pencil {
+        background-color: transparent;
+}

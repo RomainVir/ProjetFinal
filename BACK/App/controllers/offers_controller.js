@@ -7,8 +7,9 @@ const controller = {};
 
 //AJOUTER UN OFFRE
 controller.addOffer = async (req, res) => {
-  const {reference} = req.body[0]
+  const {reference } = req.body[0]
   console.log(req.body);
+
   // controlar que viene el body
   if (!req.body) {
     res.status(400).send("Error al recibir el body");

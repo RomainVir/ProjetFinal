@@ -21,7 +21,6 @@ controller.addPedido = async (req, res) => {
     const insertPedido = await dao.insertPedido(pedidoObj);
     //baisser la qte quand on ajout une produit au panier
     const quantityOffer = await dao.getOfferByRef(reference);
-    console.log(quantityOffer, "hola");
     const quantityUpdate = quantityOffer[0].quantity - quantity_choosen;
     let quantityUp = {
       quantity: quantityUpdate,
