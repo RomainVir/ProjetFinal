@@ -13,22 +13,35 @@ controller.addPedido = async (req, res) => {
     res.status(400).send("Error al recibir el body");
   }
   try {
-    let pedidoObj = {
-      reference: reference,
-      description: description,
-      quantity_choosen: quantity_choosen,
-    };
-    const insertPedido = await dao.insertPedido(pedidoObj);
-    //baisser la qte quand on ajout une produit au panier
-    const quantityOffer = await dao.getOfferByRef(reference);
-    const quantityUpdate = quantityOffer[0].quantity - quantity_choosen;
-    let quantityUp = {
-      quantity: quantityUpdate,
-    };
+    for (let i = 0; i < req.body.length; i++) {
+      const offerRef = await dao.getOfferByRef(req.body[i].reference);
+      const quantityOfferRef = offerRef[0].quantity;
+      const quantityUpdate =
+        quantityOfferRef - parseInt(req.body[i].quantity_choosen);
+      const quantityObj = {
+        quantity: quantityUpdate,
+      };
+      await dao.updateOffer(req.body[i].reference, quantityObj);
 
-    await dao.updatePedido(quantityUp, reference);
-
-    if (insertPedido) return res.send(`${insertPedido}`);
+      const pedidoRef = await dao.getPedidoByRef(req.body[i].reference);
+      if (pedidoRef.length > 0) {
+        const quantityPedidoRef = pedidoRef[0].quantity_choosen;
+        const quantityUpdatePedido =
+          parseInt(req.body[i].quantity_choosen) + parseInt(quantityPedidoRef);
+        const quantityObj = {
+          quantity_choosen: quantityUpdatePedido,
+        };
+        await dao.updatePedido(quantityObj, req.body[i].reference);
+      } else {
+        let insertObj = {
+          reference: req.body[i].reference,
+          description: req.body[i].description,
+          quantity_choosen: req.body[i].quantity_choosen,
+        };
+        console.log(insertObj);
+        await dao.insertPedido(insertObj);
+      }
+    }
   } catch (e) {
     console.log(e.message);
   }

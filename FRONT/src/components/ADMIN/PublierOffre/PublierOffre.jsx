@@ -26,15 +26,18 @@ export default function PublierOffre() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedListToApiFormat),
     };
-    await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
+    const response = await fetch(`http://localhost:3000/offer/add_offer`, requestOptions);
+    if(response.status===200){
+            
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Offre publiée",
+        showConfirmButton: false,
+        timer: 1800,
+      });
+    }
 
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Offre publiée",
-      showConfirmButton: false,
-      timer: 1800,
-    });
   }
   // ajouter qty
   function handleQuantity(e, product) {
@@ -74,18 +77,17 @@ export default function PublierOffre() {
 
   //FETCH PRODUITS---------
   async function getProducts() {
-    await axios("http://localhost:3000/product/products")
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError(error);
-      })
-      .finally(() => {
-        setChargement(false);
-      });
-  }
+    try{
+      const response = await axios("http://localhost:3000/product/products")
+          setData(response.data);
+          setError(error);
+          setChargement(false);
+          
+    }catch(e){
+      console.log(e.message);
+    }
+      }
+
 
   if (chargement) return "Chargement des produits...";
   if (error)

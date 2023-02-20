@@ -30,7 +30,7 @@ pedidoQueries.getPedidoByRef = async (reference) => {
   try {
     conn = await db.createConnection();
     return await db.query(
-      `SELECT * FROM pedidos WHERE reference = '?'`,
+      `SELECT * FROM pedidos WHERE reference = ?`,
       reference,
       "select",
       conn
@@ -105,7 +105,7 @@ pedidoQueries.updatePedido = async (quantity, reference) => {
     conn = await db.createConnection();
 
     return await db.query(
-      "UPDATE offers SET ? WHERE reference = ?",
+      "UPDATE pedidos SET ? WHERE reference = ?",
       [quantity, reference],
       "insert",
       conn

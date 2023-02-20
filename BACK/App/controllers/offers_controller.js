@@ -7,27 +7,26 @@ const controller = {};
 
 //AJOUTER UN OFFRE
 controller.addOffer = async (req, res) => {
-  const {reference } = req.body[0]
-  console.log(req.body);
-
   // controlar que viene el body
   if (!req.body) {
     res.status(400).send("Error al recibir el body");
   }
   try {
     let insertOffer
-    
-    //ne pas ajouter 2 fois le meme OFFRE mais modifier la qté
-    const verifyProduct = await dao.getOfferByRef(reference);
-    if (verifyProduct.length > 0) {
-      const quantityFinal =
-      req.body[0].quantity + verifyProduct[0].quantity;
-      
-      let quantityUpdate = { quantity: quantityFinal };
-      
-      insertOffer= await dao.updateOffer(verifyProduct[0].id, quantityUpdate);
-    } else {
-      insertOffer = await dao.insertOffer(req.body)
+    for(let i=0;i<req.body.length;i++){
+
+      //ne pas ajouter 2 fois le meme OFFRE mais modifier la qté
+      const verifyProduct = await dao.getOfferByRef(req.body[i].reference);
+      if (verifyProduct.length > 0) {
+        const quantityFinal =
+        parseInt(req.body[i].quantity)   + verifyProduct[0].quantity;
+        
+        let quantityUpdate = { quantity: quantityFinal };
+        
+        insertOffer= await dao.updateOffer(verifyProduct[0].id, quantityUpdate);
+      } else {
+        insertOffer = await dao.insertOffer(req.body[i])
+      }
     }
 
     if (insertOffer) return res.send(`${insertOffer}`);
@@ -100,5 +99,6 @@ controller.deleteOffer = async (req, res) => {
     console.log(e.message);
   }
 };
+
 
 export default controller;

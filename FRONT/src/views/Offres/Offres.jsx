@@ -25,7 +25,7 @@ export default function ChoisirOffre() {
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(selectedListToApiFormat[0]),
+      body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
 
