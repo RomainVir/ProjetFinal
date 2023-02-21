@@ -16,7 +16,7 @@ export default function ChoisirOffre() {
     getProducts();
   }, []);
 
-  //bouton publier
+  //bouton valider
   async function onSubmit(e) {
     e.preventDefault();
     const selectedListToApiFormat = selectedList.map(
@@ -28,14 +28,16 @@ export default function ChoisirOffre() {
       body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
-
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Produits ajoutés à la demande de dons",
-      showConfirmButton: false,
-      timer: 1800,
-    });
+    
+    if (response.status === 200) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Offre publiée",
+        showConfirmButton: false,
+        timer: 1800,
+      });
+    }
   }
   // ajouter qty
   function handleForm(e, product) {
