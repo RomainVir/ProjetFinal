@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
-import pen from "../../assets/pen.png";
 import "./pedidos.css";
 
 export default function Pedidos() {
@@ -56,8 +55,9 @@ export default function Pedidos() {
           </tbody>
         </table>
         <div>
+          <button>Valider ma demande</button>
           <button>
-            <a href="/pdf">Remplir le document </a>
+            <a href="/pdf">Remplir le CERFA</a>
           </button>
         </div>
       </div>

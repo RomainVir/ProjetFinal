@@ -17,7 +17,7 @@ import ModifierCompte from "../src/components/ENTREPRISE/MonCompte/TestCompte";
 import Pedidos from "./views/Pedidos/Pedidos";
 import ChoisirOffre from "./views/Offres/Offres";
 import PublierOffre from "./components/ADMIN/PublierOffre/PublierOffre";
-import DocPDF from "./views/ViewPDF/ViewPdf";
+import Pdf from "./views/ViewPDF/ViewPdf";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path={OFFRES} element={<ChoisirOffre />} />
           <Route path={MONCOMPTE} element={<ModifierCompte />} />
           <Route path={PEDIDOS} element={<Pedidos />} />
-          <Route path={PDF} element={<DocPDF />} />
+          <Route path={PDF} element={<Pdf />} />
         </Route>
       </Routes>
     </BrowserRouter>
