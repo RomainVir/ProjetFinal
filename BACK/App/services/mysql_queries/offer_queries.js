@@ -77,7 +77,7 @@ offerQueries.getOffer = async () => {
   }
 };
 
-// MODIFIER UN PRODUIT PAR SON ID
+// MODIFIER UN offre PAR SON ID
 offerQueries.updateOffer = async (id, offerData) => {
   // Conectamos con la base de datos y añadimos el usuario.
   let conn = null;
@@ -98,15 +98,15 @@ offerQueries.updateOffer = async (id, offerData) => {
   }
 };
 
-// SUPPRIMER UN PRODUIT PAR SON ID
-offerQueries.deleteOffer = async (id) => {
+// SUPPRIMER les offres
+offerQueries.deleteOffer = async () => {
   // Conectamos con la base de datos y eliminamos el usuario por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "DELETE FROM offers WHERE id = ?",
-      id,
+      "DELETE FROM offers ",
+      [],
       "select",
       conn
     );

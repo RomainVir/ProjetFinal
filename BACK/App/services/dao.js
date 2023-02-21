@@ -5,6 +5,7 @@ import userQueries from "./mysql_queries/user_queries.js";
 import productQueries from "./mysql_queries/product_queries.js";
 import offerQueries from "./mysql_queries/offer_queries.js";
 import pedidoQueries from "./mysql_queries/pedidos_queries.js";
+import deliveryQueries from "./mysql_queries/delivery_queries.js";
 
 const dao = {};
 
@@ -59,7 +60,7 @@ dao.updateProduct = async (id, productData) =>
 dao.insertOffer = async (offerData) => await offerQueries.addOffer(offerData);
 
 // SUPPRIMER UNE OFFRE
-dao.deleteOffer = async (id) => await offerQueries.deleteOffer(id);
+dao.deleteOffer = async () => await offerQueries.deleteOffer();
 
 // MODIFIER UNE OFFRE PAR SON ID
 dao.updateOffer = async (id, offerData) =>
@@ -94,6 +95,14 @@ dao.getPedido = async () => await pedidoQueries.getPedido();
 
 dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
 
-dao.updatePedido= async (quantity,reference)=> await pedidoQueries.updatePedido(quantity,reference)
+dao.updatePedido = async (quantity, reference) =>
+  await pedidoQueries.updatePedido(quantity, reference);
 
 export default dao;
+
+//-----------DELIVERIES
+
+dao.insertDelivery = async (deliveryData) =>
+  await deliveryQueries.addDelivery(deliveryData);
+
+dao.getDelivery = async () => await deliveryQueries.getDelivery();

@@ -22,4 +22,8 @@ export const HomeMenu = [
     label: "PDF",
     path: "/pdf",
   },
+  {
+  label: "Delivery",
+    path: "/deliveries",
+  },
 ];

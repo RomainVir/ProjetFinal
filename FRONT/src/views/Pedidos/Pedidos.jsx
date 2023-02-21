@@ -8,10 +8,32 @@ export default function Pedidos() {
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
 
+  //select et quantité
+  const [selectedList, setSelectedList] = useState([]); // lista de items selected
+
   useEffect(() => {
     getData();
   }, []);
 
+  // valider la demande
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    const selectedListPedidos = selectedList.map();
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    };
+    const response = await fetch(
+      `http://localhost:3000/delivery/add_delivery`,
+      requestOptions
+    );
+
+    if (response.status === 200) {
+      alert("envoyé");
+    }
+  }
   //FETCH PRODUITS
   async function getData() {
     await axios("http://localhost:3000/pedido/pedidos")
@@ -55,7 +77,7 @@ export default function Pedidos() {
           </tbody>
         </table>
         <div>
-          <button>Valider ma demande</button>
+          <button onClick={onSubmit}> Valider ma demande</button>
           <button>
             <a href="/pdf">Remplir le CERFA</a>
           </button>

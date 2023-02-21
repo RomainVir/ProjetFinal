@@ -12,4 +12,6 @@ offerRouter.post("/add_offer", offerController.addOffer);
 //obtener un offer
 offerRouter.get("/offers", offerController.getOffer);
 
+offerRouter.delete("/delete_offers", offerController.deleteOffer);
+
 export default offerRouter;

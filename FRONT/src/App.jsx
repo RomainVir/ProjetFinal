@@ -10,6 +10,7 @@ import {
   PEDIDOS,
   ADMIN2,
   PDF,
+  DELIVERIES,
 } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 import LoginGlobal from "./views/Login/LoginGlobal";
@@ -18,6 +19,7 @@ import Pedidos from "./views/Pedidos/Pedidos";
 import ChoisirOffre from "./views/Offres/Offres";
 import PublierOffre from "./components/ADMIN/PublierOffre/PublierOffre";
 import Pdf from "./views/ViewPDF/ViewPdf";
+import Deliveries from "./views/Deliveries/Deliveries";
 
 function App() {
   return (
@@ -32,6 +34,7 @@ function App() {
           <Route path={MONCOMPTE} element={<ModifierCompte />} />
           <Route path={PEDIDOS} element={<Pedidos />} />
           <Route path={PDF} element={<Pdf />} />
+          <Route path={DELIVERIES} element={<Deliveries />} />
         </Route>
       </Routes>
     </BrowserRouter>
