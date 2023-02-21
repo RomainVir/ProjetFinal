@@ -6,7 +6,7 @@ export default function Deliveries() {
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
   const day = new Date().getDate();
-  const month = new Date().getMonth()+1;
+  const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
   const date = `${day}/${month}/${year}`;
 
@@ -33,6 +33,26 @@ export default function Deliveries() {
   if (error)
     return "Oups il y a eu une erreur dans le chargement, veuillez rafraîchir la page!";
   //---------
+  //supprimer les offre via le bouton
+  async function DeleteOffers(e) {
+    e.preventDefault();
+
+    const requestOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+    };
+    await fetch(`http://localhost:3000/offer/delete_offers`, requestOptions);
+
+    if (response.status === 200) {
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Offres supprimées",
+        showConfirmButton: false,
+        timer: 1800,
+      });
+    }
+  }
 
   return (
     <>
@@ -49,13 +69,16 @@ export default function Deliveries() {
           <tbody>
             {data.map((delivery) => (
               <tr key={delivery.id}>
-                <td>{delivery.idCompany}</td>
+                <td>{delivery.companyName}</td>
                 <td>{delivery.idProduct}</td>
                 <td>{date}</td>
               </tr>
             ))}
           </tbody>
         </table>
+        <div>
+          <button onClick={DeleteOffers}>Supprimer les offres en cours</button>
+        </div>
       </div>
     </>
   );

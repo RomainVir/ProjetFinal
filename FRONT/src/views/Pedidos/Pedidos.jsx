@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
 import "./pedidos.css";
+import Swal from "sweetalert2";
 
 export default function Pedidos() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
 

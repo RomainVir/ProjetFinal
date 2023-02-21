@@ -3,8 +3,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "../../components/ADMIN/PublierOffre/publier.css";
+
 export default function ChoisirOffre() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
 
@@ -28,7 +29,7 @@ export default function ChoisirOffre() {
       body: JSON.stringify(selectedListToApiFormat),
     };
     await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
-    
+
     if (response.status === 200) {
       Swal.fire({
         position: "center",
@@ -96,7 +97,9 @@ export default function ChoisirOffre() {
               <tr key={product.id}>
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
-                <td>Photo</td>
+                <td>
+                  <img src={product.photo} height="100px"/>
+                </td>
 
                 <td>{product.quantity}</td>
 

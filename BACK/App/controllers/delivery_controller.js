@@ -38,16 +38,8 @@ controller.getDelivery = async (req, res) => {
     const delivery = await dao.getDelivery();
     console.log(delivery);
     if (delivery <= 0) return res.status(404).send("No hay deliveries");
-    let deliveryObj = [];
-    for (let i = 0; i < delivery.length; i++) {
-      const company = await dao.getUserById(delivery[i].idCompany);
-      deliveryObj[i] = {
-        delivery,
-        nombreEmpresa: company[0].companyName,
-      };
-    }
 
-    return res.send(deliveryObj);
+    return res.send(delivery);
   } catch (e) {
     console.log(e.message);
     return res.status(400).send(e.message);

@@ -28,7 +28,12 @@ deliveryQueries.getDelivery = async () => {
   let conn = null;
   try {
     conn = await db.createConnection();
-    return await db.query("SELECT * FROM deliveries ", [], "select", conn);
+    return await db.query(
+      "SELECT * FROM TestProject.deliveries join TestProject.company on deliveries.idCompany = company.id",
+      [],
+      "select",
+      conn
+    );
   } catch (e) {
     throw new Error(e);
   } finally {
