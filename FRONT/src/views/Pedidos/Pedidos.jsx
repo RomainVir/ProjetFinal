@@ -2,15 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
 import "./pedidos.css";
-import Swal from "sweetalert2";
 
 export default function Pedidos() {
   const [data, setData] = useState([]);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
-
-  //select et quantité
-  const [selectedList, setSelectedList] = useState([]); // lista de items selected
 
   useEffect(() => {
     getData();
@@ -20,11 +16,11 @@ export default function Pedidos() {
 
   async function onSubmit(e) {
     e.preventDefault();
-    const selectedListPedidos = selectedList.map();
+    const selectedListPedidos = data.map(({ reference,  ...rest }) => reference);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
+      body: JSON.stringify({ selectedListPedidos,idCompany: 27, date: new Date()}),
     };
     const response = await fetch(
       `http://localhost:3000/delivery/add_delivery`,

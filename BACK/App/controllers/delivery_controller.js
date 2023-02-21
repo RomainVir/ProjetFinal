@@ -8,25 +8,27 @@ const controller = {};
 //add a delivery
 controller.addDelivery = async (req, res) => {
   // controlar que viene el body
-  const { idCompany, idProduct, date } = req.body;
-  if (!idCompany || !idProduct) {
+  const { selectedListPedidos, idCompany, date } = req.body;
+  if (!selectedListPedidos) {
     return res.status(400).send("Error al recibir el body");
   }
   try {
     const delivery = await dao.getDelivery(idCompany);
+    console.log(delivery);
     // Si existe el deliveryo, devolvemos 409 (conflict)
     if (delivery.length > 0) return res.status(409).send("delivery ya existe");
-    console.log(delivery);
 
-    // Si no existe, lo añadimos
-    let deliveryObj = {
-      idCompany: idCompany,
-      idProduct: idProduct,
-      date: date,
-    };
-    const insertDelivery = await dao.insertDelivery(deliveryObj);
-    if (insertDelivery)
-      return res.send(`delivery con id ${insertDelivery} añadido`);
+    selectedListPedidos.map(async (idProduct) => {
+      const deliveryObj = {
+        idCompany: idCompany,
+        idProduct: idProduct,
+        date: date,
+      };
+
+      const insertDelivery = await dao.insertDelivery(deliveryObj);
+      if (insertDelivery)
+        return res.send(`delivery con id ${insertDelivery} añadido`);
+    });
   } catch (e) {
     console.log(e.message);
   }
