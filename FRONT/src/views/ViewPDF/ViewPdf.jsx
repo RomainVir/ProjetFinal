@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
-
+import { useAuthContext } from "../../context/AuthContext";
 import "./pdf.css";
-import { useParams } from "react-router-dom";
+
 
 export default function Pdf() {
   const [data, setData] = useState("");
-  const { id } = useParams();
+  const { authorization } = useAuthContext();
 
   useEffect(() => {
     async function getData() {
-      const response = await fetch(`http://localhost:3000/user/users/${id}`);
-      setData(response.json());
+      const response = await fetch(
+        `http://localhost:3000/user/users/${authorization.id}`
+      );
+      setData(await response.json());
     }
     getData();
     console.log(data);

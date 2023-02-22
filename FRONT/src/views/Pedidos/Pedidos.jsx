@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../components/ADMIN/PublierOffre/publier.css";
 import "./pedidos.css";
@@ -80,7 +81,7 @@ export default function Pedidos() {
         <div>
           <button onClick={onSubmit}> Valider ma demande</button>
           <button>
-            <a href="/pdf">Remplir le CERFA</a>
+            <Link to={"/pdf"}>Remplir le CERFA</Link>
           </button>
         </div>
       </div>
