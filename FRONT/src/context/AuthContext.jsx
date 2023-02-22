@@ -2,12 +2,9 @@ import { createContext, useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 
 const AuthContext = createContext({
-  authorization: {
-    email: null,
-    role: null,
-    id: null,
-  },
-
+  email: null,
+  role: null,
+  id: null,
   login: () => {},
   logout: () => {},
 });
@@ -24,24 +21,29 @@ export function AuthContextProvider({ children }) {
       id: null,
     }
   );
+
   const [errorMessage, setErrorMessage] = useState(null);
 
-  async function login(e, User) {
+  async function login(e, user) {
     e.preventDefault();
 
     const response = await fetch("http://localhost:3000/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(User),
+      body: JSON.stringify(user),
     });
 
     if (response.status === 200) {
       const token = await response.json();
-      setAuthorization(jwt_decode(token.jwt));
-      window.localStorage.setItem(
-        MY_AUTH_APP,
-        JSON.stringify(jwt_decode(token.jwt))
-      );
+      const decodedToken = jwt_decode(token.jwt);
+      const tokenValue = token.jwt;
+      const userData = {
+        token: tokenValue,
+        ...decodedToken,
+      };
+
+      setAuthorization(userData);
+      localStorage.setItem(MY_AUTH_APP, JSON.stringify(userData));
       setErrorMessage(null);
     } else {
       setErrorMessage(alert("Erreur dans les informations"));
@@ -49,7 +51,7 @@ export function AuthContextProvider({ children }) {
   }
 
   function logout() {
-    window.localStorage.removeItem(MY_AUTH_APP);
+    localStorage.removeItem(MY_AUTH_APP);
     setAuthorization({
       email: null,
       role: null,

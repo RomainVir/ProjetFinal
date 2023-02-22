@@ -4,13 +4,13 @@ import { useAuthContext } from "../../context/AuthContext";
 export default function LoginAdmin() {
   //LOGIN ************
   const { login } = useAuthContext();
-  const [User, setUser] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
 
   function handleLogin(e) {
-    setUser({ ...User, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   }
 
   /*async function loginUser(e) {
@@ -47,30 +47,28 @@ export default function LoginAdmin() {
   } */
 
   return (
-    <div class="loginForm">
-      <form className="adminform" onSubmit={(e) => login(e, User)}>
-        <h1>Connexion Admin</h1>
+    <div className="loginForm">
+      <form className="adminform" onSubmit={(e) => login(e,user)}>
+        <h1>Connexion </h1>
 
         <div className="inputLogin">
-          <div class="input-grp">
-            <label for="Email"></label>
+          <div className="input-grp">
             <input
               type="email"
               name="email"
               required
-              value={User.email}
+              value={user.email}
               onChange={handleLogin}
               placeholder="Email"
             />
 
-            <div class="input-grp">
-              <label for="Password"></label>
-              <div class="input-grp">
+            <div className="input-grp">
+              <div className="input-grp">
                 <input
                   type="password"
                   name="password"
                   required
-                  value={User.password}
+                  value={user.password}
                   onChange={handleLogin}
                   placeholder="Mot de passe"
                 />
@@ -78,7 +76,7 @@ export default function LoginAdmin() {
             </div>
           </div>
 
-          <div class="enter">
+          <div className="enter">
             <button className="enter" type="submit">
               Entrer
             </button>

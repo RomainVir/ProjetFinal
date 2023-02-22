@@ -32,10 +32,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index path={LOGINGLOBAL} element={<LoginGlobal />} />
-
+            <Route element={<PublicRoute />}>
+              <Route path={LOGINGLOBAL} element={<LoginGlobal />} />
+            </Route>
             <Route
-              element={<PublicRoute allowedRoles={[ROLES.Admin, ROLES.User]} />}
+              element={
+                <PrivateRoute allowedRoles={[ROLES.Admin, ROLES.User]} />
+              }
             >
               <Route path={OFFRES} element={<ChoisirOffre />} />
             </Route>

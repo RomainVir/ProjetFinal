@@ -4,8 +4,8 @@ export const HomeMenu = [
     path: "/login",
   },
   {
-    label: "Offres",
-    path: "/offres",
+    label: "Offers",
+    path: "/offers",
   },
 
   {
@@ -34,7 +34,7 @@ export const HomeMenuAdmin = [
     path: "/deliveries",
   },
   {
-    label: "Offres",
-    path: "/offres",
+    label: "Offers",
+    path: "/offers",
   },
 ];

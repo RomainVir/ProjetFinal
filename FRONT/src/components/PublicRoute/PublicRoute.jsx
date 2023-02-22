@@ -1,11 +1,11 @@
-import { Outlet, Navigate, useLocation } from "react-router-dom";
+import { Outlet, Navigate } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 
 export default function PublicRoute() {
   const { authorization } = useAuthContext();
 
   if (authorization.email) {
-    return <Navigate to="/offres" />;
+    return <Navigate to="/offers" />;
   }
 
   return (

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 export default function LogInCompany() {
   //LOGIN ************
-  const [User, setUser] = useState({
+  const [user, setUser] = useState({
     email: "",
     password: "",
   });
@@ -12,7 +12,7 @@ export default function LogInCompany() {
 
   function handleLogin(e) {
     const newLogin = {
-      ...User,
+      ...user,
       [e.target.name]: e.target.value,
     };
     setUser(newLogin);
@@ -25,7 +25,7 @@ export default function LogInCompany() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(User),
+      body: JSON.stringify(user),
     }).then((response) => {
       if (response.status === 401) {
         throw "Not authorized";
@@ -34,7 +34,7 @@ export default function LogInCompany() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Bienvenue ${User.email} !`,
+          title: `Bienvenue ${user.email} !`,
           showConfirmButton: false,
           timer: 2000,
         });
@@ -51,55 +51,47 @@ export default function LogInCompany() {
   }
 
   return (
-   
-      
-        <div class="loginForm">
-          <form className="admin" onSubmit={loginUser}>
-            <h1>Connexion Partenaire</h1>
+    <div className="loginForm">
+      <form className="admin" onSubmit={loginUser}>
+        <h1>Connexion Partenaire</h1>
 
-            <div className="inputLogin"> 
-            <div class="input-grp">
-              <label for="Email"></label>
+        <div className="inputLogin">
+          <div className="input-grp">
+            <input
+              type="email"
+              name="email"
+              required
+              value={user.email}
+              onChange={handleLogin}
+              placeholder="Entrez votre adresse email"
+            />
+
+            <div className="input-grp">
               <input
-                type="email"
-                name="email"
+                placeholder="Entrez votre mot de passe"
+                type="password"
+                name="password"
                 required
-                value={User.email}
+                value={user.password}
                 onChange={handleLogin}
-                placeholder="Entrez votre adresse email"
               />
+            </div>
+          </div>
 
-              <div class="input-grp">
-                <label for="Password"></label>
-                <div class="input-grp">
-                  <input
-                    placeholder="Entrez votre mot de passe"
-                    type="password"
-                    name="password"
-                    required
-                    value={User.password}
-                    onChange={handleLogin}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div class="enter">
-              <button className="enter" type="submit">
-                Entrer
-              </button>
-              <h4>
-                Première connexion? Cliquez{" "}
-                <span>
-                  <a href="/register">ici</a>
-                </span>{" "}
-                pour créer votre compte
-              </h4>
-            </div>
-            </div>
-          </form>
+          <div className="enter">
+            <button className="enter" type="submit">
+              Entrer
+            </button>
+            <h4>
+              Première connexion? Cliquez{" "}
+              <span>
+                <a href="/register">ici</a>
+              </span>{" "}
+              pour créer votre compte
+            </h4>
+          </div>
         </div>
-      
-   
+      </form>
+    </div>
   );
 }

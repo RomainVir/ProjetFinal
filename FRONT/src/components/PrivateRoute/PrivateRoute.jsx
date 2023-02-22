@@ -1,11 +1,11 @@
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext/";
 
 export default function PrivateRoute({ allowedRoles }) {
   const { authorization } = useAuthContext();
 
-  return allowedRoles?.includes(auth.role) ? (
-    <Layout />
+  return allowedRoles?.includes(authorization.role) ? (
+    <Outlet />
   ) : authorization?.email ? (
     <Navigate to="/unauthorized" />
   ) : (

@@ -6,7 +6,6 @@ export default function LoginGlobal() {
   return (
     <>
       <div className="loginglobal">
-        <LogInCompany />
         <LoginAdmin />
       </div>
     </>
