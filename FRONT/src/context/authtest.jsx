@@ -2,12 +2,7 @@ import { createContext, useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 
 const AuthContext = createContext({
-  authorization: {
-    email: null,
-    role: null,
-    id: null,
-  },
-
+  authorization: null,
   login: () => {},
   logout: () => {},
 });
@@ -18,21 +13,16 @@ const MY_AUTH_APP = "MY_AUTH_APP";
 
 export function AuthContextProvider({ children }) {
   const [authorization, setAuthorization] = useState(
-    JSON.parse(window.localStorage.getItem(MY_AUTH_APP)) ?? {
-      email: null,
-      role: null,
-      id: null,
-    }
+    JSON.parse(window.localStorage.getItem(MY_AUTH_APP)) ?? null
   );
   const [errorMessage, setErrorMessage] = useState(null);
 
-  async function login(e, User) {
+  async function login(e, user) {
     e.preventDefault();
-
     const response = await fetch("http://localhost:3000/user/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(User),
+      body: JSON.stringify(user),
     });
 
     if (response.status === 200) {
@@ -50,11 +40,7 @@ export function AuthContextProvider({ children }) {
 
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);
-    setAuthorization({
-      email: null,
-      role: null,
-      id: null,
-    });
+    setAuthorization(null);
   }
 
   const value = {

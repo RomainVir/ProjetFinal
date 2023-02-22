@@ -20,24 +20,27 @@ import ChoisirOffre from "./views/Offres/Offres";
 import PublierOffre from "./components/ADMIN/PublierOffre/PublierOffre";
 import Pdf from "./views/ViewPDF/ViewPdf";
 import Deliveries from "./views/Deliveries/Deliveries";
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<LoginGlobal />} />
-          <Route path={ADMIN} element={<PublierOffre />} />
-          <Route path={ADMIN2} element={<AdminBDD />} />
-          <Route path={REGISTER} element={<Normal />} />
-          <Route path={OFFRES} element={<ChoisirOffre />} />
-          <Route path={MONCOMPTE} element={<ModifierCompte />} />
-          <Route path={PEDIDOS} element={<Pedidos />} />
-          <Route path={PDF} element={<Pdf />} />
-          <Route path={DELIVERIES} element={<Deliveries />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<LoginGlobal />} />
+            <Route path={ADMIN} element={<PublierOffre />} />
+            <Route path={ADMIN2} element={<AdminBDD />} />
+            <Route path={REGISTER} element={<Normal />} />
+            <Route path={OFFRES} element={<ChoisirOffre />} />
+            <Route path={MONCOMPTE} element={<ModifierCompte />} />
+            <Route path={PEDIDOS} element={<Pedidos />} />
+            <Route path={PDF} element={<Pdf />} />
+            <Route path={DELIVERIES} element={<Deliveries />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthContextProvider>
   );
 }
 

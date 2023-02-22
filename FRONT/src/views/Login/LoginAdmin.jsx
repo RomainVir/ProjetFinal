@@ -1,24 +1,19 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function LoginAdmin() {
   //LOGIN ************
+  const { login } = useAuthContext();
   const [User, setUser] = useState({
     email: "",
     password: "",
   });
-  const navigate = useNavigate();
 
   function handleLogin(e) {
-    const newLogin = {
-      ...User,
-      [e.target.name]: e.target.value,
-    };
-    setUser(newLogin);
+    setUser({ ...User, [e.target.name]: e.target.value });
   }
 
-  async function loginUser(e) {
+  /*async function loginUser(e) {
     e.preventDefault();
     fetch("http://localhost:3000/user/login", {
       method: "POST",
@@ -49,51 +44,47 @@ export default function LoginAdmin() {
         });
       }
     });
-  }
+  } */
 
   return (
-    
-      
-        <div class="loginForm">
-          <form className="adminform" onSubmit={loginUser}>
-            <h1>Connexion Admin</h1>
+    <div class="loginForm">
+      <form className="adminform" onSubmit={(e) => login(e, User)}>
+        <h1>Connexion Admin</h1>
 
-<div className="inputLogin"> 
+        <div className="inputLogin">
+          <div class="input-grp">
+            <label for="Email"></label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={User.email}
+              onChange={handleLogin}
+              placeholder="Email"
+            />
+
             <div class="input-grp">
-              <label for="Email"></label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={User.email}
-                onChange={handleLogin}
-                placeholder="Email"
-              />
-
+              <label for="Password"></label>
               <div class="input-grp">
-                <label for="Password"></label>
-                <div class="input-grp">
-                  <input
-                    type="password"
-                    name="password"
-                    required
-                    value={User.password}
-                    onChange={handleLogin}
-                    placeholder="Mot de passe"
-                  />
-                </div>
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  value={User.password}
+                  onChange={handleLogin}
+                  placeholder="Mot de passe"
+                />
               </div>
             </div>
+          </div>
 
-            <div class="enter">
-              <button className="enter" type="submit">
-                Entrer
-              </button>
-            </div>
-            </div>
-          </form>
+          <div class="enter">
+            <button className="enter" type="submit">
+              Entrer
+            </button>
+          </div>
         </div>
-     
-    
+      </form>
+    </div>
   );
 }

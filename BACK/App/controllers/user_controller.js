@@ -18,6 +18,7 @@ controller.addUser = async (req, res) => {
     address,
     postalCode,
     town,
+    type,
     password,
   } = req.body;
 
@@ -31,6 +32,7 @@ controller.addUser = async (req, res) => {
     !address ||
     !postalCode ||
     !town ||
+    !type ||
     !password
   )
     return res.status(400).send("Error receiving body - usercontroller");
@@ -148,8 +150,11 @@ controller.updateUser = async (req, res) => {
 
 //OBTENIR users
 controller.getUser = async (req, res) => {
+  const { id } = req.params;
   try {
-    const user = await dao.getUser();
+    let user = await dao.getUser(id);
+    [user] = user;
+
     // Si no existe devolvemos un 404 (not found)
     // Devolvemos la ruta donde se encuentra la imagen
     return res.send(user);

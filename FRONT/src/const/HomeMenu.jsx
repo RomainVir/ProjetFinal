@@ -1,6 +1,4 @@
 export const HomeMenu = [
-  { label: "Admin", path: "/admin" },
-  { label: "Admin2", path: "/admin2" },
   {
     label: "Offres",
     path: "/offres",
@@ -20,10 +18,19 @@ export const HomeMenu = [
   },
   {
     label: "PDF",
-    path: "/pdf",
+    path: "/pdf/",
+  },
+];
+
+export const HomeMenuAdmin = [
+  { label: "Admin", path: "/admin" },
+  { label: "Admin2", path: "/admin2" },
+  {
+    label: "Delivery",
+    path: "/deliveries",
   },
   {
-  label: "Delivery",
-    path: "/deliveries",
+    label: "Offres",
+    path: "/offres",
   },
 ];

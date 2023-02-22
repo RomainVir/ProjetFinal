@@ -5,6 +5,8 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: left;
+    background-image: url(../../assets/head.jpeg);
+    background-size: cover;
   }
   
   .navbar-nav a { 
@@ -20,9 +22,9 @@ header {
     cursor: pointer;
     }
 
-    .container-menus {
+/* .container-menus {
         border-top: solid 1px black; 
-    }
+    } */
   
     .menu ul li
     {

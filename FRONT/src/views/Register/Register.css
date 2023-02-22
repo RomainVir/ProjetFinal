@@ -36,3 +36,6 @@
       transition: 0.7s;
       transform: scale(1.4);}
   
+      select#assos {
+        width: 380px;
+    }

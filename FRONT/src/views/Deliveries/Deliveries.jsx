@@ -63,6 +63,7 @@ export default function Deliveries() {
             <tr>
               <th>Entreprise</th>
               <th>Référence produit</th>
+              <th>Quantité</th>
               <th>Date</th>
             </tr>
           </thead>
