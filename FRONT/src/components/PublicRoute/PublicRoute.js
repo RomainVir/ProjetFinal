@@ -3,10 +3,9 @@ import { useAuthContext } from "../../context/AuthContext/AuthContext";
 
 export default function PublicRoute() {
   const { auth } = useAuthContext();
-  const location = useLocation();
 
   if (auth.email) {
-    return <Navigate to="/offres" state={{ from: location }} replace />;
+    return <Navigate to="/offres" />;
   }
 
   return (
