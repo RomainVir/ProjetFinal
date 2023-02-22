@@ -1,5 +1,6 @@
 import { createContext, useState, useContext, useMemo } from "react";
 import jwtDecode from "jwt-decode";
+import {} from react
 
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjIsImVtYWlsIjoiYWxleGRlbHRhY29AZ21haWwuY29tIiwicm9sZSI6MSwiaWF0IjoxNjc0NDg5NTM4LCJleHAiOjE2NzQ0OTMxMzh9.Lk-dZkW3GA-0zCIsf7qfd0fnjrYOwfFQvZPYTrQ0IoM";
@@ -31,6 +32,24 @@ export default function AuthContexProvider({ children }) {
   );
   const [errorMessage, setErrorMessage] = useState(null);
 
+  function login(e) {
+    e.preventDefault();
+    fetch("http://localhost:3000/user/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(User),
+    }).then((response) => {
+      if (response.status === 401) {
+        throw "Not authorized";
+      } else if (response.status == 200) {
+        navigate("/offers");
+      } else {
+        alert("Wrong credentials, try again");
+      }
+    });
+  }
 
   function logout() {
     window.localStorage.removeItem(MY_AUTH_APP);
