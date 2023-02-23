@@ -12,10 +12,7 @@ export const HomeMenu = [
     label: "Register",
     path: "/register",
   },
-  {
-    label: "Pedidos",
-    path: "/pedidos",
-  },
+  
   {
     label: "PDF",
     path: "/pdf",

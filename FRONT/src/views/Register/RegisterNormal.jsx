@@ -12,6 +12,7 @@ const initialUserState = {
   address: "",
   postalCode: "",
   town: "",
+  type: "",
   password: "",
   confirmPassword: "",
 };
@@ -123,11 +124,21 @@ export default function Normal() {
           onChange={handleInput}
         />
         <label for="asso">Selectionner votre type de structure:</label>
-        <select name="assos" id="assos">
-          <option value="association">
+        <select
+          name="type"
+          value={newUser.type}
+          onChange={handleInput}
+          id="assos"
+        >
+          <option value="vide">Choisissez votre type de structure:</option>
+          <option value="Association ou fondation reconnue d’utilité publique">
             Association ou fondation reconnue d’utilité publique
           </option>
-          <option value="fondationuniversitaire">
+          <option
+            value="Fondation universitaire ou fondation partenariale mentionnées
+            respectivement aux articles L. 719-12 et L. 719-13 du code de
+            l’éducation"
+          >
             Fondation universitaire ou fondation partenariale mentionnées
             respectivement aux articles L. 719-12 et L. 719-13 du code de
             l’éducation

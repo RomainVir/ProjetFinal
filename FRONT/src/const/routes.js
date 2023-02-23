@@ -4,7 +4,7 @@ const ADMIN2 = "admin2";
 const OFFRES = "offers";
 const MONCOMPTE = "moncompte";
 const REGISTER = "register";
-const PEDIDOS = "pedidos";
+//const PEDIDOS = "pedidos";
 const PDF = "pdf";
 const DELIVERIES = "deliveries";
 const LOGOUT = "logout";
@@ -16,7 +16,7 @@ export {
   MONCOMPTE,
   REGISTER,
   LOGINGLOBAL,
-  PEDIDOS,
+  //PEDIDOS,
   PDF,
   DELIVERIES,
   LOGOUT,

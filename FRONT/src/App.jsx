@@ -7,7 +7,7 @@ import {
   OFFRES,
   MONCOMPTE,
   REGISTER,
-  PEDIDOS,
+  //PEDIDOS,
   ADMIN2,
   PDF,
   DELIVERIES,
@@ -25,7 +25,8 @@ import { AuthContextProvider } from "./context/AuthContext";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import { ROLES } from "./const/roles.js";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Adios from "./views/Logout/Logout";
+import Adios from "./views/Logout/LogoutAdmin";
+import Adios2 from "./views/Logout/LogoutCliente";
 
 function App() {
   return (
@@ -56,9 +57,9 @@ function App() {
             <Route element={<PrivateRoute allowedRoles={[ROLES.User]} />}>
               <Route path={REGISTER} element={<Normal />} />
               <Route path={MONCOMPTE} element={<ModifierCompte />} />
-              <Route path={PEDIDOS} element={<Pedidos />} />
+
               <Route path={PDF} element={<Pdf />} />
-              <Route path={LOGOUT} element={<Adios />} />
+              <Route path={LOGOUT} element={<Adios2 />} />
             </Route>
           </Route>
         </Routes>

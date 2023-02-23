@@ -42,6 +42,7 @@ userQueries.addUser = async (userData) => {
       address: userData.address,
       postalCode: userData.postalCode,
       town: userData.town,
+      type: userData.type
     };
     return await db.query("INSERT INTO company SET ?", userObj, "insert", conn);
   } catch (e) {

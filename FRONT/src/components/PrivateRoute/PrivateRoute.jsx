@@ -9,6 +9,6 @@ export default function PrivateRoute({ allowedRoles }) {
   ) : authorization?.email ? (
     <Navigate to="/unauthorized" />
   ) : (
-    <Navigate to="/login" />
+    <Navigate to="/" />
   );
 }

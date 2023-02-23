@@ -28,7 +28,7 @@ export default function DeleteOffers(e) {
       </h1>
       <h3>
         Attention, cette action va supprimer les offres en cours, <br />
-        assurez-vous que les donatiosn sont terminées
+        assurez-vous que les donations sont terminées
       </h3>
 
       <button onClick={DeleteOffers}>Supprimer les offres en cours</button>
