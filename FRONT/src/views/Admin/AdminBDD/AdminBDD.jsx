@@ -4,9 +4,9 @@ import "./AdminBDD.css";
 export default function AdminBDD() {
   return (
     <>
-    <div className="modifier"> 
-      <AjouterProduit />
-      <ModifierProduit />
+      <div className="modifier">
+        <AjouterProduit />
+        <ModifierProduit />
       </div>
     </>
   );

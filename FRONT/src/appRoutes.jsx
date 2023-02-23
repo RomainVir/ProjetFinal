@@ -11,6 +11,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import {
   ADMIN,
   DONATIONS,
+  LOGINGLOBAL,
   MODIFIERBDD,
   MONCOMPTE,
   REGISTER,
@@ -23,7 +24,7 @@ function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<LogIn />} />
+            <Route index element={<LOGINGLOBAL />} />
             <Route path={ADMIN} element={<Admin />} />
             <Route path={REGISTER} element={<Normal />} />
 

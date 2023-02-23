@@ -11,7 +11,6 @@ import {
   ADMIN2,
   PDF,
   DELIVERIES,
-  LOGINGLOBAL,
   LOGOUT,
 } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
@@ -26,7 +25,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import { ROLES } from "./const/roles.js";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Adios from "./views/Login/Logout/Logout";
+import Adios from "./views/Logout/Logout";
 
 function App() {
   return (
