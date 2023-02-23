@@ -74,7 +74,7 @@ dao.getOffer = async () => await offerQueries.getOffer();
 
 dao.getOfferById = async (id) => await offerQueries.getOfferById(id);
 
-//-------DONATION----------
+//-------PEDIDO----------
 
 // AJOUTER UNE DONATION
 dao.insertPedido = async (pedidoData) =>
@@ -93,7 +93,7 @@ dao.getPedidoByRef = async (reference) =>
 
 dao.getPedido = async () => await pedidoQueries.getPedido();
 
-dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
+dao.getPedidoByUser = async (id) => await pedidoQueries.getPedidoByUser(id);
 
 dao.updatePedido = async (quantity, reference) =>
   await pedidoQueries.updatePedido(quantity, reference);

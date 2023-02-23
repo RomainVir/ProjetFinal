@@ -3,8 +3,8 @@ import axios from "axios";
 import { useAuthContext } from "../../context/AuthContext";
 
 export default function Deliveries() {
-  const [data, setData] = useState(null);
-  const [chargement, setChargement] = useState(true);
+  const [data, setData] = useState([]);
+
   const [error, setError] = useState(null);
   //const day = new Date().getDate();
   //const month = new Date().getMonth() + 1;
@@ -14,25 +14,23 @@ export default function Deliveries() {
   const { authorization } = useAuthContext();
 
   useEffect(() => {
+    async function getProducts() {
+      const response = await fetch(
+        `http://localhost:3000/pedido/getpedidobyuser`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ idCompany: authorization.id }),
+        }
+      );
+      const data = await response.json();
+      setData(data);
+    }
     getProducts();
   }, []);
 
   //FETCH PRODUITS---------
-  async function getProducts() {
-    await axios(`http://localhost:3000/pedido/pedidos`)
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError(error);
-      })
-      .finally(() => {
-        setChargement(false);
-      });
-  }
 
-  if (chargement) return "Chargement des demandes...";
   if (error)
     return "Oups il y a eu une erreur dans le chargement, veuillez rafraîchir la page!";
   //---------
@@ -44,17 +42,18 @@ export default function Deliveries() {
         <table>
           <thead>
             <tr>
-              <th>Référence produit</th>
+              <th>Description produit</th>
               <th>Quantité</th>
             </tr>
           </thead>
           <tbody>
-            {data.map((pedido) => (
-              <tr key={pedido.id}>
-                <td>{pedido.description}</td>
-                <td>{pedido.quantity_choosen}</td>
-              </tr>
-            ))}
+            {data.length > 0 &&
+              data.map((pedido) => (
+                <tr key={pedido.id}>
+                  <td>{pedido.description}</td>
+                  <td>{pedido.quantity_choosen}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>

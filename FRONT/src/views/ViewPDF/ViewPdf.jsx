@@ -17,7 +17,7 @@ export default function Pdf() {
     getData();
     console.log(data);
   }, []);
-
+  console.log(authorization.id);
   //FETCH DATA
 
   return (

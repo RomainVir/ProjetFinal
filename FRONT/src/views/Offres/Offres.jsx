@@ -3,11 +3,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "../../components/ADMIN/PublierOffre/publier.css";
+import { useAuthContext } from "../../context/AuthContext";
 
 export default function ChoisirOffre() {
   const [data, setData] = useState([]);
   const [chargement, setChargement] = useState(true);
   const [error, setError] = useState(null);
+  const { authorization } = useAuthContext();
 
   //select et quantité
   const [selectedItemQuantity, setSelectedItemQuantity] = useState(null); // lista de items selected
@@ -23,18 +25,22 @@ export default function ChoisirOffre() {
     const selectedListToApiFormat = selectedList.map(
       ({ id, photo, ...rest }) => rest
     );
+    console.log(selectedListToApiFormat);
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(selectedListToApiFormat),
     };
-    await fetch(`http://localhost:3000/pedido/add_pedido`, requestOptions);
+    const response = await fetch(
+      `http://localhost:3000/pedido/add_pedido`,
+      requestOptions
+    );
 
     if (response.status === 200) {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Offre publiée",
+        title: "Produits ajoutés",
         showConfirmButton: false,
         timer: 1800,
       });
@@ -53,7 +59,11 @@ export default function ChoisirOffre() {
     } else {
       setSelectedList([
         ...selectedList,
-        { ...product, quantity_choosen: e.target.value },
+        {
+          ...product,
+          quantity_choosen: e.target.value,
+          idCompany: authorization.id,
+        },
       ]);
     }
   }
@@ -98,7 +108,7 @@ export default function ChoisirOffre() {
                 <td>{product.reference}</td>
                 <td>{product.description}</td>
                 <td>
-                  <img src={product.photo} height="100px"/>
+                  <img src={product.photo} height="100px" />
                 </td>
 
                 <td>{product.quantity}</td>

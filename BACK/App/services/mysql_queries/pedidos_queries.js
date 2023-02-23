@@ -5,13 +5,13 @@ import db from "../mysql.js";
 const pedidoQueries = {};
 
 //OBTENIR UN PRODUIT PAR SA REF
-pedidoQueries.getPedidoById = async (id) => {
+pedidoQueries.getPedidoByUser = async (id) => {
   // Conectamos con la base de datos y buscamos si existe el producto por su id.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      "SELECT * FROM pedidos WHERE pedidos.id = ?",
+      "SELECT * FROM pedidos WHERE pedidos.idCompany = ?",
       id,
       "select",
       conn

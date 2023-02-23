@@ -31,23 +31,25 @@ controller.addPedido = async (req, res) => {
         const quantityObj = {
           quantity_choosen: quantityUpdatePedido,
         };
+
         await dao.updatePedido(quantityObj, req.body[i].reference);
       } else {
         let insertObj = {
           reference: req.body[i].reference,
           description: req.body[i].description,
+          idCompany: req.body[i].idCompany,
           quantity_choosen: req.body[i].quantity_choosen,
         };
-        console.log(insertObj);
         await dao.insertPedido(insertObj);
       }
     }
+    return res.status(200).send("pedido added");
   } catch (e) {
     console.log(e.message);
   }
 };
 
-//OBTENIR UN PRODUIT
+//OBTENIR tous les pedidos
 controller.getPedido = async (req, res) => {
   try {
     const pedido = await dao.getPedido();
@@ -60,4 +62,18 @@ controller.getPedido = async (req, res) => {
   }
 };
 
+//obtenir un pedido
+controller.getPedidoByUser = async (req, res) => {
+  const { idCompany } = req.body;
+  try {
+    let user = await dao.getPedidoByUser(idCompany);
+
+    // Si no existe devolvemos un 404 (not found)
+    // Devolvemos la ruta donde se encuentra la imagen
+    return res.send(user);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
 export default controller;
