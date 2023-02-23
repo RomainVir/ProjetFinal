@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import "./pdf.css";
 
-
 export default function Pdf() {
   const [data, setData] = useState("");
   const { authorization } = useAuthContext();
@@ -33,21 +32,13 @@ export default function Pdf() {
           </h1>
           <div className="formulaire">
             <h2>Bénéficiaire des versements</h2>
-            <input
-              type="text"
-              value={data.companyName}
-              placeholder="Nom ou dénomination"
-            />
+            <input type="text" value={data.companyName} />
             <div>
               <h4>Adresse</h4>
-              <input type="text" value={data.address} placeholder="Adresse" />
-              <input
-                type="text"
-                value={data.postalCode}
-                placeholder="Code Postal"
-              />
-              <input type="text" placeholder={data.town} />
-              <input type="text" placeholder="type asso" />
+              <input type="text" value={data.address} />
+              <input type="text" value={data.postalCode} />
+              <input type="text" value={data.town} />
+              <input type="text" value={data.type} />
               <br />
             </div>
             <br />
