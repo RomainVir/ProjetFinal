@@ -12,6 +12,7 @@ import {
   PDF,
   DELIVERIES,
   LOGINGLOBAL,
+  LOGOUT,
 } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 import LoginGlobal from "./views/Login/LoginGlobal";
@@ -25,6 +26,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import { ROLES } from "./const/roles.js";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import Adios from "./views/Login/Logout/Logout";
 
 function App() {
   return (
@@ -33,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route element={<PublicRoute />}>
-              <Route path={LOGINGLOBAL} element={<LoginGlobal />} />
+              <Route index element={<LoginGlobal />} />
             </Route>
             <Route
               element={
@@ -48,6 +50,7 @@ function App() {
               <Route path={ADMIN} element={<PublierOffre />} />
               <Route path={ADMIN2} element={<AdminBDD />} />
               <Route path={DELIVERIES} element={<Deliveries />} />
+              <Route path={LOGOUT} element={<Adios />} />
             </Route>
 
             {/*PRIVATE ROUTE USER*/}
@@ -56,6 +59,7 @@ function App() {
               <Route path={MONCOMPTE} element={<ModifierCompte />} />
               <Route path={PEDIDOS} element={<Pedidos />} />
               <Route path={PDF} element={<Pdf />} />
+              <Route path={LOGOUT} element={<Adios />} />
             </Route>
           </Route>
         </Routes>

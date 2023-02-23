@@ -8,13 +8,20 @@ import NavBar from "../Header/NavBar";
 
 export default function Layout() {
   const { authorization } = useAuthContext();
-  
+
   return (
     <>
       <Header />
-      <NavBar menuItems={authorization.role == 1 ? HomeMenuAdmin : HomeMenu} />
-
-      <Outlet />
+      {!authorization.email ? (
+        <Outlet />
+      ) : (
+        <>
+          <NavBar
+            menuItems={authorization.role == 1 ? HomeMenuAdmin : HomeMenu}
+          />
+          <Outlet />
+        </>
+      )}
     </>
   );
 }

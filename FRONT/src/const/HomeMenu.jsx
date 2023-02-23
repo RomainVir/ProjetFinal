@@ -1,9 +1,5 @@
 export const HomeMenu = [
   {
-    label: "Login",
-    path: "/login",
-  },
-  {
     label: "Offers",
     path: "/offers",
   },
@@ -24,6 +20,10 @@ export const HomeMenu = [
     label: "PDF",
     path: "/pdf",
   },
+  {
+    label: "Logout",
+    path: "/logout",
+  },
 ];
 
 export const HomeMenuAdmin = [
@@ -36,5 +36,9 @@ export const HomeMenuAdmin = [
   {
     label: "Offers",
     path: "/offers",
+  },
+  {
+    label: "Logout",
+    path: "/logout",
   },
 ];

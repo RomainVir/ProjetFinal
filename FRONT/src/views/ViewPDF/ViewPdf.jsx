@@ -45,7 +45,7 @@ export default function Pdf() {
             <textarea
               name="texte"
               id=""
-              cols="30"
+              cols="60"
               rows="5"
               placeholder="Commentaire..."
             ></textarea>

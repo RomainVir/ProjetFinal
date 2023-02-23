@@ -7,6 +7,7 @@ const REGISTER = "register";
 const PEDIDOS = "pedidos";
 const PDF = "pdf";
 const DELIVERIES = "deliveries";
+const LOGOUT = "logout";
 
 export {
   ADMIN,
@@ -18,4 +19,5 @@ export {
   PEDIDOS,
   PDF,
   DELIVERIES,
+  LOGOUT,
 };
