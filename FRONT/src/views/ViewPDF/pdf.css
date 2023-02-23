@@ -13,3 +13,12 @@
 .formulaire input {
     background-color: aquamarine;
 }
+
+.bilan {
+    margin-top: 64px;
+    display: flex;
+}
+
+.deliveries {
+    border: 1px solid black;
+}
