@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useAuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../../context/AuthContext";
 
-export default function Deliveries() {
+export default function Commandes() {
   const [data, setData] = useState([]);
 
   const [error, setError] = useState(null);
@@ -10,17 +10,12 @@ export default function Deliveries() {
   //const year = new Date().getFullYear();
   //const date = `${day}/${month}/${year}`;
 
-  const { authorization } = useAuthContext();
+  const { authorization } = useAuthContext;
 
   useEffect(() => {
     async function getProducts() {
       const response = await fetch(
-        `http://localhost:3000/pedido/getpedidobyuser`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ idCompany: authorization.id }),
-        }
+        `http://localhost:3000/pedido/getpedidobyusers`
       );
       const data = await response.json();
       setData(data);
@@ -41,7 +36,8 @@ export default function Deliveries() {
         <table>
           <thead>
             <tr>
-              <th>Description produit</th>
+              <th>Nom client</th>
+              <th>Référence produit</th>
               <th>Quantité</th>
             </tr>
           </thead>
@@ -49,7 +45,8 @@ export default function Deliveries() {
             {data.length > 0 &&
               data.map((pedido) => (
                 <tr key={pedido.id}>
-                  <td>{pedido.description}</td>
+                  <td>{pedido.companyName}</td>
+                  <td>{pedido.reference}</td>
                   <td>{pedido.quantity_choosen}</td>
                 </tr>
               ))}

@@ -76,4 +76,18 @@ controller.getPedidoByUser = async (req, res) => {
     return res.status(400).send(e.message);
   }
 };
+
+controller.getPedidoByUsers = async (req, res) => {
+
+  try {
+    let user = await dao.getPedidoByUsers();
+
+    // Si no existe devolvemos un 404 (not found)
+    // Devolvemos la ruta donde se encuentra la imagen
+    return res.send(user);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
 export default controller;

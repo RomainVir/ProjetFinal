@@ -6,7 +6,7 @@ const MONCOMPTE = "moncompte";
 const REGISTER = "register";
 //const PEDIDOS = "pedidos";
 const PDF = "pdf";
-const DELIVERIES = "deliveries";
+const COMMANDES = "commandes";
 const LOGOUT = "logout";
 
 export {
@@ -18,6 +18,6 @@ export {
   LOGINGLOBAL,
   //PEDIDOS,
   PDF,
-  DELIVERIES,
+  COMMANDES,
   LOGOUT,
 };

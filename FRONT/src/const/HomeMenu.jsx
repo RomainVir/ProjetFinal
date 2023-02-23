@@ -27,8 +27,8 @@ export const HomeMenuAdmin = [
   { label: "Admin", path: "/admin" },
   { label: "Admin2", path: "/admin2" },
   {
-    label: "Delivery",
-    path: "/deliveries",
+    label: "Commandes",
+    path: "/commandes",
   },
   {
     label: "Offers",

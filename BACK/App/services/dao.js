@@ -95,6 +95,8 @@ dao.getPedido = async () => await pedidoQueries.getPedido();
 
 dao.getPedidoByUser = async (id) => await pedidoQueries.getPedidoByUser(id);
 
+dao.getPedidoByUsers = async () => await pedidoQueries.getPedidoByUsers();
+
 dao.updatePedido = async (quantity, reference) =>
   await pedidoQueries.updatePedido(quantity, reference);
 

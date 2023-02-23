@@ -4,7 +4,7 @@ import db from "../mysql.js";
 
 const pedidoQueries = {};
 
-//OBTENIR UN PRODUIT PAR SA REF
+//OBTENIR UN PEDIDO PAR USER
 pedidoQueries.getPedidoByUser = async (id) => {
   // Conectamos con la base de datos y buscamos si existe el producto por su id.
   let conn = null;
@@ -13,6 +13,25 @@ pedidoQueries.getPedidoByUser = async (id) => {
     return await db.query(
       "SELECT * FROM pedidos WHERE pedidos.idCompany = ?",
       id,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+pedidoQueries.getPedidoByUsers = async () => {
+  //"SELECT * FROM TestProject.deliveries join TestProject.company on deliveries.idCompany = company.id", [], "select", conn)
+  // Conectamos con la base de datos y buscamos si existe el producto por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "SELECT company.companyName, pedidos.reference, pedidos.quantity_choosen FROM pedidos join company on pedidos.idCompany = company.id",
+      [],
       "select",
       conn
     );

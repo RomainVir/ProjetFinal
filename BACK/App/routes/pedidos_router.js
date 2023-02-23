@@ -11,4 +11,6 @@ pedidoRouter.get("/pedidos", pedidoController.getPedido);
 
 pedidoRouter.post("/getpedidobyuser", pedidoController.getPedidoByUser);
 
+pedidoRouter.get("/getpedidobyusers", pedidoController.getPedidoByUsers);
+
 export default pedidoRouter;
