@@ -11,7 +11,6 @@ export default function LoginAdmin() {
 
   function handleLogin(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
-    
   }
 
   /*async function loginUser(e) {
@@ -50,7 +49,7 @@ export default function LoginAdmin() {
   return (
     <div className="loginForm">
       <form className="adminform" onSubmit={(e) => login(e, user)}>
-        <h1>Connexion globale</h1>
+        <h1>Connexión</h1>
 
         <div className="inputLogin">
           <div className="input-grp">
@@ -71,7 +70,7 @@ export default function LoginAdmin() {
                   required
                   value={user.password}
                   onChange={handleLogin}
-                  placeholder="Mot de passe"
+                  placeholder="Contraseña"
                 />
               </div>
             </div>
@@ -79,11 +78,10 @@ export default function LoginAdmin() {
 
           <div className="enter">
             <button className="enter" type="submit">
-              Entrer
+              Entrar
             </button>
             <p>
-              Vous êtes client mais n´avez pas encore de compte, cliquer{" "}
-              <a href="/register">ici</a>{" "}
+              Puedes registrarte aquí <a href="/register">ici</a>
             </p>
           </div>
         </div>

@@ -210,7 +210,26 @@ controller.envoyerInfo = async (req, res) => {
          
         </div>
       </form>
-      `, // html body
+      <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Cantidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${
+              pedido.length > 0 &&
+              pedido.map(
+                (pedido) =>
+                  `<tr key=${pedido.id}>
+                  <td>${pedido.description}</td>
+                  <td>${pedido.quantity_choosen}</td>
+                </tr>`
+              )
+            }
+          </tbody>
+        </table>`, // html body
       });
     }
 
