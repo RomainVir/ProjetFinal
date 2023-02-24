@@ -54,7 +54,7 @@ export default function AjouterProduit() {
   return (
     <div>
       <form className="formModifier" onSubmit={ProductPublished}>
-      <h1>Ajouter un produit:</h1>
+      <h1>Añadir un producto:</h1>
       <div className="inputModifier"> 
         <input
           type="text"
@@ -96,7 +96,7 @@ export default function AjouterProduit() {
           onChange={handleInput}
         />
         </div>
-        <button type="submit">Ajouter</button>
+        <button type="submit">Añadir</button>
       </form>
     
     </div>

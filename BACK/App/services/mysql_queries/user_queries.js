@@ -132,6 +132,7 @@ userQueries.getUser = async (id) => {
   let conn = null;
   try {
     conn = await db.createConnection();
+    
     return await db.query(
       "SELECT * FROM company WHERE id= ?",
       [id],

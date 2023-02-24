@@ -46,10 +46,9 @@ controller.addUser = async (req, res) => {
     const addUser = await dao.addUser(req.body);
     if (addUser)
       await transporter.sendMail({
-        from: '"Bienvenido a proyeto" <proyectoromain@gmail.com>', // sender address
+        from: '"Bienvenido a proyecto" <proyectoromain@gmail.com>', // sender address
         to: "<romainviravaud@gmail.com>", // list of receivers
-        subject: "Hello ✔", // Subject line
-        // text: "Hello world?", // plain text body
+        subject: `Hello ${contactName}`, // Subject line
         html: "<b>HOLAAAAAA</b>", // html body
       });
     return res.send(`User ${contactName} with id: ${addUser} registered!`);
@@ -171,4 +170,55 @@ controller.getUser = async (req, res) => {
     return res.status(400).send(e.message);
   }
 };
+
+//EMAIL
+controller.envoyerInfo = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let user = await dao.getUser(id);
+    let pedido = await dao.getPedidoByUser(id);
+
+    if (user && pedido) {
+      console.log(pedido);
+      await transporter.sendMail({
+        from: '"Bienvenido a proyecto" <romainviravaud@gmail.com>', // sender address
+        to: "<romainviravaud@gmail.com>", // list of receivers
+        subject: `Hello `, // Subject line
+        html: `<form>
+        <div className="formulaire">
+          <h5>Cerfa n° 11580*04</h5>
+          <h3>
+            Reçu au titre des dons à certains organismes d’intérêt général{" "}
+            <br />
+            Article 200, 238 bis et 978 du code général des impôts (CGI)
+          </h3>
+          <h4>Bénéficiaire des versements</h4>
+          <p>${user[0].companyName} </p>
+          <div>
+            <h4>Adresse</h4>
+            <p>${user[0].address} </p>
+            <p>${user[0].postalCode} </p>
+            <p>${user[0].town} </p>
+            <h4>Type de structure:</h4>
+            <p>
+              ${user[0].type} 
+            </p>
+
+            <br />
+          </div>
+          <br />
+         
+        </div>
+      </form>
+      `, // html body
+      });
+    }
+
+    return res.send().status(200);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
+
 export default controller;

@@ -20,13 +20,23 @@ export default function Pdf() {
   console.log(authorization.id);
   //FETCH DATA
 
+  async function onSubmit(e) {
+    e.preventDefault();
+    const response = await fetch(
+      `http://localhost:3000/user/email/${authorization.id}`
+    );
+    if (response.status === 200) {
+      alert("SEND");
+    }
+  }
+
   return (
     <>
       <div className="bilan">
         {data === undefined ? (
           <p>Cargando...</p>
         ) : (
-          <form>
+          <form onSubmit={onSubmit}>
             <div className="formulaire">
               <h5>Cerfa n° 11580*04</h5>
               <h3>
@@ -35,31 +45,22 @@ export default function Pdf() {
                 Article 200, 238 bis et 978 du code général des impôts (CGI)
               </h3>
               <h4>Bénéficiaire des versements</h4>
-              <input type="text" value={data.companyName} />
+              <p>{data.companyName} </p>
               <div>
-                <h4>Adresse</h4>
-                <input type="text" value={data.address} />
-                <input type="text" value={data.postalCode} />
-                <input type="text" value={data.town} />
+                <h3>Adresse</h3>
+                <p>{data.address} </p>
+                <p> {data.postalCode} </p>
+                <p> {data.town} </p>
                 <h4>Type de structure:</h4>
-                <textarea
-                  value={data.type}
-                  id=""
-                  cols="30"
-                  rows="10"
-                ></textarea>
+                <p>{data.type}</p>
 
                 <br />
               </div>
               <br />
-              <textarea
-                name="texte"
-                id=""
-                cols="30"
-                rows="4"
-                placeholder="Commentaire..."
-              ></textarea>
             </div>
+        <button type="submit" className="envoyer">
+          Envoyer le formulaire
+        </button>
           </form>
         )}
 
@@ -68,7 +69,6 @@ export default function Pdf() {
         </div>
       </div>
       <div>
-        <button className="envoyer">Envoyer le formulaire</button>
       </div>
     </>
   );

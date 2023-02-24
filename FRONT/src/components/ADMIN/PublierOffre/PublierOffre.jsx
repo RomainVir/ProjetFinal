@@ -105,7 +105,7 @@ export default function PublierOffre() {
 
   return (
     <>
-      <h1>Publier une offre de dons:</h1>
+      <h1>Publicar une nueva donación:</h1>
       <div className="tableauglobal">
         <table>
           <label htmlFor="search">
@@ -150,6 +150,7 @@ export default function PublierOffre() {
                       onChange={(e) => handleQuantity(e, product)}
                     />
                   </td>
+
                   <td>
                     <input
                       pattern="0"

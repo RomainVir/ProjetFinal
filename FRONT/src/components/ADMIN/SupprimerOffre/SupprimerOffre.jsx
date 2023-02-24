@@ -27,15 +27,11 @@ export default function SupprimerOffre() {
   return (
     <form className="formModifier">
       <h1>
-        Supprimer les <br /> offres en cours
+        Borrar  las donaciones en curso
       </h1>
-      <h3>
-        Attention, cette action va supprimer les offres en cours, <br />
-        assurez-vous que les donations sont terminées
-      </h3>
 
       <button onClick={() => DeleteOffers()}>
-        Supprimer les offres en cours
+        Borrar
       </button>
     </form>
   );

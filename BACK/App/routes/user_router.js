@@ -19,4 +19,6 @@ userRouter.patch("/:id", userController.updateUser);
 //obtener usuarios
 userRouter.get("/users/:id", userController.getUser);
 
+userRouter.get("/email/:id", userController.envoyerInfo)
+
 export default userRouter;

@@ -7,7 +7,8 @@ const REGISTER = "register";
 //const PEDIDOS = "pedidos";
 const PDF = "misolicitud";
 const COMMANDES = "solicitudes";
-const LOGOUT = "cerrar";
+const LOGOUTADMIN = "cerraradmin";
+const LOGOUTEMPRESA="cerrarempresa"
 
 export {
   ADMIN,
@@ -19,5 +20,6 @@ export {
   //PEDIDOS,
   PDF,
   COMMANDES,
-  LOGOUT,
+  LOGOUTADMIN,
+  LOGOUTEMPRESA,
 };

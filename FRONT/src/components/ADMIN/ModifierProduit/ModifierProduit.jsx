@@ -54,7 +54,7 @@ export default function ModifierProduit() {
     <div>
     
       <form className="formModifier" onSubmit={ProductPublished}>
-      <h1>Modifier un produit:</h1>
+      <h1>Modificar un producto:</h1>
       <div className="inputModifier"> 
         <input
           type="text"

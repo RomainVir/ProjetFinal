@@ -10,8 +10,9 @@ import {
   //PEDIDOS,
   ADMIN2,
   PDF,
-  LOGOUT,
   COMMANDES,
+  LOGOUTEMPRESA,
+  LOGOUTADMIN,
 } from "./const/routes";
 import AdminBDD from "./views/Admin/AdminBDD/AdminBDD";
 import LoginGlobal from "./views/Login/LoginGlobal";
@@ -24,7 +25,6 @@ import PublicRoute from "./components/PublicRoute/PublicRoute";
 import { ROLES } from "./const/roles.js";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Adios from "./views/Logout/LogoutAdmin";
-import Adios2 from "./views/Logout/LogoutCliente";
 import Commandes from "./views/Admin/Commandes/Commandes";
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
               <Route path={ADMIN} element={<PublierOffre />} />
               <Route path={ADMIN2} element={<AdminBDD />} />
               <Route path={COMMANDES} element={<Commandes />} />
-              <Route path={LOGOUT} element={<Adios />} />
+              <Route path={LOGOUTADMIN} element={<Adios />} />
             </Route>
 
             {/*PRIVATE ROUTE USER*/}
@@ -59,7 +59,7 @@ function App() {
               <Route path={COMMANDES} element={<Commandes />} />
 
               <Route path={PDF} element={<Pdf />} />
-              <Route path={LOGOUT} element={<Adios2 />} />
+              <Route path={LOGOUTEMPRESA} element={<Adios />} />
             </Route>
           </Route>
         </Routes>

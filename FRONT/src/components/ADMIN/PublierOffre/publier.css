@@ -14,6 +14,7 @@
 
   table td{
     padding: 8px 56px 8px 56px;
+    border-top: 1px solid black;
   }
   
   table th {
@@ -23,13 +24,15 @@
     color: white;
   }
 
+ 
+
   table tr:nth-child(even) {
     background-color: #ffffff;
   }
 
-  table tr:nth-child(odd) {
+  /*table tr:nth-child(odd) {
     background-color: #f1ebeb;
-  }
+  }*/
   
 input[type="number" i] {
   padding: 4px;
