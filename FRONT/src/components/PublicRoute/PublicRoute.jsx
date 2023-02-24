@@ -5,7 +5,7 @@ export default function PublicRoute() {
   const { authorization } = useAuthContext();
 
   if (authorization.email) {
-    return <Navigate to="/offers" />;
+    return <Navigate to="/donaciones" />;
   }
 
   return (

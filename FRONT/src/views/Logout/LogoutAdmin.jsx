@@ -1,12 +1,12 @@
 import { useAuthContext } from "../../context/AuthContext";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export default function Adios() {
   const { authorization, logout } = useAuthContext();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  if(!authorization){
-    navigate("/")
+  if (!authorization) {
+    navigate("/");
   }
-  return authorization.email && <button onClick={logout}>Logout</button>;
+  return authorization.email && <button onClick={logout}>Cerrar cesión</button>;
 }

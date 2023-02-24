@@ -81,7 +81,7 @@ export default function Pedidos() {
         <div>
           <button onClick={onSubmit}> Valider ma demande</button>
           <button>
-            <Link to={"/pdf"}>Remplir le CERFA</Link>
+            <Link to={"/misolicitud"}>Remplir le CERFA</Link>
           </button>
         </div>
       </div>

@@ -1,13 +1,13 @@
 const LOGINGLOBAL = "login";
-const ADMIN = "admin";
-const ADMIN2 = "admin2";
-const OFFRES = "offers";
-const MONCOMPTE = "moncompte";
+const ADMIN = "publicar";
+const ADMIN2 = "panel";
+const OFFRES = "donaciones";
+const MONCOMPTE = "micuenta";
 const REGISTER = "register";
 //const PEDIDOS = "pedidos";
-const PDF = "pdf";
-const COMMANDES = "commandes";
-const LOGOUT = "logout";
+const PDF = "misolicitud";
+const COMMANDES = "solicitudes";
+const LOGOUT = "cerrar";
 
 export {
   ADMIN,

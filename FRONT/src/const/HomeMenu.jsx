@@ -1,41 +1,41 @@
 export const HomeMenu = [
   {
-    label: "Offers",
-    path: "/offers",
+    label: "Donaciones",
+    path: "/donaciones",
   },
 
   {
-    label: "Mon compte",
-    path: "/moncompte",
+    label: "Mi cuenta",
+    path: "/micuenta",
   },
   {
-    label: "Register",
+    label: "Suscríbete",
     path: "/register",
   },
   
   {
-    label: "PDF",
-    path: "/pdf",
+    label:"Mi solicitud",
+    path: "/misolicitud",
   },
   {
-    label: "Logout",
-    path: "/logout",
+    label:"Cerrar cesión",
+    path: "/cerrar",
   },
 ];
 
 export const HomeMenuAdmin = [
-  { label: "Admin", path: "/admin" },
-  { label: "Admin2", path: "/admin2" },
+  { label: "Publicar", path: "/publicar" },
+  { label: "Panel", path: "/panel" },
   {
-    label: "Commandes",
-    path: "/commandes",
+    label: "Solicitudes",
+    path: "/solicitudes",
   },
   {
-    label: "Offers",
-    path: "/offers",
+    label: "Donaciones",
+    path: "/donaciones",
   },
   {
-    label: "Logout",
-    path: "/logout",
+    label:"Cerrar cesión",
+    path: "/cerrar",
   },
 ];
