@@ -5,10 +5,10 @@ export default function Commandes() {
   const [data, setData] = useState([]);
 
   const [error, setError] = useState(null);
-  //const day = new Date().getDate();
-  //const month = new Date().getMonth() + 1;
-  //const year = new Date().getFullYear();
-  //const date = `${day}/${month}/${year}`;
+  const day = new Date().getDate();
+  const month = new Date().getMonth() + 1;
+  const year = new Date().getFullYear();
+  const date = `${day}/${month}/${year}`;
 
   const { authorization } = useAuthContext;
 
@@ -39,6 +39,7 @@ export default function Commandes() {
               <th>Nom client</th>
               <th>Référence produit</th>
               <th>Quantité</th>
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
@@ -48,6 +49,7 @@ export default function Commandes() {
                   <td>{pedido.companyName}</td>
                   <td>{pedido.reference}</td>
                   <td>{pedido.quantity_choosen}</td>
+                  <td>{date}</td>
                 </tr>
               ))}
           </tbody>
