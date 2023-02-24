@@ -4,6 +4,7 @@
 import dao from "../services/dao.js";
 import { SignJWT, jwtVerify } from "jose";
 import md5 from "md5";
+import { transporter } from "../config/nodemailer.js";
 
 const controller = {};
 
@@ -44,7 +45,14 @@ controller.addUser = async (req, res) => {
     // Si no existe lo registramos
     const addUser = await dao.addUser(req.body);
     if (addUser)
-      return res.send(`User ${contactName} with id: ${addUser} registered!`);
+      await transporter.sendMail({
+        from: '"Bienvenido a proyeto" <proyectoromain@gmail.com>', // sender address
+        to: "<romainviravaud@gmail.com>", // list of receivers
+        subject: "Hello ✔", // Subject line
+        // text: "Hello world?", // plain text body
+        html: "<b>HOLAAAAAA</b>", // html body
+      });
+    return res.send(`User ${contactName} with id: ${addUser} registered!`);
   } catch (e) {
     console.log(e.message);
   }

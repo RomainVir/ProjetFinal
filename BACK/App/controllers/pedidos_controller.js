@@ -62,7 +62,7 @@ controller.getPedido = async (req, res) => {
   }
 };
 
-//obtenir un pedido
+//obtenir un pedido par user connecté
 controller.getPedidoByUser = async (req, res) => {
   const { idCompany } = req.body;
   try {
@@ -77,6 +77,8 @@ controller.getPedidoByUser = async (req, res) => {
   }
 };
 
+
+//obtenir tous les pedidos
 controller.getPedidoByUsers = async (req, res) => {
 
   try {
