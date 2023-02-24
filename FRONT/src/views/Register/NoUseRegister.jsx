@@ -27,7 +27,7 @@ export default function Register() {
   return (
     <>
       <form onSubmit={handleSubmit} autoComplete="off">
-        <label htmlFor="companyName">Entreprise</label>
+        <label htmlFor="companyName">Empresa</label>
         <input
           value={values.companyName}
           onChange={handleChange}
@@ -42,7 +42,7 @@ export default function Register() {
         {errors.companyName && touched.companyName && (
           <p className="error">{errors.companyName}</p>
         )}
-        <label htmlFor="contactSurname">Nom</label>
+        <label htmlFor="contactSurname">Appelido</label>
         <input
           id="contactSurname"
           name="contactSurname"
@@ -57,7 +57,7 @@ export default function Register() {
         {errors.contactSurname && touched.contactSurname && (
           <p className="error">{errors.contactSurname}</p>
         )}
-        <label htmlFor="contactName">Prénom</label>
+        <label htmlFor="contactName">Nombre</label>
         <input
           id="contactName"
           name="contactName"
@@ -176,7 +176,7 @@ export default function Register() {
         <br />
         <br />
         <button className="submitbutton" disabled={isSubmitting} type="submit">
-          Créer votre compte
+          Crear una cuenta
         </button>
       </form>
       <pre>{JSON.stringify({ values, errors }, null, 1)}</pre>

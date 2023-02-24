@@ -19,7 +19,7 @@ export default function ModifierCompte() {
   return (
     <div className="register">
       <form className="formRegister">
-        <h1>Modifier vos informations</h1>
+        <h1>Modificar tus informaciones</h1>
         <input type="text" name="companyName" value={data.companyName} />
         <input
           type="text"

@@ -90,16 +90,16 @@ export default function ChoisirOffre() {
 
   return (
     <>
-      <h1>Offre de dons en cours:</h1>
+      <h1>Donaciones actuales:</h1>
       <div className="tableauglobal">
         <table>
           <thead>
             <tr>
-              <th>Référence</th>
-              <th>Description</th>
-              <th>Photo</th>
-              <th>Quantité disponible</th>
-              <th>Quantité choisie</th>
+              <th>Referencia</th>
+              <th>Descripción</th>
+              <th>Foto</th>
+              <th>Cantidad disponible</th>
+              <th>Quantité eligida</th>
             </tr>
           </thead>
           <tbody>
@@ -130,7 +130,7 @@ export default function ChoisirOffre() {
           </tbody>
         </table>
         <div>
-          <button onClick={onSubmit}> Valider </button>
+          <button onClick={onSubmit}> Validar </button>
         </div>
       </div>
     </>

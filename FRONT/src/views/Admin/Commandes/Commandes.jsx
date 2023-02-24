@@ -31,15 +31,15 @@ export default function Commandes() {
 
   return (
     <>
-      <h1>Demandes de dons</h1>
+      <h1>Solicitudes de donaciones</h1>
       <div className="tableauglobal">
         <table>
           <thead>
             <tr>
-              <th>Nom client</th>
-              <th>Référence produit</th>
-              <th>Quantité</th>
-              <th>Date</th>
+              <th>Empresa</th>
+              <th>Referencia</th>
+              <th>Cantidad</th>
+              <th>Fecha</th>
             </tr>
           </thead>
           <tbody>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
+import Deliveries from "../MiSolicitud/MiSolicitud";
 import "./pdf.css";
-import Deliveries from "../Deliveries/Deliveries";
 
 export default function Pdf() {
   const [data, setData] = useState("");
@@ -66,7 +66,9 @@ export default function Pdf() {
           <Deliveries />
         </div>
       </div>
-      <button className="envoyer">Envoyer le formulaire</button>
+      <div>
+        <button className="envoyer">Envoyer le formulaire</button>
+      </div>
     </>
   );
 }

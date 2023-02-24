@@ -36,13 +36,13 @@ export default function Deliveries() {
 
   return (
     <>
-      <h1>Demandes de dons</h1>
+      <h1>Mi solicitud</h1>
       <div className="tableauglobal">
         <table>
           <thead>
             <tr>
-              <th>Description produit</th>
-              <th>Quantité</th>
+              <th>Descripción</th>
+              <th>Cantidad</th>
             </tr>
           </thead>
           <tbody>

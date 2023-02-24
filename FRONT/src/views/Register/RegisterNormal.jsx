@@ -65,11 +65,11 @@ export default function Normal() {
   return (
     <div className="register">
       <form className="formRegister" onSubmit={signIn}>
-        <h1>Créer votre compte</h1>
+        <h1>Crear una cuenta</h1>
         <input
           type="text"
           name="companyName"
-          placeholder="Entreprise"
+          placeholder="Empresa"
           value={newUser.companyName}
           onChange={handleInput}
         />
@@ -77,14 +77,14 @@ export default function Normal() {
           type="text"
           name="contactSurname"
           required
-          placeholder="Nom du contact"
+          placeholder="Apellido del contacto"
           value={newUser.contactSurname}
           onChange={handleInput}
         />
         <input
           type="text"
           name="contactName"
-          placeholder="Prénom du contact"
+          placeholder="Nombre del contacto"
           value={newUser.contactName}
           onChange={handleInput}
         />
@@ -97,40 +97,40 @@ export default function Normal() {
         />
         <input
           type="text"
-          placeholder="Téléphone"
+          placeholder="Teléfono"
           name="phone"
           value={newUser.phone}
           onChange={handleInput}
         />
         <input
           type="text"
-          placeholder="Adresse"
+          placeholder="Dirección"
           name="address"
           value={newUser.address}
           onChange={handleInput}
         />
         <input
           type="text"
-          placeholder="Code Postal"
+          placeholder="Código postal"
           name="postalCode"
           value={newUser.postalCode}
           onChange={handleInput}
         />
         <input
           type="text"
-          placeholder="Ville"
+          placeholder="Ciudad"
           name="town"
           value={newUser.town}
           onChange={handleInput}
         />
-        <label for="asso">Selectionner votre type de structure:</label>
+        <label for="asso">Selectionar su tipo de estructura</label>
         <select
           name="type"
           value={newUser.type}
           onChange={handleInput}
           id="assos"
         >
-          <option value="vide">Choisissez votre type de structure:</option>
+          <option value="vide">Selectionar su tipo de estructura:</option>
           <option value="Association ou fondation reconnue d’utilité publique">
             Association ou fondation reconnue d’utilité publique
           </option>
@@ -214,7 +214,7 @@ export default function Normal() {
           onChange={handleInput}
         />
 
-        <button type="submit">Enregistrer</button>
+        <button type="submit">Crear mi cuenta</button>
       </form>
     </div>
   );

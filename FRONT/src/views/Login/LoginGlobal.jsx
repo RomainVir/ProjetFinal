@@ -1,4 +1,3 @@
-import Header from "../../components/Header/Header";
 import LoginAdmin from "./LoginAdmin";
 import "./LoginGlobal.css";
 import "../../components/Header/Header.css";

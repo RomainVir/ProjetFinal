@@ -110,7 +110,7 @@ export default function PublierOffre() {
         <table>
           <label htmlFor="search">
             <input
-              placeholder="Cherchez un produit par référence"
+              placeholder="Buscar un producto por referencia..."
               id="search"
               type="text"
               onChange={(e) => setSearch(e.target.value)}
@@ -118,10 +118,11 @@ export default function PublierOffre() {
           </label>
           <thead>
             <tr>
-              <th>Référence</th>
-              <th>Description</th>
-              <th>Quantité à donner</th>
-              <th>Quantité max</th>
+              <th>Referencia</th>
+              <th>Descripción</th>
+              <th>Photo</th>
+              <th>Cantidad a dar</th>
+              <th>Cantidad maximum eligible</th>
             </tr>
           </thead>
           <tbody>
@@ -135,6 +136,9 @@ export default function PublierOffre() {
                 <tr key={product.id}>
                   <td>{product.reference}</td>
                   <td>{product.description}</td>
+                  <td>
+                    <img src={product.photo} height="100px"></img>
+                  </td>
                   <td>
                     <input
                       pattern="0"
@@ -161,7 +165,7 @@ export default function PublierOffre() {
         </table>
         <div>
           <div>
-            <button onClick={onSubmit}> Publier </button>
+            <button onClick={onSubmit}> Publicar </button>
           </div>
         </div>
       </div>
