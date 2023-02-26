@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
+import "./commandes.css"
 
 export default function Commandes() {
   const [data, setData] = useState([]);
@@ -31,8 +32,7 @@ export default function Commandes() {
 
   return (
     <>
-      <h1>Solicitudes de donaciones</h1>
-      <div className="tableauglobal">
+      <div className="tableauCommandes">
         <table>
           <thead>
             <tr>
@@ -54,6 +54,9 @@ export default function Commandes() {
               ))}
           </tbody>
         </table>
+        <div className="enviar">
+        <button>Enviar por email</button>
+        </div>
       </div>
     </>
   );

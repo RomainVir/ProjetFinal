@@ -89,8 +89,7 @@ productQueries.updateProduct = async (id, productData) => {
     let productObj = {
       reference: productData.reference,
       description: productData.description,
-      quantity: productData.quantity,
-      photo: productData.photo,
+  
     };
     // Eliminamos los campos que no se van a modificar (no llegan por el body)
     productObj = await utils.removeUndefinedKeys(productObj);

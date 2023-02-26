@@ -1,0 +1,22 @@
+.tableauCommandes {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 86px;
+    margin-right: 86px;
+  }
+
+  .enviar button {
+  margin-top: 82px;
+  background-color:aquamarine;
+  border: none;
+  padding: 16px 32px 16px 24px;
+  border-radius: 8px;
+  font-size: larger;
+  cursor: pointer;
+  }
+
+
+  .enviar button:hover{
+  transition: 0.7s;
+  transform: scale(1.2);}

@@ -8,8 +8,8 @@ const controller = {};
 //AJOUTER UN PRODUIT
 controller.addProduct = async (req, res) => {
   // controlar que viene el body
-  const { reference, description, quantity, photo, quantityMax } = req.body;
-  if (!reference || !description || !quantity || !photo || !quantityMax) {
+  const { reference, description } = req.body;
+  if (!reference || !description ) {
     return res.status(400).send("Error al recibir el body");
   }
   try {
@@ -22,9 +22,6 @@ controller.addProduct = async (req, res) => {
     let productObj = {
       reference: req.body.reference,
       description: req.body.description,
-      quantity: req.body.quantity,
-      quantityMax: req.body.quantityMax,
-      photo: req.body.photo,
     };
     const insertProduct = await dao.insertProduct(productObj);
     if (insertProduct)

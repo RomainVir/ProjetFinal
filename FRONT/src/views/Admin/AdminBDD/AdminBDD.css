@@ -1,8 +1,8 @@
 .modifier {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
 }
-
 
 .formModifier {
   background-color: #0F4588;
@@ -14,12 +14,13 @@
   margin-bottom: 120px;
 }
 
+
+
 .inputModifier {
   padding: 16px;
   margin: 6px;
   display: flex;
   flex-direction: column;
-  
 }
 
 input[type="text" i], input[type="email"  i], input[type="password" i]  {
@@ -30,7 +31,6 @@ input[type="text" i], input[type="email"  i], input[type="password" i]  {
 }
 
 .formModifier button {
-
   margin-top: 32px;
   background-color:aquamarine;
   border: none;
@@ -41,8 +41,7 @@ input[type="text" i], input[type="email"  i], input[type="password" i]  {
   margin-left: 30%;
 }
 
-.formModifier button:hover {
-      
+.formModifier button:hover { 
   transition: 0.7s;
-  transform: scale(1.4);}
+  transform: scale(1.2);}
 

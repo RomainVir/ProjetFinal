@@ -99,7 +99,7 @@ export default function ChoisirOffre() {
               <th>Descripción</th>
               <th>Foto</th>
               <th>Cantidad disponible</th>
-              <th>Quantité eligida</th>
+              <th>Cantidad eligida</th>
             </tr>
           </thead>
           <tbody>
@@ -118,7 +118,7 @@ export default function ChoisirOffre() {
                     min="1"
                     pattern="0"
                     max={product.quantityMax}
-                    placeholder={`Maximum:${product.quantityMax}`}
+                    placeholder={`Max: ${product.quantityMax}`}
                     type="number"
                     id={product.id}
                     value={selectedItemQuantity}

@@ -2,14 +2,14 @@
   .tableauglobal {
     display: flex;
     justify-content: center;
-    margin-left: 34px;
-    margin-right: 34px;
+    margin-left: 36px;
+    margin-right: 36px;
   }
+
   table {
-    font-family: 'Poppins';
     margin-top: 64px;
-    border-radius: 16pxpx;
-    box-shadow: 12px 12px 72px 62px rgba(113, 173, 182, 0.2);    
+    border-radius: 8px;
+    box-shadow: 12px 2px 32px 32px rgba(26, 103, 211, 0.461);    
   }
 
   table td{
@@ -24,20 +24,20 @@
     color: white;
   }
 
- 
-
-  table tr:nth-child(even) {
+  /*table tr:nth-child(even) {
     background-color: #ffffff;
-  }
+  } 
 
-  /*table tr:nth-child(odd) {
+ table tr:nth-child(odd) {
     background-color: #f1ebeb;
   }*/
   
 input[type="number" i] {
-  padding: 4px;
+  padding: 12px;
+  width: 100px;
+  border: none;
   text-align: center;
-  width: 120px;
+  font-size: large;
  
 }
 
@@ -50,24 +50,24 @@ table label input {
 .tableauglobal button {
   margin-top: 64px;
   margin-left: 82px;
-   background-color:aquamarine;
-  border: none;
-  padding: 16px 32px 16px 24px;
+  margin-top: 38px;
+  padding: 16px 24px 16px 24px;
   border-radius: 8px;
-  font-size: larger;
+  font-size:large;
+  border: none;
+  background-color: aquamarine;
   cursor: pointer;
 }
 
 .tableauglobal button:hover {
 
 transition: 0.7s;
-transform: scale(1.4);}
+transform: scale(1.2);
 
 
-h1 {
-  margin-top: 40px;
-  text-align: left;
 }
+
+
 input[type="text" i], input[type="email" i], input[type="password" i] {
   /* padding: 16px; */
   border: none;

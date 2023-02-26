@@ -4,9 +4,7 @@ import Swal from "sweetalert2";
 const initialProductState = {
   reference: "",
   description: "",
-  quantity: "",
-  quantityMax: "",
-  photo: "",
+
 };
 export default function ModifierProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
@@ -71,30 +69,7 @@ export default function ModifierProduit() {
           value={newProduct.description}
           onChange={handleInput}
         />
-        <input
-          type="text"
-          name="quantity"
-          required
-          placeholder="Quantité"
-          value={newProduct.quantity}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="quantityMax"
-          required
-          placeholder="Quantité maximun"
-          value={newProduct.quantityMax}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="photo"
-          required
-          placeholder="Photo"
-          value={newProduct.photo}
-          onChange={handleInput}
-        />
+        
         </div>
         <button type="submit">Modifier</button>
       </form>

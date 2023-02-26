@@ -4,9 +4,6 @@ import Swal from "sweetalert2";
 const initialProductState = {
   reference: "",
   description: "",
-  quantity: "",
-  quantityMax: "",
-  photo: "",
 };
 export default function AjouterProduit() {
   const [newProduct, setNewProduct] = useState(initialProductState);
@@ -54,51 +51,26 @@ export default function AjouterProduit() {
   return (
     <div>
       <form className="formModifier" onSubmit={ProductPublished}>
-      <h1>Añadir un producto:</h1>
-      <div className="inputModifier"> 
-        <input
-          type="text"
-          name="reference"
-          placeholder="Référence"
-          value={newProduct.reference}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="description"
-          required
-          placeholder="Description"
-          value={newProduct.description}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="quantity"
-          required
-          placeholder="Quantité"
-          value={newProduct.quantity}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="quantityMax"
-          required
-          placeholder="Quantité maximum"
-          value={newProduct.quantityMax}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="photo"
-          required
-          placeholder="Photo"
-          value={newProduct.photo}
-          onChange={handleInput}
-        />
+        <h1>Añadir un producto:</h1>
+        <div className="inputModifier">
+          <input
+            type="text"
+            name="reference"
+            placeholder="Référence"
+            value={newProduct.reference}
+            onChange={handleInput}
+          />
+          <input
+            type="text"
+            name="description"
+            required
+            placeholder="Description"
+            value={newProduct.description}
+            onChange={handleInput}
+          />
         </div>
         <button type="submit">Añadir</button>
       </form>
-    
     </div>
   );
 }
