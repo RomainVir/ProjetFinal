@@ -49,10 +49,10 @@ export default function LoginAdmin() {
   return (
     <div className="loginForm">
       <form className="adminform" onSubmit={(e) => login(e, user)}>
-        <h1>Connexión</h1>
+        <h1 className="h1Login"> Connexión</h1>
 
         <div className="inputLogin">
-          <div className="input-grp">
+          
             <input
               type="email"
               name="email"
@@ -62,8 +62,7 @@ export default function LoginAdmin() {
               placeholder="Email"
             />
 
-            <div className="input-grp">
-              <div className="input-grp">
+          
                 <input
                   type="password"
                   name="password"
@@ -72,19 +71,16 @@ export default function LoginAdmin() {
                   onChange={handleLogin}
                   placeholder="Contraseña"
                 />
-              </div>
-            </div>
-          </div>
+            
 
-          <div className="enter">
             <button className="enter" type="submit">
               Entrar
             </button>
             <p>
-              Puedes registrarte aquí <a href="/register">ici</a>
+              Puedes registrarte aquí! <a href="/register">ici</a>
             </p>
           </div>
-        </div>
+          
       </form>
     </div>
   );

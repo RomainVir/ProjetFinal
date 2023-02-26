@@ -1,12 +1,11 @@
 .loginglobal {
   display: flex;
-  
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .loginForm {
   background-color: #0F4588;
-  padding: 16px;
+  padding: 68px;
   border:none;
   border-radius: 8px;
   color: white;
@@ -14,17 +13,35 @@
 }
 
 .inputLogin {
-  padding: 16px;
-  margin: 16px;
+  padding-top: 16px;
+  margin: 46px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.h1Login {
+  margin-top: 6px;
+  text-align: center;
+  font-size: xx-large;
+}
+.inputLogin input {
+  background-color: white;
+  font-size: medium;
 }
 
 .inputLogin button {
-
-  padding: 16px;
-  margin-top: 64px;
-  justify-content: center;
-  width: 68%;
-  background-color: ;
+margin-top: 38px;
+padding: 16px;
+border-radius: 8px;
+font-size:large;
+border: none;
+background-color: aquamarine;
+cursor: pointer;
 }
 
 
+.inputLogin p {
+
+  margin-top: 18px;
+}
