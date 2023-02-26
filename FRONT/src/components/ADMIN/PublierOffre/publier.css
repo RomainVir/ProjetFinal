@@ -38,7 +38,7 @@ input[type="number" i] {
   border: none;
   text-align: center;
   font-size: large;
- 
+
 }
 
 table label input {
@@ -63,8 +63,6 @@ table label input {
 
 transition: 0.7s;
 transform: scale(1.2);
-
-
 }
 
 
@@ -73,4 +71,9 @@ input[type="text" i], input[type="email" i], input[type="password" i] {
   border: none;
   border-radius: 8px;
   /* margin: 8px; */
+}
+
+.h1Publier {
+  margin-top: 84px;
+  margin-left: 50px;
 }

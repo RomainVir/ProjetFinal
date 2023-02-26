@@ -55,7 +55,7 @@ export default function Commandes() {
           </tbody>
         </table>
         <div className="enviar">
-        <button>Enviar por email</button>
+        <button>Recibir por email</button>
         </div>
       </div>
     </>

@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "../../components/ADMIN/PublierOffre/publier.css";
 import { useAuthContext } from "../../context/AuthContext";
+import "../../components/ADMIN/PublierOffre/publier.css";
 
 export default function ChoisirOffre() {
   const [data, setData] = useState([]);
@@ -90,7 +91,7 @@ export default function ChoisirOffre() {
 
   return (
     <>
-      <h1>Donaciones actuales:</h1>
+      <h1 className="h1Publier"> Donaciones actuales</h1>
       <div className="tableauglobal">
         <table>
           <thead>

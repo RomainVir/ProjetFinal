@@ -105,7 +105,7 @@ export default function PublierOffre() {
 
   return (
     <>
-      <h1> Publicar une nueva donación</h1>
+      <h1 className="h1Publier"> Publicar une nueva donación</h1>
       <div className="tableauglobal">
         <table>
           <label htmlFor="search">

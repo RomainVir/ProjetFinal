@@ -56,7 +56,7 @@ export default function AjouterProduit() {
           <input
             type="text"
             name="reference"
-            placeholder="Référence"
+            placeholder="Referencia"
             value={newProduct.reference}
             onChange={handleInput}
           />
@@ -64,7 +64,7 @@ export default function AjouterProduit() {
             type="text"
             name="description"
             required
-            placeholder="Description"
+            placeholder="Descricpción"
             value={newProduct.description}
             onChange={handleInput}
           />

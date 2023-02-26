@@ -52,12 +52,12 @@ export default function ModifierProduit() {
     <div>
     
       <form className="formModifier" onSubmit={ProductPublished}>
-      <h1>Modificar un producto:</h1>
+      <h1>Borrar un producto:</h1>
       <div className="inputModifier"> 
         <input
           type="text"
           name="reference"
-          placeholder="Référence"
+          placeholder="Referencia"
           value={newProduct.reference}
           onChange={handleInput}
         />
@@ -65,13 +65,13 @@ export default function ModifierProduit() {
           type="text"
           name="description"
           required
-          placeholder="Description"
+          placeholder="Descripción"
           value={newProduct.description}
           onChange={handleInput}
         />
         
         </div>
-        <button type="submit">Modifier</button>
+        <button type="submit">Modificar</button>
       </form>
     </div>
   );

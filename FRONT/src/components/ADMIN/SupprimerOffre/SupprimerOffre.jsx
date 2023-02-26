@@ -1,9 +1,8 @@
 //supprimer les offre via le bouton
-
+import "./supprimer.css";
 import Swal from "sweetalert2";
 export default function SupprimerOffre() {
   async function DeleteOffers() {
-    console.log("entraaaaaaaa");
     const requestOptions = {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
@@ -13,26 +12,55 @@ export default function SupprimerOffre() {
       requestOptions
     );
 
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false
+    })
     if (response.status === 200) {
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "Offres supprimées",
-        showConfirmButton: false,
-        timer: 1800,
-      });
+      
+      swalWithBootstrapButtons.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+      }).then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          swalWithBootstrapButtons.fire(
+            'Cancelled',
+            'Your imaginary file is safe :)',
+            'error'
+          )
+        }
+      })
     }
   }
 
   return (
-    <form className="formModifier">
-      <h1>
-        Borrar  las <br /> donaciones en curso
-      </h1>
+    <div>
+      <form className="formSupprimer">
+        <h1>
+          Eliminar las <br /> donaciones <br /> en curso:
+        </h1>
 
-      <button onClick={() => DeleteOffers()}>
-        Borrar
-      </button>
-    </form>
+        <button className="delete" onClick={() => DeleteOffers()}>
+          Borrar
+        </button>
+      </form>
+    </div>
   );
 }
