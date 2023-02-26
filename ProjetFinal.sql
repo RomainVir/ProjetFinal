@@ -1,1 +1,1 @@
-SELECT * FROM TestProject.company;
+SELECT * FROM TestProject.Products;
