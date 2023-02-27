@@ -56,7 +56,7 @@ table label input {
  font-size: x-large;
   padding: 16px 24px 16px 24px;
   border-radius: 8px;
-  font-size:large;
+
   border: none;
   background-color: aquamarine;
   cursor: pointer;
@@ -69,7 +69,6 @@ transform: scale(1.2);
 
 }
 
-
 input[type="text" i], input[type="email" i], input[type="password" i] {
   /* padding: 16px; */
   border: none;
@@ -80,4 +79,9 @@ input[type="text" i], input[type="email" i], input[type="password" i] {
 .h1Publier {
   margin-top: 84px;
   margin-left: 50px;
+}
+input#search {
+  font-size: medium;
+  padding: 16px;
+  width: 260px;
 }

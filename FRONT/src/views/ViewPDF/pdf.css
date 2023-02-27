@@ -32,10 +32,10 @@
 
 button.envoyer {
     margin-top: 16px;
-    margin-left: 82px;
+    margin-left: 200px;
     padding: 16px 24px 16px 24px;
     border-radius: 8px;
-    font-size:large;
+    font-size:x-large;
     border: none;
     background-color: aquamarine;
     cursor: pointer;

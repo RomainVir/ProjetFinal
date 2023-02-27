@@ -8,6 +8,7 @@ export default function Pdf() {
   const [data, setData] = useState("");
   const { authorization } = useAuthContext();
   const navigate = useNavigate();
+  const [buttonChange, setButtonChange] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -28,7 +29,7 @@ export default function Pdf() {
       `http://localhost:3000/user/email/${authorization.id}`
     );
     if (response.status === 200) {
-      navigate("/cerrarempresa");
+      setButtonChange(true);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -62,12 +63,16 @@ export default function Pdf() {
               <h4>Type de structure:</h4>
               <p>{data.type}</p>
               <h4>Firma:</h4>
-              <input type="checkbox" />
+              <input type="checkbox" required />
               <br />
             </div>
-            <button type="submit" className="envoyer">
-              Enviar mi solicitud
-            </button>
+            {buttonChange ? (
+              <h2>Solicitud enviada</h2>
+            ) : (
+              <button type="submit" className="envoyer">
+                Enviar mi solicitud
+              </button>
+            )}
           </form>
         )}
 
