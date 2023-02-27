@@ -1,5 +1,5 @@
 .formmodifier {
-    background-color: #0F4588;
+    background-color: #2d50e6;
     padding: 56px;
     border:none;
     border-radius: 8px;
@@ -18,7 +18,7 @@
     border-radius: 8px;
     font-size: larger;
     cursor: pointer;
-    margin-left: 35%;
+    margin-left: 27%;
 }
 
 .formModifier button:hover {
