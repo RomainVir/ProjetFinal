@@ -41,7 +41,7 @@ export default function ChoisirOffre() {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Produits ajoutés",
+        title: "Añadido a la solicitud",
         showConfirmButton: false,
         timer: 1800,
       });

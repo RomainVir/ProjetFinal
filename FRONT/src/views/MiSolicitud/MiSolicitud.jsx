@@ -36,7 +36,6 @@ export default function Deliveries() {
 
   return (
     <>
-      <h1>Mi solicitud</h1>
       <div className="tableauglobal">
         <table>
           <thead>

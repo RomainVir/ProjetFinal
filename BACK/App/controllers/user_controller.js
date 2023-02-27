@@ -181,12 +181,15 @@ controller.envoyerInfo = async (req, res) => {
     if (user && pedido) {
       console.log(pedido);
       await transporter.sendMail({
-        from: '"Bienvenido a proyecto" <romainviravaud@gmail.com>', // sender address
-        to: "<romainviravaud@gmail.com>", // list of receivers
-        subject: `Hello `, // Subject line
-        html: `<form>
+        from: '"Gigamedia" <romainviravaud@gmail.com>', // sender address
+        to: "<proyectoromain@gmail.com>", // list of receivers
+        subject: `Vuestra solicitud de donación  `, // Subject line
+        html: `
+        <h2>Bonjour ${user[0].contactName} ! </h2>
+        <br/>
+        <form>
         <div className="formulaire">
-          <h5>Cerfa n° 11580*04</h5>
+          <h5><Cerfa n° 11580*04</h5>
           <h3>
             Reçu au titre des dons à certains organismes d’intérêt général{" "}
             <br />

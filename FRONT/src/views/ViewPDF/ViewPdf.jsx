@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import Deliveries from "../MiSolicitud/MiSolicitud";
 import "./pdf.css";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 export default function Pdf() {
   const [data, setData] = useState("");
   const { authorization } = useAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getData() {
@@ -26,7 +28,14 @@ export default function Pdf() {
       `http://localhost:3000/user/email/${authorization.id}`
     );
     if (response.status === 200) {
-      alert("SEND");
+      navigate("/micuenta");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Solicitud enviada",
+        showConfirmButton: false,
+        timer: 1800,
+      });
     }
   }
 
@@ -38,7 +47,7 @@ export default function Pdf() {
         ) : (
           <form onSubmit={onSubmit}>
             <div className="formulaire">
-              <h5>Cerfa n° 11580*04</h5>
+              <h3>Cerfa n° 11580*04</h3>
               <h3>
                 Reçu au titre des dons à certains organismes d’intérêt général{" "}
                 <br />
@@ -46,21 +55,22 @@ export default function Pdf() {
               </h3>
               <h4>Bénéficiaire des versements</h4>
               <p>{data.companyName} </p>
-              <div>
-                <h3>Adresse</h3>
-                <p>{data.address} </p>
-                <p> {data.postalCode} </p>
-                <p> {data.town} </p>
-                <h4>Type de structure:</h4>
-                <p>{data.type}</p>
 
-                <br />
-              </div>
+              <h4>Adresse</h4>
+              <p>{data.address} </p>
+              <p> {data.postalCode} </p>
+              <p> {data.town} </p>
+              <h4>Type de structure:</h4>
+              <p>{data.type}</p>
+
+              <br />
+              <h4>Firma:</h4>
+              <input type="checkbox" />
               <br />
             </div>
-        <button type="submit" className="envoyer">
-          Envoyer le formulaire
-        </button>
+            <button type="submit" className="envoyer">
+              Enviar mi solicitud
+            </button>
           </form>
         )}
 
@@ -68,8 +78,7 @@ export default function Pdf() {
           <Deliveries />
         </div>
       </div>
-      <div>
-      </div>
+      <div></div>
     </>
   );
 }
