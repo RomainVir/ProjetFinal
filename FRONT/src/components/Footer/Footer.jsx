@@ -1,5 +1,22 @@
 export default function Footer() {
   return (
-    <h1>FOOTER</h1>
+    <div className="footer">
+      <div>
+        À propos
+        <div>
+          <ul>
+            <li>Notre solution</li>
+            <li>test2</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        test
+        <ul>
+          <li>tsss</li>
+          <li>kgkg</li>
+        </ul>
+      </div>
+    </div>
   );
 }

@@ -12,7 +12,7 @@ header {
   .navbar-nav a { 
     text-decoration: none;
     color: black;
-   
+  font-size: large;
     font-family: 'Poppins';
     padding: 24px;
     transition: all 0.6s;
