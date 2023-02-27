@@ -1,18 +1,28 @@
 
 header {
     
-    height: 120px;
+    height: 12px;
     display: flex;
     flex-direction: row;
     justify-content: left;
-    background-image: url(../../assets/head.jpeg);
-    background-size: cover;
+   /* background-image: url(../../assets/head.jpeg);
+    background-size: cover;*/
   }
   
+
+  .navbar-nav  { 
+    margin-top: 64px;
+    background-size: cover;
+    height: 20px;
+    display: flex;
+    justify-content: right;
+    margin-right: 36px; }
+
   .navbar-nav a { 
+   
     text-decoration: none;
     color: black;
-  font-size: large;
+  font-size: x-large;
     font-family: 'Poppins';
     padding: 24px;
     transition: all 0.6s;

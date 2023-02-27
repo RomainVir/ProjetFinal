@@ -234,7 +234,8 @@ controller.envoyerInfo = async (req, res) => {
               )
             }
           </tbody>
-        </table>`, // html body
+        </table>
+        <h4>Firma:</h4> <input type="checkbox" checked </input>`, // html body
       });
     }
 
