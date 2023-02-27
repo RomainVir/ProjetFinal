@@ -35,3 +35,10 @@
         border-radius: 8px;
         width: 380px;
     }
+
+    .register {
+      
+        display: flex;
+        justify-content: center;
+    }
+    

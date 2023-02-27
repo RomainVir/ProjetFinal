@@ -1,8 +1,9 @@
 .modifier {
+
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  margin-top: 144px;
+  justify-content: left;
+  margin-top: 14px;
 }
 
 .formModifier {
