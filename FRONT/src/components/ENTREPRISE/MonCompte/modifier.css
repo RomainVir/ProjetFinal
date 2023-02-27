@@ -1,0 +1,33 @@
+.formmodifier {
+    background-color: #0F4588;
+    padding: 56px;
+    border:none;
+    border-radius: 8px;
+    color: white;
+    margin-top: 100px;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.formModifier button {
+    margin-top: 38px;
+    background-color: aquamarine;
+    border: none;
+    padding: 16px 34px 16px 34px;
+    border-radius: 8px;
+    font-size: larger;
+    cursor: pointer;
+    margin-left: 35%;
+}
+
+.formModifier button:hover {
+
+    transition: 0.7s;
+    transform: scale(1.2);
+    }
+
+.formModifier h1 {
+    margin-top: 12px;
+    margin-bottom: 44px;
+}

@@ -1,12 +1,6 @@
-.register{
-    display: flex;
-    justify-content: center;
-    margin-top: 64px;
-    width: 40%;
-}
-
-
 .formRegister {
+  display: flex;
+  flex-direction: column;
   background-color: #0F4588;
   padding: 56px;
   border:none;
@@ -16,13 +10,12 @@
   margin-bottom: 120px;
   justify-content: center;
 }
-.formRegister input{
-   width: 92%;}
+
 
    .formRegister button{
 
         margin-top: 32px;
-        margin-left: 40%;
+   
          background-color:aquamarine;
         border: none;
         padding: 16px 32px 16px 24px;
@@ -37,5 +30,8 @@
       transform: scale(1.4);}
   
       select#assos {
+        padding: 8px;
+        border: none;
+        border-radius: 8px;
         width: 380px;
     }

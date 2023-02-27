@@ -1,5 +1,6 @@
 import { useAuthContext } from "../../../context/AuthContext";
 import React, { useState, useEffect } from "react";
+import "./modifier.css";
 
 export default function ModifierCompte() {
   const [data, setData] = useState("");
@@ -17,31 +18,39 @@ export default function ModifierCompte() {
   }, []);
 
   return (
-    <div className="register">
-      <form className="formRegister">
-        <h1>Modificar tus informaciones</h1>
-        <input type="text" name="companyName" value={data.companyName} />
-        <input
-          type="text"
-          value={data.contactSurname}
-          name="contactSurname"
-          required
-        />
-        <input type="text" name="contactName" value={data.contactName} />
-        <input type="email" value={data.email} name="email" />
-        <input type="text" value={data.phone} name="phone" />
-        <input type="text" value={data.address} name="address" />
-        <input type="text" value={data.postalCode} name="postalCode" />
-        <input type="text" value={data.town} name="town" />
-        <br />
-        <input type="password" value={data.password} name="password" />
-        <input
-          type="password"
-          placeholder="Confirmez votre mot de passe"
-          name="confirmPassword"
-        />
+    <div className="modifier">
+      <form className="formModifier">
+        <h1>Modificar mis datos</h1>
+        <div>
+          <input type="text" name="companyName" value={data.companyName} />
+          <input
+            type="text"
+            value={data.contactSurname}
+            name="contactSurname"
+            required
+          />
+        </div>
+        <div>
+          <input type="text" name="contactName" value={data.contactName} />
+          <input type="email" value={data.email} name="email" />
+        </div>
+        <div>
+          <input type="text" value={data.phone} name="phone" />
+          <input type="text" value={data.address} name="address" />
+          <div>
+            <input type="text" value={data.postalCode} name="postalCode" />
+            <input type="text" value={data.town} name="town" />
+          </div>
+          <br />
+          <input type="password" value={data.password} name="password" />
+          <input
+            type="password"
+            placeholder="Confirmar"
+            name="confirmPassword"
+          />
+        </div>
 
-        <button type="submit">Modifier</button>
+        <button type="submit">Modificar</button>
       </form>
     </div>
   );
