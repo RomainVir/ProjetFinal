@@ -183,15 +183,17 @@ controller.envoyerInfo = async (req, res) => {
       await transporter.sendMail({
         from: '"Gigamedia" <romainviravaud@gmail.com>', // sender address
         to: "<proyectoromain@gmail.com>", // list of receivers
-        subject: `Vuestra solicitud de donación  `, // Subject line
+        subject: `Nueva solicitud de donación de la empresa ${user[0].companyName}   `, // Subject line
         html: `
-        <h2>Bonjour ${user[0].contactName} ! </h2>
+        <h2>Buenos días, acabas de recibir una solicitud de donación de ${
+          user[0].contactName
+        } ! </h2>
         <br/>
         <form>
         <div className="formulaire">
           <h5><Cerfa n° 11580*04</h5>
           <h3>
-            Reçu au titre des dons à certains organismes d’intérêt général{" "}
+            Reçu au titre des dons à certains organismes d’intérêt général
             <br />
             Article 200, 238 bis et 978 du code général des impôts (CGI)
           </h3>

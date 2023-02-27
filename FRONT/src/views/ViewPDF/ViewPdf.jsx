@@ -28,7 +28,7 @@ export default function Pdf() {
       `http://localhost:3000/user/email/${authorization.id}`
     );
     if (response.status === 200) {
-      navigate("/micuenta");
+      navigate("/cerrarempresa");
       Swal.fire({
         position: "center",
         icon: "success",
@@ -55,15 +55,12 @@ export default function Pdf() {
               </h3>
               <h4>Bénéficiaire des versements</h4>
               <p>{data.companyName} </p>
-
               <h4>Adresse</h4>
               <p>{data.address} </p>
               <p> {data.postalCode} </p>
               <p> {data.town} </p>
               <h4>Type de structure:</h4>
               <p>{data.type}</p>
-
-              <br />
               <h4>Firma:</h4>
               <input type="checkbox" />
               <br />
