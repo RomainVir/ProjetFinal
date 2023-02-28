@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 
 export default function LoginAdmin() {
@@ -52,35 +53,31 @@ export default function LoginAdmin() {
         <h1 className="h1Login"> Connexión</h1>
 
         <div className="inputLogin">
-          
-            <input
-              type="email"
-              name="email"
-              required
-              value={user.email}
-              onChange={handleLogin}
-              placeholder="Email"
-            />
+          <input
+            type="email"
+            name="email"
+            required
+            value={user.email}
+            onChange={handleLogin}
+            placeholder="Email"
+          />
 
-          
-                <input
-                  type="password"
-                  name="password"
-                  required
-                  value={user.password}
-                  onChange={handleLogin}
-                  placeholder="Contraseña"
-                />
-            
+          <input
+            type="password"
+            name="password"
+            required
+            value={user.password}
+            onChange={handleLogin}
+            placeholder="Contraseña"
+          />
 
-            <button className="enter" type="submit">
-              Entrar
-            </button>
-            <p>
-              Puedes registrarte aquí! <a href="/register">ici</a>
-            </p>
-          </div>
-          
+          <button className="enter" type="submit">
+            Entrar
+          </button>
+          <p>
+            Puedes registrarte <Link to="/register">aquí!</Link>
+          </p>
+        </div>
       </form>
     </div>
   );

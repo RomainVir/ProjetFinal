@@ -1,17 +1,18 @@
 .formSupprimer  {
 
     background-color: #2d50e6;
-    padding: 56px;
-    border:none;
+    padding: 56px 92px 46px 92px;
+    border: none;
     border-radius: 8px;
     color: white;
     margin-top: 100px;
-    margin-bottom: 120px;
+    margin-bottom: 122px;
 }
 
 .formSupprimer button {
-    margin-top: 102px;
-    background-color:aquamarine;
+    margin-top: 132px;
+    background-color:#DF093A;
+    color: white;
     border: none;
     padding: 16px 32px 16px 24px;
     border-radius: 8px;
@@ -19,3 +20,7 @@
     cursor: pointer;
     margin-left: 20%;
 }
+
+.formSupprimer button:hover {
+transition: 0.7s;
+transform: scale(1.2);}

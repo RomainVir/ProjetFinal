@@ -71,7 +71,7 @@ export default function ModifierProduit() {
         />
         
         </div>
-        <button type="submit">Modificar</button>
+        <button type="submit">Borrar</button>
       </form>
     </div>
   );

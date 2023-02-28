@@ -35,6 +35,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route element={<PublicRoute />}>
               <Route index element={<LoginGlobal />} />
+              <Route path={REGISTER} element={<Normal />} />
             </Route>
             <Route
               element={
@@ -54,7 +55,7 @@ function App() {
 
             {/*PRIVATE ROUTE USER*/}
             <Route element={<PrivateRoute allowedRoles={[ROLES.User]} />}>
-              <Route path={REGISTER} element={<Normal />} />
+              
               <Route path={MONCOMPTE} element={<ModifierCompte />} />
               <Route path={COMMANDES} element={<Commandes />} />
 

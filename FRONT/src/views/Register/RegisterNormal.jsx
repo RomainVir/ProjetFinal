@@ -46,7 +46,7 @@ export default function Normal() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Utilisateur ${newUser.companyName} enregistré correctement`,
+          title: `${newUser.companyName} registrado corectamente`,
           showConfirmButton: false,
           timer: 2000,
         });
@@ -55,7 +55,7 @@ export default function Normal() {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: `Utilisateur ${newUser.email} déja enregistré`,
+          title: ` ${newUser.email} ya registrado`,
           showConfirmButton: false,
           timer: 2000,
         });
@@ -96,39 +96,41 @@ export default function Normal() {
             value={newUser.email}
             onChange={handleInput}
           />
-            <div>
-          <input
-            type="text"
-            placeholder="Teléfono"
-            name="phone"
-            value={newUser.phone}
-            onChange={handleInput}
-          />
-          <input
-            type="text"
-            placeholder="Dirección"
-            name="address"
-            value={newUser.address}
-            onChange={handleInput}
+          <div>
+            <input
+              type="text"
+              placeholder="Teléfono"
+              name="phone"
+              value={newUser.phone}
+              onChange={handleInput}
             />
-          <input
-            type="text"
-            placeholder="Código postal"
-            name="postalCode"
-            value={newUser.postalCode}
-            onChange={handleInput}
+            <input
+              type="text"
+              placeholder="Dirección"
+              name="address"
+              value={newUser.address}
+              onChange={handleInput}
             />
-          <input
-            type="text"
-            placeholder="Ciudad"
-            name="town"
-            value={newUser.town}
-            onChange={handleInput}
+            <input
+              type="text"
+              placeholder="Código postal"
+              name="postalCode"
+              value={newUser.postalCode}
+              onChange={handleInput}
             />
-            </div>
+            <input
+              type="text"
+              placeholder="Ciudad"
+              name="town"
+              value={newUser.town}
+              onChange={handleInput}
+            />
+          </div>
           <br />
           <br />
-          <label for="asso">Selectionar su tipo de estructura : <br /> <br /></label>
+          <label for="asso">
+            Selectionar su tipo de estructura : <br /> <br />
+          </label>
           <select
             name="type"
             value={newUser.type}
