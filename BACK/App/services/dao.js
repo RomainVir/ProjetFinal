@@ -50,7 +50,8 @@ dao.getProductById = async (id) => await productQueries.getProductById(id);
 dao.deleteProduct = async (id) => await productQueries.deleteProduct(id);
 
 // SUPPRIMER UN PRODUIT
-dao.deleteProductByRef = async (reference) => await productQueries.deleteProductByRef(reference);
+dao.deleteProductByRef = async (reference) =>
+  await productQueries.deleteProductByRef(reference);
 
 // MODIFIER UN PRODUIT PAR SON ID
 dao.updateProduct = async (id, productData) =>
@@ -93,6 +94,12 @@ dao.updatePedido = async (id, pedidoData) =>
 //obtenir par ref
 dao.getPedidoByRef = async (reference) =>
   await pedidoQueries.getPedidoByRef(reference);
+
+dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
+
+
+
+dao.deletePedidoById = async (id) => await pedidoQueries.deletePedidoById(id);
 
 dao.getPedido = async () => await pedidoQueries.getPedido();
 

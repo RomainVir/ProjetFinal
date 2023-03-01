@@ -77,10 +77,8 @@ controller.getPedidoByUser = async (req, res) => {
   }
 };
 
-
 //obtenir tous les pedidos
 controller.getPedidoByUsers = async (req, res) => {
-
   try {
     let user = await dao.getPedidoByUsers();
 
@@ -90,6 +88,25 @@ controller.getPedidoByUsers = async (req, res) => {
   } catch (e) {
     console.log(e.message);
     return res.status(400).send(e.message);
+  }
+};
+
+//delete pedido by id
+controller.deletePedidoById = async (req, res) => {
+  // controlar que viene el body
+  const { id } = req.body;
+  if (!id) {
+    return res.status(400).send("Pedido does no exist");
+  }
+  try {
+    const pedido = await dao.getPedidoById(id);
+    // Si existe el producto, devolvemos 409 (conflict)
+    if (pedido.length <= 0) return res.status(409).send("Pedido no existe");
+
+    const deletePedido = await dao.deletePedidoById(id);
+    if (deletePedido) return res.send(`Product with id ${id} deleted`);
+  } catch (e) {
+    console.log(e.message);
   }
 };
 export default controller;

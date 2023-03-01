@@ -25,6 +25,7 @@ userQueries.getUserByEmail = async (email) => {
   }
 };
 
+
 userQueries.addUser = async (userData) => {
   // Conectamos con la base de datos y añadimos el usuario.
   let conn = null;

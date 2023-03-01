@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
-import "./commandes.css"
+import "./commandes.css";
 
 export default function Commandes() {
   const [data, setData] = useState([]);
@@ -24,11 +24,25 @@ export default function Commandes() {
     getProducts();
   }, []);
 
-  //FETCH PRODUITS---------
-
   if (error)
     return "Oups il y a eu une erreur dans le chargement, veuillez rafraîchir la page!";
   //---------
+
+  //fonction envoyer le tableau par email
+  async function onSubmit(e) {
+    e.preventDefault();
+    const response = await fetch(`http://localhost:3000/user/emailsolicitudes`);
+    if (response.status === 200) {
+      setButtonChange(true);
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "email enviado",
+        showConfirmButton: false,
+        timer: 1800,
+      });
+    }
+  }
 
   return (
     <>
@@ -39,7 +53,7 @@ export default function Commandes() {
               <th>Empresa</th>
               <th>Referencia</th>
               <th>Cantidad</th>
-              <th>Fecha</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -49,13 +63,13 @@ export default function Commandes() {
                   <td>{pedido.companyName}</td>
                   <td>{pedido.reference}</td>
                   <td>{pedido.quantity_choosen}</td>
-                  <td>{date}</td>
+              
                 </tr>
               ))}
           </tbody>
         </table>
         <div className="enviar">
-        <button>Recibir por email</button>
+          <button onClick={onSubmit}>Recibir por email</button>
         </div>
       </div>
     </>

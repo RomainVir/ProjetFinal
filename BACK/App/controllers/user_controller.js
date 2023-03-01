@@ -46,10 +46,10 @@ controller.addUser = async (req, res) => {
     const addUser = await dao.addUser(req.body);
     if (addUser)
       await transporter.sendMail({
-        from: '"Bienvenido a proyecto" <proyectoromain@gmail.com>', // sender address
-        to: "<romainviravaud@gmail.com>", // list of receivers
-        subject: `Hello ${contactName}`, // Subject line
-        html: "<b>HOLAAAAAA</b>", // html body
+        from: '"Bienvenido a proyecto" <romainviravaud@gmail.com>', // sender address
+        to: "<proyectoromain@gmail.com>", // list of receivers
+        subject: `Hola ${contactName}`, // Subject line
+        html: "<b>Hola, tu cuenta ya esta creada, puedes eligir los productos de las donacones disponibles</b>", // html body
       });
     return res.send(`User ${contactName} with id: ${addUser} registered!`);
   } catch (e) {
@@ -171,7 +171,7 @@ controller.getUser = async (req, res) => {
   }
 };
 
-//EMAIL
+//EMAIL SOLICITUD CLIENtE
 controller.envoyerInfo = async (req, res) => {
   const { id } = req.params;
   try {
@@ -246,4 +246,55 @@ controller.envoyerInfo = async (req, res) => {
   }
 };
 
+//EMAIL SOLICITUDES GLOBAL POUR ADMIN
+controller.envoyerSolicitudes = async (req, res) => {
+  console.log("ici laa");
+  try {
+    let pedidos = await dao.getPedidoByUsers();
+
+    console.log(pedidos, "pedidooos");
+    if (pedidos) {
+      await transporter.sendMail({
+        from: '"Gigamedia" <romainviravaud@gmail.com>', // sender address
+        to: "<proyectoromain@gmail.com>", // list of receivers
+        subject: `Resumen de la solicitudes actuales   `, // Subject line
+        html: `
+        <h2>Buenos días,aquí esta la liste de la solicitudes actuales:
+        } ! </h2>
+        <br/>
+        
+      <table>
+          <thead>
+            <tr>
+            <th>Empresa</th>
+              <th>Referencia</th>
+              <th>Cantidad</th>
+              <th>Fecha<th/>
+            </tr>
+          </thead>
+          <tbody>
+            ${
+              pedidos.length > 0 &&
+              pedidos.map(
+                (pedido) =>
+                  `<tr>
+                  <tr key=${pedido.id}>
+                <td>${pedido.companyName}</td>
+                  <td>${pedido.reference}</td>
+                  <td>${pedido.quantity_choosen}</td>
+                </tr>`
+              )
+            }
+          </tbody>
+        </table>
+        `, // html body
+      });
+    }
+
+    return res.send().status(200);
+  } catch (e) {
+    console.log(e.message);
+    return res.status(400).send(e.message);
+  }
+};
 export default controller;

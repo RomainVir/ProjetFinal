@@ -13,4 +13,6 @@ pedidoRouter.post("/getpedidobyuser", pedidoController.getPedidoByUser);
 
 pedidoRouter.get("/getpedidobyusers", pedidoController.getPedidoByUsers);
 
+pedidoRouter.delete("/delete_pedido", pedidoController.deletePedidoById);
+
 export default pedidoRouter;
