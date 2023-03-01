@@ -25,12 +25,12 @@ export default function SupprimerProduit() {
     }).then((response) => {
       console.log(response.status);
       if (response.status === 401) {
-        throw "Non autorisé";
+        throw "No autorizado";
       } else if (response.status === 200) {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Produit ${deleteProduct.reference} supprimé`,
+          title: `Producto ${deleteProduct.reference} borrado`,
           showConfirmButton: false,
           timer: 1800,
         });
@@ -39,7 +39,7 @@ export default function SupprimerProduit() {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: `Produit non existant dans la base de données`,
+          title: `Producto no existe en la BDD`,
           showConfirmButton: false,
           timer: 1800,
         });
@@ -52,6 +52,7 @@ export default function SupprimerProduit() {
         <h1>Borrar un producto:</h1>
         <div className="inputModifier">
           <input
+          required
             type="text"
             name="reference"
             placeholder="Referencia"

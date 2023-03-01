@@ -54,6 +54,7 @@ export default function AjouterProduit() {
         <h1>Añadir un producto:</h1>
         <div className="inputModifier">
           <input
+            required
             type="text"
             name="reference"
             placeholder="Referencia"
@@ -61,9 +62,9 @@ export default function AjouterProduit() {
             onChange={handleInput}
           />
           <input
+            required
             type="text"
             name="description"
-            required
             placeholder="Descricpción"
             value={newProduct.description}
             onChange={handleInput}

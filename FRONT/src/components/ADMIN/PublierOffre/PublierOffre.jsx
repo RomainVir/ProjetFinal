@@ -43,7 +43,7 @@ export default function PublierOffre() {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Offre publiée",
+        title: "Oferta publicada",
         showConfirmButton: false,
         timer: 1800,
       });
