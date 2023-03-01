@@ -114,7 +114,7 @@ productQueries.deleteProduct = async (id) => {
   try {
     conn = await db.createConnection();
     return await db.query(
-      "DELETE FROM products WHERE id = ?",
+      "DELETE FROM Products WHERE reference = ?",
       id,
       "select",
       conn

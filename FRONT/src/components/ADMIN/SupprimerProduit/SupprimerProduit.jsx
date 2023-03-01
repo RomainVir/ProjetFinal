@@ -3,27 +3,26 @@ import Swal from "sweetalert2";
 
 const initialProductState = {
   reference: "",
-  description: "",
 
 };
-export default function ModifierProduit() {
-  const [newProduct, setNewProduct] = useState(initialProductState);
+export default function SupprimerProduit() {
+  const [deleteProduct, setDeleteProduct] = useState(initialProductState);
   //ok
   function handleInput(event) {
-    const newProductPublished = {
-      ...newProduct,
+    const newProductDeleted = {
+      ...deleteProduct,
       [event.target.name]: event.target.value,
     };
 
-    setNewProduct(newProductPublished);
+    setDeleteProduct(newProductDeleted);
   }
-  console.log(newProduct);
-  async function ProductPublished(e) {
+  console.log(deleteProduct);
+  async function ProductDeleted(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/product/", {
+    fetch("http://localhost:3000/product/delete_product/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newProduct),
+      body: JSON.stringify(deleteProduct),
     }).then((response) => {
       console.log(response.status);
       if (response.status === 401) {
@@ -32,11 +31,11 @@ export default function ModifierProduit() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Produit ${newProduct.reference} bien enregistré dans la base de données`,
+          title: `Produit ${deleteProduct.reference} bien enregistré dans la base de données`,
           showConfirmButton: false,
           timer: 4500,
         });
-        setNewUser(initialProductState);
+        setDeleteProduct(initialProductState);
       } else if (response.status === 409) {
         Swal.fire({
           position: "center",
@@ -51,22 +50,14 @@ export default function ModifierProduit() {
   return (
     <div>
     
-      <form className="formModifier" onSubmit={ProductPublished}>
+      <form className="formModifier" onSubmit={ProductDeleted}>
       <h1>Borrar un producto:</h1>
       <div className="inputModifier"> 
         <input
           type="text"
           name="reference"
           placeholder="Referencia"
-          value={newProduct.reference}
-          onChange={handleInput}
-        />
-        <input
-          type="text"
-          name="description"
-          required
-          placeholder="Descripción"
-          value={newProduct.description}
+          value={deleteProduct.reference}
           onChange={handleInput}
         />
         

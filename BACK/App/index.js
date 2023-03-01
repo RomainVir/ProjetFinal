@@ -60,5 +60,6 @@ app.use("/pedido", pedidoRouter);
 
 app.use("/delivery", deliveryRouter);
 
+app.use("/product", productRouter);
 
 export default app;

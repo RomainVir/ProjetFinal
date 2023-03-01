@@ -58,7 +58,6 @@ function App() {
               
               <Route path={MONCOMPTE} element={<ModifierCompte />} />
               <Route path={COMMANDES} element={<Commandes />} />
-
               <Route path={PDF} element={<Pdf />} />
               <Route path={LOGOUTEMPRESA} element={<Adios />} />
             </Route>

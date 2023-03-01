@@ -15,6 +15,10 @@ productRouter.patch("/:id", productController.updateProduct);
 //add a product
 productRouter.post("/add_product", productController.addProduct);
 
+
+//delete a product
+productRouter.delete("/delete_product/:id", productController.deleteProduct)
+
 //obtener un product
 productRouter.get("/products", productController.getProduct);
 

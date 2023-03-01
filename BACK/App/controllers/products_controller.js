@@ -1,5 +1,6 @@
 import dao from "../Services/dao.js";
 import { currentDir } from "../index.js";
+import { jwtVerify } from "jose";
 
 const __dirname = currentDir().__dirname;
 
@@ -9,7 +10,7 @@ const controller = {};
 controller.addProduct = async (req, res) => {
   // controlar que viene el body
   const { reference, description } = req.body;
-  if (!reference || !description ) {
+  if (!reference || !description) {
     return res.status(400).send("Error al recibir el body");
   }
   try {
