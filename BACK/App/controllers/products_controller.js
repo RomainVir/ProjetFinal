@@ -77,7 +77,7 @@ controller.updateProduct = async (req, res) => {
   }
 };
 
-// SUPPRIMER UN PRODUIT
+// SUPPRIMER UN PRODUIT PAR ID
 controller.deleteProduct = async (req, res) => {
   // OBTENER CABECERA Y COMPROBAR SU AUTENTICIDAD Y CADUCIDAD
   const { authorization } = req.headers;
@@ -110,6 +110,23 @@ controller.deleteProduct = async (req, res) => {
     await dao.deleteProduct(req.params.id);
     // Devolvemos la respuesta
     return res.send(`Produit avec id ${req.params.id} supprimé`);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
+
+//DELETE PRODUCT BY REF
+
+controller.deleteProductByRef = async (req, res) => {
+  // controlar que viene el body
+  const { reference } = req.body;
+  if (!reference) {
+    return res.status(400).send("Product does no exist");
+  }
+  try {
+    const deleteProduct = await dao.deleteProductByRef(reference);
+    if (deleteProduct)
+      return res.send(`Product with reference ${reference} deleted`);
   } catch (e) {
     console.log(e.message);
   }

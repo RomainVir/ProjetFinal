@@ -49,6 +49,9 @@ dao.getProductById = async (id) => await productQueries.getProductById(id);
 // SUPPRIMER UN PRODUIT
 dao.deleteProduct = async (id) => await productQueries.deleteProduct(id);
 
+// SUPPRIMER UN PRODUIT
+dao.deleteProductByRef = async (reference) => await productQueries.deleteProductByRef(reference);
+
 // MODIFIER UN PRODUIT PAR SON ID
 dao.updateProduct = async (id, productData) =>
   await productQueries.updateProduct(id, productData);

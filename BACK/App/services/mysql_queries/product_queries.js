@@ -47,9 +47,9 @@ productQueries.getProductByRef = async (reference) => {
 productQueries.addProduct = async (productData) => {
   let conn = null;
   try {
-    console.log(productData,"data");
+    console.log(productData, "data");
     conn = await db.createConnection();
-    
+
     return await db.query(
       "INSERT INTO products SET ?",
       productData,
@@ -89,7 +89,6 @@ productQueries.updateProduct = async (id, productData) => {
     let productObj = {
       reference: productData.reference,
       description: productData.description,
-  
     };
     // Eliminamos los campos que no se van a modificar (no llegan por el body)
     productObj = await utils.removeUndefinedKeys(productObj);
@@ -114,8 +113,27 @@ productQueries.deleteProduct = async (id) => {
   try {
     conn = await db.createConnection();
     return await db.query(
-      "DELETE FROM Products WHERE reference = ?",
+      "DELETE FROM Products WHERE id = ?",
       id,
+      "select",
+      conn
+    );
+  } catch (e) {
+    throw new Error(e);
+  } finally {
+    conn && (await conn.end());
+  }
+};
+
+// SUPPRIMER UN PRODUIT PAR SA REF
+productQueries.deleteProductByRef = async (reference) => {
+  // Conectamos con la base de datos y eliminamos el usuario por su id.
+  let conn = null;
+  try {
+    conn = await db.createConnection();
+    return await db.query(
+      "DELETE FROM Products WHERE reference = ?",
+      reference,
       "select",
       conn
     );
