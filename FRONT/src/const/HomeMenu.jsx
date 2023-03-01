@@ -12,10 +12,6 @@ export const HomeMenu = [
     label: "Mi cuenta",
     path: "/micuenta",
   },
-  {
-    label: "Suscríbete",
-    path: "/register",
-  },
 
   {
     label: "Cerrar cesión",
