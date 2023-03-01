@@ -45,3 +45,8 @@ cursor: pointer;
 
   margin-top: 18px;
 }
+
+.link {
+  color: white;
+  text-decoration: none;
+}
