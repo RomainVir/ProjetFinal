@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 
 const initialProductState = {
   reference: "",
-
 };
 export default function SupprimerProduit() {
   const [deleteProduct, setDeleteProduct] = useState(initialProductState);
@@ -19,8 +18,8 @@ export default function SupprimerProduit() {
   console.log(deleteProduct);
   async function ProductDeleted(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/product/delete_product/", {
-      method: "POST",
+    fetch("http://localhost:3000/product/delete_product", {
+      method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(deleteProduct),
     }).then((response) => {
@@ -31,36 +30,34 @@ export default function SupprimerProduit() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Produit ${deleteProduct.reference} bien enregistré dans la base de données`,
+          title: `Produit ${deleteProduct.reference} supprimé`,
           showConfirmButton: false,
-          timer: 4500,
+          timer: 1800,
         });
         setDeleteProduct(initialProductState);
       } else if (response.status === 409) {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: `Produit déjà présent dans la base de données`,
+          title: `Produit non existant dans la base de données`,
           showConfirmButton: false,
-          timer: 4500,
+          timer: 1800,
         });
       }
     });
   }
   return (
     <div>
-    
       <form className="formModifier" onSubmit={ProductDeleted}>
-      <h1>Borrar un producto:</h1>
-      <div className="inputModifier"> 
-        <input
-          type="text"
-          name="reference"
-          placeholder="Referencia"
-          value={deleteProduct.reference}
-          onChange={handleInput}
-        />
-        
+        <h1>Borrar un producto:</h1>
+        <div className="inputModifier">
+          <input
+            type="text"
+            name="reference"
+            placeholder="Referencia"
+            value={deleteProduct.reference}
+            onChange={handleInput}
+          />
         </div>
         <button type="submit">Borrar</button>
       </form>

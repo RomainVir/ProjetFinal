@@ -124,6 +124,11 @@ controller.deleteProductByRef = async (req, res) => {
     return res.status(400).send("Product does no exist");
   }
   try {
+    const product = await dao.getProductByRef(reference);
+    // Si existe el producto, devolvemos 409 (conflict)
+    if (product.length <= 0) return res.status(409).send("Producto no existe");
+    console.log(product);
+
     const deleteProduct = await dao.deleteProductByRef(reference);
     if (deleteProduct)
       return res.send(`Product with reference ${reference} deleted`);
