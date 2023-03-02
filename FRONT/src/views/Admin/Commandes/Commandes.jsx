@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
 import "./commandes.css";
+import Swal from "sweetalert2";
 
 export default function Commandes() {
   const [data, setData] = useState([]);
@@ -53,7 +54,6 @@ export default function Commandes() {
               <th>Empresa</th>
               <th>Referencia</th>
               <th>Cantidad</th>
-              
             </tr>
           </thead>
           <tbody>
@@ -63,7 +63,6 @@ export default function Commandes() {
                   <td>{pedido.companyName}</td>
                   <td>{pedido.reference}</td>
                   <td>{pedido.quantity_choosen}</td>
-              
                 </tr>
               ))}
           </tbody>

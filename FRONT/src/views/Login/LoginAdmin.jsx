@@ -75,7 +75,9 @@ export default function LoginAdmin() {
             Entrar
           </button>
           <p>
-             <Link to="/register" className="link">Puedes registrarte aquí!</Link>
+            <Link to="/register" className="link">
+              Puedes registrarte aquí!
+            </Link>
           </p>
         </div>
       </form>

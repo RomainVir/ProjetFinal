@@ -150,65 +150,100 @@ export default function Normal() {
               respectivement aux articles L. 719-12 et L. 719-13 du code de
               l’éducation
             </option>
-            <option value="fondationentreprise">Fondation d’entreprise</option>
-            <option value="oeuvre">
+            <option value="Fondation d’entreprise">
+              Fondation d’entreprise
+            </option>
+            <option value="Oeuvre ou organisme d’intérêt général">
               Oeuvre ou organisme d’intérêt général
             </option>
-            <option value="musée">Musée de France </option>
-            <option value="etablissement">
+            <option value="Musée de France">Musée de France </option>
+            <option
+              value="Etablissement d’enseignement supérieur ou d’enseignement
+              artistique public ou privé, d’intérêt général, à but non lucratif"
+            >
               Etablissement d’enseignement supérieur ou d’enseignement
               artistique public ou privé, d’intérêt général, à but non lucratif
             </option>
-            <option value="organisme">
+            <option
+              value=" Organisme ayant pour objectif exclusif de participer
+              financièrement à la création d’entreprises"
+            >
               Organisme ayant pour objectif exclusif de participer
               financièrement à la création d’entreprises
             </option>
-            <option value="assoculturelle">
+            <option
+              value="Association cultuelle ou de bienfaisance et établissement public
+              reconnus d’Alsace–Moselle"
+            >
               Association cultuelle ou de bienfaisance et établissement public
               reconnus d’Alsace–Moselle
             </option>
-            <option value="festival">
+            <option
+              value="Organisme ayant pour activité principale l’organisation de
+              festivals"
+            >
               Organisme ayant pour activité principale l’organisation de
               festivals
             </option>
-            <option value="alimentaire">
+            <option
+              value="Association fournissant gratuitement une aide alimentaire ou des
+              soins médicaux à des personnes en difficultés ou favorisant leur
+              logement"
+            >
               Association fournissant gratuitement une aide alimentaire ou des
               soins médicaux à des personnes en difficultés ou favorisant leur
               logement
             </option>
-            <option value="patrimoine">
+            <option
+              value="Fondation du patrimoine ou fondation ou association qui affecte
+              irrévocablement les dons à la Fondation du patrimoine, en vue de
+              subventionner les travaux prévus par les conventions conclues
+              entre la Fondation du patrimoine et les propriétaires des
+              immeubles (article L. 143-2-1 du code du patrimoine)"
+            >
               Fondation du patrimoine ou fondation ou association qui affecte
               irrévocablement les dons à la Fondation du patrimoine, en vue de
               subventionner les travaux prévus par les conventions conclues
               entre la Fondation du patrimoine et les propriétaires des
               immeubles (article L. 143-2-1 du code du patrimoine)
             </option>
-            <option value="recherche">
+            <option
+              value="Etablissement de recherche public ou privé, d’intérêt général, à
+              but non lucratif"
+            >
               Etablissement de recherche public ou privé, d’intérêt général, à
               but non lucratif
             </option>
-            <option value="insertion">
+            <option
+              value="Entreprise d’insertion ou entreprise de travail temporaire
+              d’insertion (articles L. 5132-5 et L. 5132-6 du code du travail)"
+            >
               Entreprise d’insertion ou entreprise de travail temporaire
               d’insertion (articles L. 5132-5 et L. 5132-6 du code du travail)
             </option>
-            <option value="inter">
+            <option value=" Association intermédiaire (article L.5132-7 du code du travail)">
               Association intermédiaire (article L.5132-7 du code du travail)
             </option>
-            <option value="atelier">
+            <option
+              value=" Ateliers et chantiers d’insertion (article L.5132-15 du code du
+              travail)"
+            >
               Ateliers et chantiers d’insertion (article L.5132-15 du code du
               travail)
             </option>
-            <option value="adaptee">
+            <option value="Entreprises adaptées (article L.5213-13 du code du travail)">
               Entreprises adaptées (article L.5213-13 du code du travail)
             </option>
-            <option value="agence">
+            <option value="Agence nationale de la recherche (ANR)">
               Agence nationale de la recherche (ANR)
             </option>
-            <option value="recherchescientifique">
+            <option
+              value=" Société ou organisme agrée de recherche scientifique ou technique
+              "
+            >
               Société ou organisme agrée de recherche scientifique ou technique
-              (2)
             </option>
-            <option value="autre">Autres organismes</option>
+            <option value="Autres organismes">Autres organismes</option>
           </select>
           <br />
           <br />
