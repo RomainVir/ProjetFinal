@@ -13,32 +13,36 @@ controller.addPedido = async (req, res) => {
     res.status(400).send("Error al recibir el body");
   }
   try {
-    for (let i = 0; i < req.body.length; i++) {
-      const offerRef = await dao.getOfferByRef(req.body[i].reference);
+    for (let i = 0; i < req.body.list.length; i++) {
+      const offerRef = await dao.getOfferByRef(req.body.list[i].reference);
       const quantityOfferRef = offerRef[0].quantity;
       const quantityUpdate =
-        quantityOfferRef - parseInt(req.body[i].quantity_choosen);
+        quantityOfferRef - parseInt(req.body.list[i].quantity_choosen);
       const quantityObj = {
         quantity: quantityUpdate,
       };
-      await dao.updateOffer(req.body[i].reference, quantityObj);
+      await dao.updateOffer(req.body.list[i].reference, quantityObj);
 
-      const pedidoRef = await dao.getPedidoByRef(req.body[i].reference);
+      const pedidoRef = await dao.getPedidoByRef(
+        req.body.list[i].reference,
+        req.body.idCompany
+      );
       if (pedidoRef.length > 0) {
         const quantityPedidoRef = pedidoRef[0].quantity_choosen;
         const quantityUpdatePedido =
-          parseInt(req.body[i].quantity_choosen) + parseInt(quantityPedidoRef);
+          parseInt(req.body.list[i].quantity_choosen) +
+          parseInt(quantityPedidoRef);
         const quantityObj = {
           quantity_choosen: quantityUpdatePedido,
         };
 
-        await dao.updatePedido(quantityObj, req.body[i].reference);
+        await dao.updatePedido(quantityObj, req.body.list[i].reference);
       } else {
         let insertObj = {
-          reference: req.body[i].reference,
-          description: req.body[i].description,
-          idCompany: req.body[i].idCompany,
-          quantity_choosen: req.body[i].quantity_choosen,
+          reference: req.body.list[i].reference,
+          description: req.body.list[i].description,
+          idCompany: req.body.idCompany,
+          quantity_choosen: req.body.list[i].quantity_choosen,
         };
         await dao.insertPedido(insertObj);
       }

@@ -105,70 +105,72 @@ export default function PublierOffre() {
 
   return (
     <>
-      <h1 className="h1Publier"> Publicar une nueva donación</h1>
-      <div className="tableauglobal">
-        <table>
-          <label htmlFor="search">
-            <input
-              placeholder="Buscar un producto por referencia..."
-              id="search"
-              type="text"
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </label>
-          <thead>
-            <tr>
-              <th>Referencia</th>
-              <th>Descripción</th>
-              <th>Photo</th>
-              <th>Cantidad disponible</th>
-              <th>Cantidad maximum </th>
-            </tr>
-          </thead>
-          <tbody>
-            {data
-              .filter((product) => {
-                return search.toLowerCase() === ""
-                  ? product
-                  : product.reference.toLowerCase().includes(search);
-              })
-              .map((product) => (
-                <tr key={product.id}>
-                  <td>{product.reference}</td>
-                  <td>{product.description}</td>
-                  <td>
-                    <img src={product.photo} height="100px"></img>
-                  </td>
-                  <td>
-                    <input
-                      pattern="0"
-                      min="1"
-                      type="number"
-                      placeholder="Cantidad"
-                      id={product.id}
-                      value={selectedItemQuantity}
-                      onChange={(e) => handleQuantity(e, product)}
-                    />
-                  </td>
+      <div id="fondo">
+        <h1 className="h1Publier"> Publicar une nueva donación</h1>
+        <div className="tableauglobal">
+          <table>
+            <label htmlFor="search">
+              <input
+                placeholder="Buscar un producto por referencia..."
+                id="search"
+                type="text"
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </label>
+            <thead>
+              <tr>
+                <th>Referencia</th>
+                <th>Descripción</th>
+                <th>Photo</th>
+                <th>Cantidad disponible</th>
+                <th>Cantidad maximum </th>
+              </tr>
+            </thead>
+            <tbody>
+              {data
+                .filter((product) => {
+                  return search.toLowerCase() === ""
+                    ? product
+                    : product.reference.toLowerCase().includes(search);
+                })
+                .map((product) => (
+                  <tr key={product.id}>
+                    <td>{product.reference}</td>
+                    <td>{product.description}</td>
+                    <td>
+                      <img src={product.photo} height="100px"></img>
+                    </td>
+                    <td>
+                      <input
+                        pattern="0"
+                        min="1"
+                        type="number"
+                        placeholder="Cantidad"
+                        id={product.id}
+                        value={selectedItemQuantity}
+                        onChange={(e) => handleQuantity(e, product)}
+                      />
+                    </td>
 
-                  <td>
-                    <input
-                      pattern="0"
-                      placeholder="Maximum"
-                      type="number"
-                      min="1"
-                      id={product.id}
-                      value={selectedItemQuantity}
-                      onChange={(e) => handleQuantityMax(e, product)}
-                    ></input>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-        <div>
+                    <td>
+                      <input
+                        pattern="0"
+                        placeholder="Maximum"
+                        type="number"
+                        min="1"
+                        id={product.id}
+                        value={selectedItemQuantity}
+                        onChange={(e) => handleQuantityMax(e, product)}
+                      ></input>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
           <div>
-            <button onClick={onSubmit}> Publicar </button>
+            <div>
+              <button onClick={onSubmit}> Publicar </button>
+            </div>
           </div>
         </div>
       </div>

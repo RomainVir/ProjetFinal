@@ -92,8 +92,8 @@ dao.updatePedido = async (id, pedidoData) =>
   await pedidoQueries.updatePedido(id, pedidoData);
 
 //obtenir par ref
-dao.getPedidoByRef = async (reference) =>
-  await pedidoQueries.getPedidoByRef(reference);
+dao.getPedidoByRef = async (reference, idCompany) =>
+  await pedidoQueries.getPedidoByRef(reference, idCompany);
 
 dao.getPedidoById = async (id) => await pedidoQueries.getPedidoById(id);
 

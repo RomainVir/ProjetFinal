@@ -79,3 +79,8 @@ input#search {
   padding: 16px;
   width: 260px;
 }
+
+body {
+  background-image: url(./assets/fond.png);
+
+}

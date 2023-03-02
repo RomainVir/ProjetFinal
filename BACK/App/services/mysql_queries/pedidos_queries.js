@@ -43,14 +43,14 @@ pedidoQueries.getPedidoByUsers = async () => {
 };
 
 //OBTENIR UN PEDIDO PAR SON ID
-pedidoQueries.getPedidoByRef = async (reference) => {
+pedidoQueries.getPedidoByRef = async (reference, idCompany) => {
   // Conectamos con la base de datos y buscamos si existe el usuario por el email.
   let conn = null;
   try {
     conn = await db.createConnection();
     return await db.query(
-      `SELECT * FROM pedidos WHERE reference = ?`,
-      reference,
+      `SELECT * FROM pedidos WHERE reference = ? AND idCompany= ?`,
+      [reference, idCompany],
       "select",
       conn
     );
