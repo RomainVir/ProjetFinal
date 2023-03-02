@@ -67,7 +67,7 @@ export default function Pdf() {
               <br />
             </div>
             {buttonChange ? (
-              <h2>Solicitud enviada</h2>
+              <h2 className="h2enviado"> Solicitud enviada !</h2>
             ) : (
               <button type="submit" className="envoyer">
                 Enviar mi solicitud

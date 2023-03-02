@@ -10,7 +10,6 @@
         -webkit-box-shadow: -1px -1px 14px -3px rgba(0,0,0,0.29);
         -moz-box-shadow: -1px -1px 14px -3px rgba(0,0,0,0.29);
         box-shadow: -1px -1px 14px -3px rgba(0,0,0,0.29);
-
 }
 
 .bilan {
@@ -57,4 +56,8 @@ color: #0E4589
 .table {
     margin-top: 64px;
     border-radius: 8px;
+}
+
+.h2enviado {
+    margin-left: 54px;
 }

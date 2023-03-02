@@ -48,7 +48,7 @@ export default function SupprimerProduit() {
   }
   return (
     <div>
-      <form className="formModifier" onSubmit={ProductDeleted}>
+      <form className="formSupprimer2" onSubmit={ProductDeleted}>
         <h1>Borrar un producto:</h1>
         <div className="inputModifier">
           <input
