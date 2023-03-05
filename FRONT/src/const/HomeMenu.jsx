@@ -8,10 +8,10 @@ export const HomeMenu = [
     path: "/misolicitud",
   },
 
-  {
+  /*{
     label: "Mi cuenta",
     path: "/micuenta",
-  },
+  },*/
 
   {
     label: "Cerrar cesión",
