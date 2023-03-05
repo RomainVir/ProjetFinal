@@ -32,7 +32,7 @@ export default function AjouterProduit() {
         Swal.fire({
           position: "center",
           icon: "success",
-          title: `Produit ${newProduct.reference} bien enregistré dans la base de données`,
+          title: `Prodducto ${newProduct.reference} registrado`,
           showConfirmButton: false,
           timer: 4500,
         });
@@ -41,7 +41,7 @@ export default function AjouterProduit() {
         Swal.fire({
           position: "center",
           icon: "error",
-          title: `Produit déjà présent dans la base de données`,
+          title: `Producto ya existe`,
           showConfirmButton: false,
           timer: 4500,
         });

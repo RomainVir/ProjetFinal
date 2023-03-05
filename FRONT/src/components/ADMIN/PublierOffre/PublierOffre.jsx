@@ -111,7 +111,7 @@ export default function PublierOffre() {
           <table>
             <label htmlFor="search">
               <input
-                placeholder="Buscar un producto por referencia..."
+                placeholder="Buscar un producto..."
                 id="search"
                 type="text"
                 onChange={(e) => setSearch(e.target.value)}

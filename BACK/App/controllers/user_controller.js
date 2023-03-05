@@ -49,7 +49,7 @@ controller.addUser = async (req, res) => {
         from: '"Bienvenido a proyecto" <romainviravaud@gmail.com>', // sender address
         to: "<proyectoromain@gmail.com>", // list of receivers
         subject: `Hola ${contactName}`, // Subject line
-        html: "<b>Hola, tu cuenta ya esta creada, puedes eligir los productos de las donacones disponibles</b>", // html body
+        html: "<b>Hola, tu cuenta ya esta creada, puedes eligir los productos de las donaciones disponibles</b>", // html body
       });
     return res.send(`User ${contactName} with id: ${addUser} registered!`);
   } catch (e) {
