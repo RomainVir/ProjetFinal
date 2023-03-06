@@ -6,7 +6,7 @@
   border:none;
   border-radius: 8px;
   color: white;
-  margin-top: 100px;
+  margin-top: 200px;
   margin-bottom: 120px;
   justify-content: center;
 }
@@ -24,10 +24,7 @@
         cursor: pointer;
       }
       
-      .formRegister button:hover {
-      
-      transition: 0.7s;
-      transform: scale(1.4);}
+     
   
       select#assos {
         padding: 8px;

@@ -259,8 +259,8 @@ controller.envoyerSolicitudes = async (req, res) => {
         to: "<proyectoromain@gmail.com>", // list of receivers
         subject: `Resumen de la solicitudes actuales   `, // Subject line
         html: `
-        <h2>Buenos días,aquí esta la liste de la solicitudes actuales:
-        } ! </h2>
+        <h2>Buenos días,aquí esta la lista de la solicitudes actuales:
+     </h2>
         <br/>
         
       <table>

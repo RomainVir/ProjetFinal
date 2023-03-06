@@ -11,6 +11,7 @@ export default function SupprimerOffre() {
       showCancelButton: true,
       confirmButtonColor: "#DF093A",
       cancelButtonColor: "blue",
+      cancelButtonText: "Cancelar",
       confirmButtonText: "Si, quiero borrar todas las ofertas!",
     }).then((result) => {
       if (result.isConfirmed) {

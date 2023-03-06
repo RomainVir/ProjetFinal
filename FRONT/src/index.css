@@ -1,3 +1,5 @@
 body {
     background-image: url(./assets/fond.png);
-    background-size: cover;}
+    background-size: cover;
+    background-attachment: fixed;
+}

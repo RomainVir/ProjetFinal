@@ -10,7 +10,7 @@
     margin-top: 64px;
     border-radius: 8px;
     background-color: white;
-    box-shadow: inset -14px -1px 20px 0px rgb(26 32 37 / 29%)
+    box-shadow:outset -3px -2px 20px 0px rgb(26 32 37 / 29%); 
   }
 
   table td{
@@ -20,7 +20,7 @@
   
   table th {
 
-    box-shadow:inset -2px -8px 19px 5px rgb(26 32 37 / 29%)      ;
+    box-shadow:outset -3px -2px 20px 0px rgb(26 32 37 / 29%);      ;
       padding: 12px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
@@ -71,7 +71,7 @@ input[type="text" i], input[type="email" i], input[type="password" i] {
 }
 
 .h1Publier {
-  margin-top: 84px;
+  margin-top: 144px;
   margin-left: 50px;
 }
 input#search {
@@ -80,7 +80,25 @@ input#search {
   width: 260px;
 }
 
-body {
-  background-image: url(./assets/fond.png);
+tr:hover img {
+    mix-blend-mode: multiply;
+}
+tr:hover input {
+  background:transparent;    
+  color: white;
+  
+}
+tr:hover {
+    background:#2d50e694;
 
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+
+styledu tr {
+  padding: 32px;
+  width: 100%;
+  box-sizing: border-box;
 }

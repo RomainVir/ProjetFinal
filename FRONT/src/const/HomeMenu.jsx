@@ -21,10 +21,10 @@ export const HomeMenu = [
 
 export const HomeMenuAdmin = [
   { label: "Publicar", path: "/publicar" },
-  {
+  /*{
     label: "Donaciones",
     path: "/donaciones",
-  },
+  }, */
   { label: "Panel", path: "/panel" },
   {
     label: "Solicitudes",

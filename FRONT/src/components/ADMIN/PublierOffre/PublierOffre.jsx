@@ -145,7 +145,7 @@ export default function PublierOffre() {
                         pattern="0"
                         min="1"
                         type="number"
-                        placeholder="Cantidad"
+                        placeholder="Introduce cantidad..."
                         id={product.id}
                         value={selectedItemQuantity}
                         onChange={(e) => handleQuantity(e, product)}
@@ -155,7 +155,7 @@ export default function PublierOffre() {
                     <td>
                       <input
                         pattern="0"
-                        placeholder="Maximum"
+                        placeholder="Introduce maximum..."
                         type="number"
                         min="1"
                         id={product.id}
