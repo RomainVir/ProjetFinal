@@ -122,7 +122,7 @@ export default function PublierOffre() {
                 <th>Referencia</th>
                 <th>Descripción</th>
                 <th>Photo</th>
-                <th>Cantidad disponible</th>
+                <th>Cantidad a dar</th>
                 <th>Cantidad maximum </th>
               </tr>
             </thead>
@@ -140,7 +140,7 @@ export default function PublierOffre() {
                     <td>
                       <img src={product.photo} height="100px"></img>
                     </td>
-                    <td>
+                    <td className="quantité">
                       <input
                         pattern="0"
                         min="1"
@@ -152,7 +152,7 @@ export default function PublierOffre() {
                       />
                     </td>
 
-                    <td>
+                    <td className="quantité">
                       <input
                         pattern="0"
                         placeholder="Introduce maximum..."

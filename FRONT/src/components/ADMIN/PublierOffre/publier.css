@@ -25,6 +25,7 @@
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     text-align: left;
+    font-size: large;
     background-color: #2d50e6;
     color: white;
   }
@@ -75,7 +76,7 @@ input[type="text" i], input[type="email" i], input[type="password" i] {
   margin-left: 50px;
 }
 input#search {
-  font-size: medium;
+  font-size: larger;
   padding: 16px;
   width: 260px;
 }
@@ -90,15 +91,29 @@ tr:hover input {
 }
 tr:hover {
     background:#2d50e694;
-
     color: white;
     font-weight: bold;
     transition: 0.5s;
 }
 
-
-styledu tr {
-  padding: 32px;
-  width: 100%;
+ .quantité{
   box-sizing: border-box;
+  padding: 0px;
+}
+
+.quantité input {
+box-sizing: border-box;
+  padding: 32px;
+  cursor: pointer;
+  width: 280px;
+}
+
+.quantité input::-webkit-input-placeholder { /* Edge */
+  font-size: 100%;
+}
+
+.quantité input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+}
+
+.quantité input::placeholder {
 }
