@@ -20,8 +20,8 @@
   
   table th {
 
-    box-shadow:outset -3px -2px 20px 0px rgb(26 32 37 / 29%);      ;
-      padding: 12px;
+    box-shadow:outset -3px -2px 20px 0px rgb(26 32 37 / 29%);     
+    padding: 12px;
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     text-align: left;
@@ -30,14 +30,12 @@
     color: white;
   }
 
-  
 input[type="number" i] {
   padding: 12px;
   width: 100px;
   border: none;
   text-align: center;
   font-size: large;
-
 }
 
 table label input {
