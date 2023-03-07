@@ -107,12 +107,3 @@ box-sizing: border-box;
   width: 280px;
 }
 
-.quantité input::-webkit-input-placeholder { /* Edge */
-  font-size: 100%;
-}
-
-.quantité input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-}
-
-.quantité input::placeholder {
-}
