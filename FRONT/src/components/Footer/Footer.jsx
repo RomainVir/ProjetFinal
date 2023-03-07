@@ -11,7 +11,7 @@ export default function Footer() {
         </div>
       </div>
       <div>
-        test
+        testhh
         <ul>
           <li>tsss</li>
           <li>kgkg</li>
