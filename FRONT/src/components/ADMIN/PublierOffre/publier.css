@@ -72,6 +72,7 @@ input[type="text" i], input[type="email" i], input[type="password" i] {
 .h1Publier {
   margin-top: 144px;
   margin-left: 50px;
+
 }
 input#search {
   font-size: larger;

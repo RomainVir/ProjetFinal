@@ -47,7 +47,7 @@ controller.addPedido = async (req, res) => {
         await dao.insertPedido(insertObj);
       }
     }
-    return res.status(200).send("pedido added");
+    return res.status(200).send("pedido añadido");
   } catch (e) {
     console.log(e.message);
   }
